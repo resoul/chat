@@ -7,14 +7,9 @@ export default class Popper {
     isShowPopper = false;
 
     constructor(wrapper, ref, box, options, evt = "click", onToggle = () => { }) {
-        if (typeof wrapper == 'string') {
-            this.wrapperEl = document.querySelector(wrapper);
-        } else {
-            this.wrapperEl = wrapper;
-        }
-
-        this.ref = this.wrapperEl.querySelector(ref);
-        this.box = this.wrapperEl.querySelector(box);
+        this.wrapperEl = wrapper;
+        this.ref = ref;
+        this.box = box;
 
         this.onToggle = onToggle;
         this.wrapperEl._popper = this

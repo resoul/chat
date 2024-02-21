@@ -1,53 +1,51 @@
 <script>
-import Popper from "@/components/popper.js";
+import { useSidebarStore } from "@/components/sidebar.js";
 import Tab from "@/components/tab.js";
-import Swiper from "swiper/bundle";
+import Popper from "@/components/popper.js";
 import Drawer from "@/components/drawer.js";
+import DarkModeButton from "@/components/theme/DarkModeButton.vue";
 export default {
-  name: "Home",
+  name: "Chat",
+  components: {
+    'ui-dark-mode-btn': DarkModeButton,
+  },
+  setup() {
+    const sidebar = useSidebarStore();
+
+    return { sidebar }
+  },
   data() {
     return {
       isShowChatInfo: false
     }
   },
   mounted() {
-    const mainEl = document.querySelector("main.chat-app");
-    const historySlide = document.querySelector("#history-slide");
-    const chatDetailToggleEl = document.querySelector("#chat-detail-toggle");
-
-    historySlide._swiper = new Swiper(historySlide, {
-      slidesPerView: "auto",
-      spaceBetween: 10,
-      slidesPerGroup: 3,
-    });
-
-    const onToggleChatDetail = (isActive) => {
+    const chatDetailsDrawer = new Drawer("#chat-detail", (isActive) => {
       if (isActive) {
-        mainEl.classList.add("lg:mr-80");
-        chatDetailToggleEl.classList.add(
+        document.querySelector("main.chat-app").classList.add("lg:mr-80");
+        document.querySelector("#chat-detail-toggle").classList.add(
             "text-primary",
             "dark:text-accent-light"
         );
       } else {
-        mainEl.classList.remove("lg:mr-80");
-        chatDetailToggleEl.classList.remove(
+        document.querySelector("main.chat-app").classList.remove("lg:mr-80");
+        document.querySelector("#chat-detail-toggle").classList.remove(
             "text-primary",
             "dark:text-accent-light"
         );
       }
-    };
+    });
 
-    const chatDetailsDrawer = new Drawer("#chat-detail", onToggleChatDetail);
+    if (this.$breakpoint.lgAndUp) {
+      chatDetailsDrawer.open();
+    }
 
-    // if ($breakpoint.lgAndUp) {
-    //   chatDetailsDrawer.open();
-    // }
+    window.addEventListener("change:breakpoint", () => {
+      if (chatDetailsDrawer.isActive) chatDetailsDrawer.close();
+    });
 
-    // window.addEventListener("change:breakpoint", () => {
-    //   if (chatDetailsDrawer.isActive) chatDetailsDrawer.close();
-    // });
 
-    new Popper("#chat-menu", ".popper-ref", ".popper-root", {
+    new Popper(this.$refs.menu, this.$refs.ref, this.$refs.root, {
       placement: "bottom-end",
       modifiers: [
         {
@@ -58,8 +56,19 @@ export default {
         },
       ],
     });
+    new Tab(this.$refs.tab);
 
-    new Tab("#tab-media");
+    new Drawer("#right-sidebar");
+  },
+  directives: {
+    'scroll-to-bottom': {
+      mounted(el) {
+        el.scrollTop = el.scrollHeight;
+      },
+      updated(el) {
+        el.scrollTop = el.scrollHeight;
+      }
+    }
   }
 }
 </script>
@@ -68,9 +77,7 @@ export default {
   <div class="chat-header relative z-10 flex h-[61px] w-full shrink-0 items-center justify-between border-b border-slate-150 bg-white px-[calc(var(--margin-x)-.5rem)] shadow-sm transition-[padding,width] duration-[.25s] dark:border-navy-700 dark:bg-navy-800">
     <div class="flex items-center space-x-5">
       <div class="ml-1 size-7">
-        <button
-            class="sidebar-toggle ml-0.5 flex size-7 flex-col justify-center space-y-1.5 text-primary outline-none focus:outline-none dark:text-accent-light/80"
-        >
+        <button @click="sidebar.toggle()" class="sidebar-toggle ml-0.5 flex size-7 flex-col justify-center space-y-1.5 text-primary outline-none focus:outline-none dark:text-accent-light/80">
           <span></span>
           <span></span>
           <span></span>
@@ -135,13 +142,13 @@ export default {
           />
         </svg>
       </button>
-      <button
+      <button @click="isShowChatInfo = !isShowChatInfo"
           data-toggle="drawer"
           data-target="#chat-detail"
           id="chat-detail-toggle"
-          @click="isShowChatInfo = !isShowChatInfo"
           :class="isShowChatInfo ? 'text-primary dark:text-accent-light' : 'text-slate-500 dark:text-navy-200'"
-          class="btn hidden size-9 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:flex">
+          class="btn hidden size-9 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:flex"
+      >
         <svg
             xmlns="http://www.w3.org/2000/svg"
             class="size-5.5"
@@ -157,8 +164,8 @@ export default {
           />
         </svg>
       </button>
-      <div id="chat-menu" class="inline-flex">
-        <button class="popper-ref btn size-9 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+      <div ref="menu" class="inline-flex">
+        <button ref="ref" class="popper-ref btn size-9 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
           <svg
               xmlns="http://www.w3.org/2000/svg"
               class="size-5.5"
@@ -175,10 +182,8 @@ export default {
           </svg>
         </button>
 
-        <div class="popper-root">
-          <div
-              class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
-          >
+        <div class="popper-root" ref="root">
+          <div class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700">
             <ul>
               <li>
                 <a
@@ -286,7 +291,7 @@ export default {
     </div>
   </div>
 
-  <div class="scrollbar-sm grow overflow-y-auto px-[calc(var(--margin-x)-.5rem)] py-5 transition-all duration-[.25s]">
+  <div class="scrollbar-sm grow overflow-y-auto px-[calc(var(--margin-x)-.5rem)] py-5 transition-all duration-[.25s]" v-scroll-to-bottom>
     <div class="space-y-5">
       <div class="mx-4 flex items-center space-x-3">
         <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
@@ -846,9 +851,7 @@ export default {
 
   <div class="chat-footer relative flex h-12 w-full shrink-0 items-center justify-between border-t border-slate-150 bg-white px-[calc(var(--margin-x)-.25rem)] transition-[padding,width] duration-[.25s] dark:border-navy-600 dark:bg-navy-800">
     <div class="-ml-1.5 flex flex-1 space-x-2">
-      <button
-          class="btn size-9 shrink-0 rounded-full p-0 text-slate-500 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-      >
+      <button class="btn size-9 shrink-0 rounded-full p-0 text-slate-500 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             class="size-5.5"
@@ -913,12 +916,8 @@ export default {
   </div>
 
   <div id="chat-detail" class="drawer drawer-right">
-    <div
-        class="drawer-content fixed right-0 top-0 z-[101] hidden h-full w-full sm:w-80"
-    >
-      <div
-          class="flex h-full w-full flex-col border-l border-slate-150 bg-white transition-transform duration-200 dark:border-navy-600 dark:bg-navy-750"
-      >
+    <div class="drawer-content fixed right-0 top-0 z-[101] hidden h-full w-full sm:w-80">
+      <div class="flex h-full w-full flex-col border-l border-slate-150 bg-white transition-transform duration-200 dark:border-navy-600 dark:bg-navy-750">
         <div class="flex h-[60px] items-center justify-between p-4">
           <h3
               class="text-base font-medium text-slate-700 dark:text-navy-100"
@@ -947,33 +946,7 @@ export default {
               </svg>
             </button>
 
-            <button
-                class="darkmode-toggle btn size-8 rounded-full p-0 hover:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25"
-            >
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="darkmode-moon size-6 text-amber-400"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-              >
-                <path
-                    d="M11.75 3.412a.818.818 0 01-.07.917 6.332 6.332 0 00-1.4 3.971c0 3.564 2.98 6.494 6.706 6.494a6.86 6.86 0 002.856-.617.818.818 0 011.1 1.047C19.593 18.614 16.218 21 12.283 21 7.18 21 3 16.973 3 11.956c0-4.563 3.46-8.31 7.925-8.948a.818.818 0 01.826.404z"
-                />
-              </svg>
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="darkmode-sun size-6 text-amber-400"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-              >
-                <path
-                    fill-rule="evenodd"
-                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                    clip-rule="evenodd"
-                />
-              </svg>
-            </button>
-
+            <ui-dark-mode-btn />
             <button
                 data-toggle="drawer"
                 data-target="#chat-detail"
@@ -1068,7 +1041,7 @@ export default {
           </div>
         </div>
 
-        <div id="tab-media" class="tabs mt-6 flex flex-col">
+        <div ref="tab" class="tabs mt-6 flex flex-col">
           <div class="is-scrollbar-hidden overflow-x-auto px-4">
             <div class="tabs-list flex">
               <button
