@@ -1,6 +1,13 @@
 <script>
+import Accordion from "accordion-js";
 export default {
-  name: "Sidebar"
+  name: "Sidebar",
+  mounted() {
+    new Accordion("#sidebar-workspace", {
+      duration: 200,
+      openOnInit: [0],
+    });
+  }
 }
 </script>
 
