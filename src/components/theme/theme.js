@@ -8,6 +8,7 @@ export const useThemeStore = defineStore({
         isMonochromeMode: useStorage('monochrome', 'is-monochrome'),
         isCurrentMonochromeMode: useStorage('monochrome-mode', false),
         darkMode: useStorage('dark-mode', 'light'),
+        mainClass: 'main-content w-full px-[var(--margin-x)] pb-8',
     }),
     getters: {
         hasHeaderBlur() {
@@ -18,6 +19,9 @@ export const useThemeStore = defineStore({
         },
         hasDarkMode() {
             return this.darkMode === 'dark';
+        },
+        getMainClass() {
+            return this.mainClass
         }
     },
     actions: {
@@ -92,5 +96,8 @@ export const useThemeStore = defineStore({
         toggleThemeMode() {
             this.darkMode === "light" ? this.setDarkMode() : this.setLightMode();
         },
+        setMainClass(className) {
+            this.mainClass = className
+        }
     }
 })

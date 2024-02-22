@@ -4,10 +4,12 @@ import Tab from "@/components/tab.js";
 import Popper from "@/components/popper.js";
 import Drawer from "@/components/drawer.js";
 import DarkModeButton from "@/components/theme/DarkModeButton.vue";
+import Avatar from "@/views/chat/messages/Avatar.vue";
 export default {
   name: "Chat",
   components: {
     'ui-dark-mode-btn': DarkModeButton,
+    'ui-avatar': Avatar,
   },
   setup() {
     const sidebar = useSidebarStore();
@@ -86,21 +88,10 @@ export default {
       <div
           data-toggle="drawer"
           data-target="#chat-detail"
-          class="flex cursor-pointer items-center space-x-4 font-inter"
-      >
-        <div class="avatar">
-          <img
-              class="rounded-full"
-              src="/images/200x200.png"
-              alt="avatar"
-          />
-        </div>
+          class="flex cursor-pointer items-center space-x-4 font-inter">
+        <ui-avatar src="/images/200x200.png" alt="avatar" />
         <div>
-          <p
-              class="font-medium text-slate-700 line-clamp-1 dark:text-navy-100"
-          >
-            Konnor Guzman
-          </p>
+          <p class="font-medium text-slate-700 line-clamp-1 dark:text-navy-100">Konnor Guzman</p>
           <p class="mt-0.5 text-xs">Last seen recently</p>
         </div>
       </div>
@@ -300,24 +291,14 @@ export default {
       </div>
 
       <div class="flex items-start space-x-2.5 sm:space-x-5">
-        <div class="avatar">
-          <img
-              class="rounded-full"
-              src="/images/200x200.png"
-              alt="avatar"
-          />
-        </div>
+        <ui-avatar src="/images/200x200.png" alt="avatar" />
 
         <div class="flex flex-col items-start space-y-3.5">
           <div class="mr-4 max-w-lg sm:mr-10">
-            <div
-                class="rounded-2xl rounded-tl-none bg-white p-3 text-slate-700 shadow-sm dark:bg-navy-700 dark:text-navy-100"
-            >
+            <div class="rounded-2xl rounded-tl-none bg-white p-3 text-slate-700 shadow-sm dark:bg-navy-700 dark:text-navy-100">
               Hello My Dear. Lorem ipsum dolor sit amet, consectetur.
             </div>
-            <p
-                class="mt-1 ml-auto text-right text-xs text-slate-400 dark:text-navy-300"
-            >
+            <p class="mt-1 ml-auto text-right text-xs text-slate-400 dark:text-navy-300">
               08:16
             </p>
           </div>
@@ -347,24 +328,11 @@ export default {
             </p>
           </div>
         </div>
-        <div class="avatar">
-          <img
-              class="rounded-full"
-              src="/images/200x200.png"
-              alt="avatar"
-          />
-        </div>
+        <ui-avatar src="/images/200x200.png" alt="avatar" />
       </div>
 
       <div class="flex items-start space-x-2.5 sm:space-x-5">
-        <div class="avatar">
-          <img
-              class="rounded-full"
-              src="/images/200x200.png"
-              alt="avatar"
-          />
-        </div>
-
+        <ui-avatar src="/images/200x200.png" alt="avatar" />
         <div class="flex flex-col items-start space-y-3.5">
           <div class="mr-4 max-w-lg sm:mr-10">
             <div
@@ -593,13 +561,7 @@ export default {
             </p>
           </div>
         </div>
-        <div class="avatar">
-          <img
-              class="rounded-full"
-              src="/images/200x200.png"
-              alt="avatar"
-          />
-        </div>
+        <ui-avatar src="/images/200x200.png" alt="avatar" />
       </div>
 
       <div class="mx-4 flex items-center space-x-3">
@@ -609,13 +571,7 @@ export default {
       </div>
 
       <div class="flex items-start space-x-2.5 sm:space-x-5">
-        <div class="avatar">
-          <img
-              class="rounded-full"
-              src="/images/200x200.png"
-              alt="avatar"
-          />
-        </div>
+        <ui-avatar src="/images/200x200.png" alt="avatar" />
 
         <div class="flex flex-col items-start space-y-3.5">
           <div class="mr-4 max-w-lg sm:mr-10">
@@ -656,13 +612,7 @@ export default {
             </p>
           </div>
         </div>
-        <div class="avatar">
-          <img
-              class="rounded-full"
-              src="/images/200x200.png"
-              alt="avatar"
-          />
-        </div>
+        <ui-avatar src="/images/200x200.png" alt="avatar" />
       </div>
 
       <div class="mx-4 flex items-center space-x-3">
@@ -672,13 +622,7 @@ export default {
       </div>
 
       <div class="flex items-start space-x-2.5 sm:space-x-5">
-        <div class="avatar">
-          <img
-              class="rounded-full"
-              src="/images/200x200.png"
-              alt="avatar"
-          />
-        </div>
+        <ui-avatar src="/images/200x200.png" alt="avatar" />
 
         <div class="flex flex-col items-start space-y-3.5">
           <div class="mr-4 max-w-lg sm:mr-10">
@@ -719,23 +663,11 @@ export default {
             </p>
           </div>
         </div>
-        <div class="avatar">
-          <img
-              class="rounded-full"
-              src="/images/200x200.png"
-              alt="avatar"
-          />
-        </div>
+        <ui-avatar src="/images/200x200.png" alt="avatar" />
       </div>
 
       <div class="flex items-start space-x-2.5 sm:space-x-5">
-        <div class="avatar">
-          <img
-              class="rounded-full"
-              src="/images/200x200.png"
-              alt="avatar"
-          />
-        </div>
+        <ui-avatar src="/images/200x200.png" alt="avatar" />
 
         <div class="flex flex-col items-start space-y-3.5">
           <div class="mr-4 max-w-lg sm:mr-10">
@@ -775,13 +707,7 @@ export default {
             </p>
           </div>
         </div>
-        <div class="avatar">
-          <img
-              class="rounded-full"
-              src="/images/200x200.png"
-              alt="avatar"
-          />
-        </div>
+        <ui-avatar src="/images/200x200.png" alt="avatar" />
       </div>
 
       <div class="mx-4 flex items-center space-x-3">
@@ -791,13 +717,7 @@ export default {
       </div>
 
       <div class="flex items-start space-x-2.5 sm:space-x-5">
-        <div class="avatar">
-          <img
-              class="rounded-full"
-              src="/images/200x200.png"
-              alt="avatar"
-          />
-        </div>
+        <ui-avatar src="/images/200x200.png" alt="avatar" />
 
         <div class="flex flex-col items-start space-y-3.5">
           <div class="mr-4 max-w-lg sm:mr-10">
@@ -838,13 +758,7 @@ export default {
             </p>
           </div>
         </div>
-        <div class="avatar">
-          <img
-              class="rounded-full"
-              src="/images/200x200.png"
-              alt="avatar"
-          />
-        </div>
+        <ui-avatar src="/images/200x200.png" alt="avatar" />
       </div>
     </div>
   </div>
@@ -970,16 +884,8 @@ export default {
           </div>
         </div>
         <div class="mt-5 flex flex-col items-center">
-          <div class="avatar size-20">
-            <img
-                class="rounded-full"
-                src="/images/200x200.png"
-                alt="avatar"
-            />
-          </div>
-          <h3
-              class="mt-2 text-lg font-medium text-slate-700 dark:text-navy-100"
-          >
+          <ui-avatar src="/images/200x200.png" alt="avatar" />
+          <h3 class="mt-2 text-lg font-medium text-slate-700 dark:text-navy-100">
             Konnor Guzman
           </h3>
           <p>Frontend Developer</p>

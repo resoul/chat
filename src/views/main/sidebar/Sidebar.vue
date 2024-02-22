@@ -13,47 +13,25 @@ export default {
   },
   data() {
     return {
-      headline: 'Applications',
-      topLinks: [
-        {
-          route: '/chat',
-          name: 'Chat App'
-        },
-        {
-          route: '/kanban',
-          name: 'Kanban Board'
-        },
-        {
-          route: '/file-manager',
-          name: 'File Manager'
-        },
-        {
-          route: '/mail',
-          name: 'Mail App'
-        },
-        {
-          route: '/todo',
-          name: 'Todo App'
-        }
-      ],
-      bottomLinks: [
-        {
-          route: '/nft',
-          name: 'NFT'
-        },
-        {
-          route: '/nft-2',
-          name: 'NFT 2'
-        },
-        {
-          route: '/pos',
-          name: 'Pos'
-        },
-        {
-          route: '/travel',
-          name: 'Travel App'
-        }
-      ]
+      headline: '',
+      items: []
+    }
+  },
+  mounted() {
+    this.fetch(this.$route.path.split('/')[1])
+  },
+  watch: {
+    $route(to) {
+      this.fetch(to.path.split('/')[1])
+    }
+  },
+  methods: {
+    fetch(section) {
+      fetch('/data/sidebar.json').then((response) => response.json())
+          .then((json) => {
+            this.headline = json[section].headline
+            this.items = json[section].items
+          })
     }
   }
 }
@@ -82,17 +60,14 @@ export default {
         </button>
       </div>
       <simplebar class="nav-wrapper h-[calc(100%-4.5rem)] overflow-x-hidden pb-6">
-        <ul class="flex flex-1 flex-col px-4 font-inter">
-          <li v-for="item in topLinks" :key="item.name">
-            <router-link :to="item.route" :class="{'text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50' : $route.path !== item.route }" class="nav-link flex py-2 text-xs+ tracking-wide outline-none transition-colors duration-300 ease-in-out" active-class="font-medium text-primary dark:text-accent-light" v-text="item.name"></router-link>
-          </li>
-        </ul>
-        <div class="my-3 mx-4 h-px bg-slate-200 dark:bg-navy-500"></div>
-        <ul class="flex flex-1 flex-col px-4 font-inter">
-          <li v-for="item in bottomLinks" :key="item.name">
-            <router-link :to="item.route" :class="{'text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50' : $route.path !== item.route }" class="nav-link flex py-2 text-xs+ tracking-wide outline-none transition-colors duration-300 ease-in-out" active-class="font-medium text-primary dark:text-accent-light" v-text="item.name"></router-link>
-          </li>
-        </ul>
+        <template v-for="(item, index) in items" :key="index">
+          <ul class="flex flex-1 flex-col px-4 font-inter">
+            <li v-for="element in item" :key="element.name">
+              <router-link :to="element.route" :class="{'text-slate-600 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50' : $route.path !== element.route }" class="nav-link flex py-2 text-xs+ tracking-wide outline-none transition-colors duration-300 ease-in-out" active-class="font-medium text-primary dark:text-accent-light" v-text="element.name"></router-link>
+            </li>
+          </ul>
+          <div class="my-3 mx-4 h-px bg-slate-200 dark:bg-navy-500" v-if="index % 2 === 0"></div>
+        </template>
       </simplebar>
     </div>
   </div>

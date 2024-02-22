@@ -1,5 +1,6 @@
 <script>
 import { useSidebarStore } from "@/components/sidebar.js";
+import { useThemeStore } from "@/components/theme/theme.js";
 import Drawer from "@/components/drawer.js";
 import MobileSearchbar from "@/views/main/header/MobileSearchbar.vue";
 import Searchbar from "@/views/main/header/Searchbar.vue";
@@ -18,8 +19,9 @@ export default {
   },
   setup() {
     const sidebar = useSidebarStore();
+    const theme = useThemeStore();
 
-    return { sidebar }
+    return { sidebar, theme }
   },
   mounted() {
     new Drawer("#right-sidebar");
@@ -1764,7 +1766,7 @@ export default {
   </div>
 
   <!-- Main Content Wrapper -->
-  <main class="main-content w-full px-[var(--margin-x)] pb-8">
+  <main :class="theme.getMainClass">
     <router-view />
   </main>
 </template>
