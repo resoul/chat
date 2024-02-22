@@ -316,6 +316,21 @@ const routes = [
     }
   },
   {
+    path: '/kanban',
+    children: [
+      {
+        path: '',
+        name: 'kanban',
+        component: () => import('@/views/kanban/Kanban.vue')
+      }
+    ],
+    meta: {
+      sidebar: 'KanbanSidebar',
+      middleware: 'auth',
+      layout: 'Kanban'
+    }
+  },
+  {
     path: "/:pathMatch(.*)*",
     redirect: '/404'
   }
