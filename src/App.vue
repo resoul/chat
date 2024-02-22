@@ -1,8 +1,12 @@
 <script>
 import Main from "@/views/layout/Main.vue";
 import Chat from "@/views/layout/Chat.vue";
+import Mail from "@/views/layout/Mail.vue";
+import FileManager from "@/views/layout/FileManager.vue";
 import ChatSidebar from "@/views/chat/sidebar/Sidebar.vue";
 import MainSidebar from "@/views/main/sidebar/Sidebar.vue";
+import MailSidebar from "@/views/mail/sidebar/Sidebar.vue";
+import FileManagerSidebar from "@/views/file/sidebar/Sidebar.vue";
 import { useThemeStore } from "@/components/theme/theme.js";
 import { useSidebarStore } from "@/components/sidebar.js";
 import LinkIconTip from "@/components/tooltip/LinkIconTip.vue";
@@ -13,8 +17,12 @@ export default {
   components: {
     Main,
     Chat,
+    Mail,
+    FileManager,
     ChatSidebar,
+    MailSidebar,
     MainSidebar,
+    FileManagerSidebar,
     'ui-profile': Profile,
     'ui-link-tooltip': LinkIconTip,
     'ui-icon-settings': IconSettings,

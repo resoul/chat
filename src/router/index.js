@@ -16,6 +16,21 @@ const routes = [
         component: () => import('../views/main/App.vue')
       },
       {
+        path: '/travel',
+        name: 'travel',
+        component: () => import('../views/main/Travel.vue')
+      },
+      {
+        path: '/nft',
+        name: 'nft',
+        component: () => import('../views/main/NFT.vue')
+      },
+      {
+        path: '/nft-2',
+        name: 'nft-2',
+        component: () => import('../views/main/NFT2.vue')
+      },
+      {
         path: '/onboarding',
         name: 'onboarding',
         component: () => import('../views/main/Onboarding.vue')
@@ -268,6 +283,36 @@ const routes = [
       sidebar: 'ChatSidebar',
       middleware: 'auth',
       layout: 'Chat'
+    }
+  },
+  {
+    path: '/mail',
+    children: [
+      {
+        path: '',
+        name: 'mail',
+        component: () => import('../views/mail/Mail.vue')
+      }
+    ],
+    meta: {
+      sidebar: 'MailSidebar',
+      middleware: 'auth',
+      layout: 'Mail'
+    }
+  },
+  {
+    path: '/file-manager',
+    children: [
+      {
+        path: '',
+        name: 'file-manager',
+        component: () => import('../views/file/Manager.vue')
+      }
+    ],
+    meta: {
+      sidebar: 'FileManagerSidebar',
+      middleware: 'auth',
+      layout: 'FileManager'
     }
   },
   {
