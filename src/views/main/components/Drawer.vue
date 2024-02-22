@@ -1,8 +1,29 @@
 <script>
 import Components from "@/views/main/components/Components.vue";
+import Drawer from "@/components/drawer.js";
+import Popper from "@/components/popper.js";
 
 export default {
-  extends: Components
+  extends: Components,
+  mounted() {
+    const config = {
+      placement: "bottom-end",
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 4],
+          },
+        },
+      ],
+    };
+
+    new Popper("#dropdown-wrapper1", ".popper-ref", ".popper-root", config);
+    new Popper("#dropdown-wrapper2", ".popper-ref", ".popper-root", config);
+
+    new Drawer('#drawer1')
+    new Drawer('#drawer2')
+  }
 }
 </script>
 
