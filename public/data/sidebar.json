@@ -83,6 +83,42 @@
         {
           "route": "/forms/date-time-picker",
           "name": "Date Time Picker"
+        },
+        {
+          "route": "/forms/radio",
+          "name": "Radio"
+        },
+        {
+          "route": "/forms/range",
+          "name": "Range"
+        },
+        {
+          "route": "/forms/switch",
+          "name": "Switch"
+        },
+        {
+          "route": "/forms/select",
+          "name": "Select"
+        },
+        {
+          "route": "/forms/text-editor",
+          "name": "Text Editor"
+        },
+        {
+          "route": "/forms/text-area",
+          "name": "Text Area"
+        },
+        {
+          "route": "/forms/time-picker",
+          "name": "Time Picker"
+        },
+        {
+          "route": "/forms/tom-select",
+          "name": "Tom Select"
+        },
+        {
+          "route": "/forms/upload",
+          "name": "Upload"
         }
       ],
       [
@@ -93,6 +129,45 @@
         {
           "route": "/forms/input-group",
           "name": "Input Group"
+        }
+      ]
+    ]
+  },
+  "components": {
+    "headline": "Components",
+    "items": [
+      [
+        {
+          "route": "/components/table",
+          "name": "Table"
+        },
+        {
+          "route": "/components/table-grid",
+          "name": "Table Grid"
+        },
+        {
+          "route": "/components/table-advanced",
+          "name": "Table Advanced"
+        }
+      ],
+      [
+        {
+          "route": "/components/clipboard",
+          "name": "Clipboard"
+        }
+      ],
+      [
+        {
+          "route": "/components/notification",
+          "name": "Notification"
+        },
+        {
+          "route": "/components/apex-chart",
+          "name": "Apex Charts"
+        },
+        {
+          "route": "/components/carousel",
+          "name": "Carousel"
         }
       ]
     ]

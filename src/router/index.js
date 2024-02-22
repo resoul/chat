@@ -154,6 +154,97 @@ const routes = [
             path: 'date-picker',
             name: 'date-picker',
             component: () => import('../views/main/forms/DatePicker.vue')
+          },
+          {
+            path: 'radio',
+            name: 'radio',
+            component: () => import('../views/main/forms/Radio.vue')
+          },
+          {
+            path: 'range',
+            name: 'range',
+            component: () => import('../views/main/forms/Range.vue')
+          },
+          {
+            path: 'select',
+            name: 'select',
+            component: () => import('../views/main/forms/Select.vue')
+          },
+          {
+            path: 'switch',
+            name: 'switch',
+            component: () => import('../views/main/forms/Switch.vue')
+          },
+          {
+            path: 'text-area',
+            name: 'text-area',
+            component: () => import('../views/main/forms/TextArea.vue')
+          },
+          {
+            path: 'text-editor',
+            name: 'text-editor',
+            component: () => import('../views/main/forms/TextEditor.vue')
+          },
+          {
+            path: 'time-picker',
+            name: 'time-picker',
+            component: () => import('../views/main/forms/TimePicker.vue')
+          },
+          {
+            path: 'tom-select',
+            name: 'tom-select',
+            component: () => import('../views/main/forms/TomSelect.vue')
+          },
+          {
+            path: 'upload',
+            name: 'upload',
+            component: () => import('../views/main/forms/Upload.vue')
+          }
+        ]
+      },
+      {
+        path: '/components',
+        redirect: '/components/accordion',
+        children: [
+          {
+            path: 'accordion',
+            name: 'accordion',
+            component: () => import('../views/main/components/Accordion.vue')
+          },
+          {
+            path: 'apex-chart',
+            name: 'apex-chart',
+            component: () => import('../views/main/components/ApexCharts.vue')
+          },
+          {
+            path: 'carousel',
+            name: 'carousel',
+            component: () => import('../views/main/components/Carousel.vue')
+          },
+          {
+            path: 'clipboard',
+            name: 'clipboard',
+            component: () => import('../views/main/components/Clipboard.vue')
+          },
+          {
+            path: 'notification',
+            name: 'notification',
+            component: () => import('../views/main/components/Notification.vue')
+          },
+          {
+            path: 'table',
+            name: 'table',
+            component: () => import('../views/main/components/Table.vue')
+          },
+          {
+            path: 'table-grid',
+            name: 'table-grid',
+            component: () => import('../views/main/components/TableGrid.vue')
+          },
+          {
+            path: 'table-advanced',
+            name: 'table-advanced',
+            component: () => import('../views/main/components/TableAdvanced.vue')
           }
         ]
       }
