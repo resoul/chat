@@ -44,6 +44,51 @@
       ]
     ]
   },
+  "dashboard": {
+    "headline": "Applications",
+    "items": [
+      [
+        {
+          "route": "/chat",
+          "name": "Chat App"
+        },
+        {
+          "route": "/kanban",
+          "name": "Kanban Board"
+        },
+        {
+          "route": "/file-manager",
+          "name": "File Manager"
+        },
+        {
+          "route": "/mail",
+          "name": "Mail App"
+        },
+        {
+          "route": "/todo",
+          "name": "Todo App"
+        }
+      ],
+      [
+        {
+          "route": "/nft",
+          "name": "NFT"
+        },
+        {
+          "route": "/nft-2",
+          "name": "NFT 2"
+        },
+        {
+          "route": "/pos",
+          "name": "Pos System"
+        },
+        {
+          "route": "/travel",
+          "name": "Travel App"
+        }
+      ]
+    ]
+  },
   "forms": {
     "headline": "Forms",
     "items": [

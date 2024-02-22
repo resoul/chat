@@ -5,11 +5,17 @@ import Popper from "@/components/popper.js";
 import Drawer from "@/components/drawer.js";
 import DarkModeButton from "@/components/theme/DarkModeButton.vue";
 import Avatar from "@/views/chat/messages/Avatar.vue";
+import Text from "@/views/chat/messages/types/Text.vue";
+import Media from "@/views/chat/messages/types/Media.vue";
+import GroupMedia from "@/views/chat/messages/types/GroupMedia.vue";
 export default {
   name: "Chat",
   components: {
     'ui-dark-mode-btn': DarkModeButton,
     'ui-avatar': Avatar,
+    'text' : Text,
+    'media' : Media,
+    'group-media' : GroupMedia,
   },
   setup() {
     const sidebar = useSidebarStore();
@@ -18,7 +24,139 @@ export default {
   },
   data() {
     return {
-      isShowChatInfo: false
+      isShowChatInfo: false,
+      owner: 'Konnor Guzman',
+      owner_id: 1,
+      last_seen: 'Last seen recently',
+      messages: [
+        {
+          "owner_id": 1,
+          "time": "2024-02-20T14:07:00.000Z",
+          "type": "text",
+          "message": "Приветствую всех в чате!"
+        },
+        {
+          "owner_id": 2,
+          "time": "2024-02-20T14:07:05.000Z",
+          "type": "text",
+          "message": "Добрый день! Рад присоединиться!"
+        },
+        {
+          "owner_id": 1,
+          "time": "2024-02-20T14:07:10.000Z",
+          "type": "text",
+          "message": "Как у вас дела?"
+        },
+        {
+          "owner_id": 1,
+          "time": "2024-02-20T14:07:15.000Z",
+          "type": "text",
+          "message": "У меня всё отлично, спасибо! А у тебя?"
+        },
+        {
+          "owner_id": 1,
+          "time": "2024-02-21T14:07:20.000Z",
+          "type": "text",
+          "message": "Тоже хорошо. Чем сегодня занимаетесь?"
+        },
+        {
+          "owner_id": 2,
+          "time": "2024-02-22T14:07:25.000Z",
+          "type": "text",
+          "message": "Я работаю над новым проектом. А ты?"
+        },
+        {
+          "owner_id": 2,
+          "type": "text",
+          "time": "2024-02-22T14:07:30.000Z",
+          "message": "Я читаю интересную книгу."
+        },
+        {
+          "owner_id": 1,
+          "type": "text",
+          "time": "2024-02-22T14:07:35.000Z",
+          "message": "О чем книга?"
+        },
+        {
+          "owner_id": 3,
+          "time": "2024-02-22T14:07:40.000Z",
+          "type": "text",
+          "message": "О искусственном интеллекте."
+        },
+        {
+          "owner_id": 2,
+          "type": "text",
+          "time": "2024-02-22T14:07:45.000Z",
+          "message": "Интересная тема! А как вы к ней относитесь?"
+        },
+        {
+          "owner_id": 2,
+          "type": "text",
+          "time": "2024-02-22T14:07:45.000Z",
+          "message": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n" +
+              "              Assumenda necessitatibus, ratione. Voluptatum."
+        },
+        {
+          "owner_id": 2,
+          "type": "group-media",
+          "time": "2024-02-22T14:07:45.000Z",
+          "message": "Ei eum populo dictas, ad sed tempor minimum voluptatibus"
+        },
+        {
+          "owner_id": 2,
+          "type": "text",
+          "time": "2024-02-22T14:07:45.000Z",
+          "message": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n" +
+              "              Assumenda necessitatibus, ratione. Voluptatum."
+        },
+        {
+          "owner_id": 1,
+          "time": "2024-02-22T14:07:40.000Z",
+          "type": "media",
+          "message": "No mei stet periculis consequat, agam nostro"
+        },
+        {
+          "owner_id": 1,
+          "type": "text",
+          "time": "2024-02-22T14:07:45.000Z",
+          "message": "Please Download This File"
+        }
+      ]
+    }
+  },
+  computed: {
+    messagesGroup() {
+      var lastDate = false;
+      return this.messages.reduce((result, item) => {
+        const lastGroup = result[result.length - 1];
+
+        if (!lastGroup || lastGroup.owner_id !== item.owner_id) {
+          var row = {
+            owner_id: item.owner_id,
+            items: [item],
+            lastSend: item.time
+          };
+          if (lastDate !== new Date(item.time).toLocaleDateString()) {
+            row.lastDate = new Date(item.time).toLocaleDateString();
+            lastDate = new Date(item.time).toLocaleDateString();
+          }
+          result.push(row);
+        } else {
+          lastGroup.items.push(item);
+          lastGroup.lastSend = item.time;
+          if (lastDate !== new Date(item.time).toLocaleDateString()) {
+            lastGroup.lastDate = new Date(item.time).toLocaleDateString();
+            lastDate = new Date(item.time).toLocaleDateString();
+          }
+        }
+
+        return result;
+      }, []);
+    }
+  },
+  methods: {
+    formatTime(time) {
+      return new Date(time).toLocaleTimeString();
     }
   },
   mounted() {
@@ -85,21 +223,16 @@ export default {
           <span></span>
         </button>
       </div>
-      <div
-          data-toggle="drawer"
-          data-target="#chat-detail"
-          class="flex cursor-pointer items-center space-x-4 font-inter">
+      <div data-toggle="drawer" data-target="#chat-detail" class="flex cursor-pointer items-center space-x-4 font-inter">
         <ui-avatar src="/images/200x200.png" alt="avatar" />
         <div>
-          <p class="font-medium text-slate-700 line-clamp-1 dark:text-navy-100">Konnor Guzman</p>
-          <p class="mt-0.5 text-xs">Last seen recently</p>
+          <p class="font-medium text-slate-700 line-clamp-1 dark:text-navy-100" v-text="owner"></p>
+          <p class="mt-0.5 text-xs" v-text="last_seen"></p>
         </div>
       </div>
     </div>
     <div class="-mr-1 flex items-center">
-      <button
-          class="btn hidden size-9 rounded-full p-0 text-slate-500 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:flex"
-      >
+      <button class="btn hidden size-9 rounded-full p-0 text-slate-500 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:flex">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             class="size-5.5"
@@ -115,9 +248,7 @@ export default {
           />
         </svg>
       </button>
-      <button
-          class="btn size-9 rounded-full p-0 text-slate-500 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-      >
+      <button class="btn size-9 rounded-full p-0 text-slate-500 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             class="size-5.5"
@@ -284,482 +415,23 @@ export default {
 
   <div class="scrollbar-sm grow overflow-y-auto px-[calc(var(--margin-x)-.5rem)] py-5 transition-all duration-[.25s]" v-scroll-to-bottom>
     <div class="space-y-5">
-      <div class="mx-4 flex items-center space-x-3">
-        <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
-        <p>Sunday</p>
-        <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
-      </div>
-
-      <div class="flex items-start space-x-2.5 sm:space-x-5">
-        <ui-avatar src="/images/200x200.png" alt="avatar" />
-
-        <div class="flex flex-col items-start space-y-3.5">
-          <div class="mr-4 max-w-lg sm:mr-10">
-            <div class="rounded-2xl rounded-tl-none bg-white p-3 text-slate-700 shadow-sm dark:bg-navy-700 dark:text-navy-100">
-              Hello My Dear. Lorem ipsum dolor sit amet, consectetur.
-            </div>
-            <p class="mt-1 ml-auto text-right text-xs text-slate-400 dark:text-navy-300">
-              08:16
-            </p>
-          </div>
+      <template v-for="(group, index) in messagesGroup" :key="index">
+        <div  v-if="group.lastDate" class="mx-4 flex items-center space-x-3">
+          <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
+          <p>{{ group.lastDate }}</p>
+          <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
         </div>
-      </div>
-
-      <div class="flex items-start justify-end space-x-2.5 sm:space-x-5">
-        <div class="flex flex-col items-end space-y-3.5">
-          <div class="ml-4 max-w-lg sm:ml-10">
-            <div
-                class="rounded-2xl rounded-tr-none bg-info/10 p-3 text-slate-700 shadow-sm dark:bg-accent dark:text-white"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Assumenda necessitatibus, ratione. Voluptatum.
+        <div class="flex items-start space-x-2.5 sm:space-x-5" :class="{ 'justify-end': group.owner_id === owner_id }">
+          <ui-avatar src="/images/200x200.png" alt="avatar" v-if="group.owner_id !== owner_id"/>
+          <div class="flex flex-col items-start space-y-3.5">
+            <div v-for="(message, i) in group.items" :key="i" :class="group.owner_id === owner_id ? 'ml-4 sm:ml-10': 'mr-4 sm:mr-10'" class="max-w-lg">
+              <component :is="message.type" :owner_id="owner_id" :group_owner_id="group.owner_id" :item="message" />
+              <p v-if="i === group.items.length - 1" :class="group.owner_id === owner_id ? 'text-left' : 'text-right'" class="text-xs text-slate-400 dark:text-navy-300 mt-1 ml-auto">{{ formatTime(group.lastSend) }}</p>
             </div>
           </div>
-          <div class="ml-4 max-w-lg sm:ml-10">
-            <div
-                class="rounded-2xl rounded-tr-none bg-info/10 p-3 text-slate-700 shadow-sm dark:bg-accent dark:text-white"
-            >
-              And that’s why a 15th century
-            </div>
-            <p
-                class="mt-1 ml-auto text-left text-xs text-slate-400 dark:text-navy-300"
-            >
-              08:16
-            </p>
-          </div>
+          <ui-avatar src="/images/200x200.png" alt="avatar" v-if="group.owner_id === owner_id"/>
         </div>
-        <ui-avatar src="/images/200x200.png" alt="avatar" />
-      </div>
-
-      <div class="flex items-start space-x-2.5 sm:space-x-5">
-        <ui-avatar src="/images/200x200.png" alt="avatar" />
-        <div class="flex flex-col items-start space-y-3.5">
-          <div class="mr-4 max-w-lg sm:mr-10">
-            <div
-                class="rounded-2xl rounded-tl-none bg-white p-3 text-slate-700 shadow-sm dark:bg-navy-700 dark:text-navy-100"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Eius.
-            </div>
-            <p
-                class="mt-1 ml-auto text-right text-xs text-slate-400 dark:text-navy-300"
-            >
-              08:16
-            </p>
-          </div>
-          <div class="mr-4 max-w-lg sm:mr-10">
-            <div class="grid grid-cols-12 gap-2">
-              <div class="group relative col-span-12 sm:col-span-4">
-                <img
-                    class="h-full rounded-lg object-cover"
-                    src="/images/800x600.png"
-                    alt="image"
-                />
-                <div
-                    class="absolute top-0 flex h-full w-full items-center justify-center rounded-lg bg-black/30 opacity-0 transition-all duration-300 group-hover:opacity-100"
-                >
-                  <button
-                      class="btn size-9 rounded-full bg-info p-0 font-medium text-white hover:bg-info-focus focus:bg-info-focus active:bg-info-focus/90"
-                  >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="size-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                      <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-
-              <div
-                  class="col-span-12 grid grid-cols-2 gap-2 sm:col-span-8"
-              >
-                <div class="group relative">
-                  <img
-                      class="h-full rounded-lg object-cover"
-                      src="/images/800x600.png"
-                      alt="image"
-                  />
-                  <div
-                      class="absolute top-0 flex h-full w-full items-center justify-center rounded-lg bg-black/30 opacity-0 transition-all duration-300 group-hover:opacity-100"
-                  >
-                    <button
-                        class="btn size-9 rounded-full bg-info p-0 font-medium text-white hover:bg-info-focus focus:bg-info-focus active:bg-info-focus/90"
-                    >
-                      <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="size-5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                      >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="group relative">
-                  <img
-                      class="h-full rounded-lg object-cover"
-                      src="/images/800x600.png"
-                      alt="image"
-                  />
-                  <div
-                      class="absolute top-0 flex h-full w-full items-center justify-center rounded-lg bg-black/30 opacity-0 transition-all duration-300 group-hover:opacity-100"
-                  >
-                    <button
-                        class="btn size-9 rounded-full bg-info p-0 font-medium text-white hover:bg-info-focus focus:bg-info-focus active:bg-info-focus/90"
-                    >
-                      <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="size-5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                      >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="group relative">
-                  <img
-                      class="h-full rounded-lg object-cover"
-                      src="/images/800x600.png"
-                      alt="image"
-                  />
-                  <div
-                      class="absolute top-0 flex h-full w-full items-center justify-center rounded-lg bg-black/30 opacity-0 transition-all duration-300 group-hover:opacity-100"
-                  >
-                    <button
-                        class="btn size-9 rounded-full bg-info p-0 font-medium text-white hover:bg-info-focus focus:bg-info-focus active:bg-info-focus/90"
-                    >
-                      <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="size-5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                      >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="group relative">
-                  <img
-                      class="h-full rounded-lg object-cover"
-                      src="/images/800x600.png"
-                      alt="image"
-                  />
-                  <div
-                      class="absolute top-0 flex h-full w-full items-center justify-center rounded-lg bg-black/30 opacity-0 transition-all duration-300 group-hover:opacity-100"
-                  >
-                    <button
-                        class="btn size-9 rounded-full bg-info p-0 font-medium text-white hover:bg-info-focus focus:bg-info-focus active:bg-info-focus/90"
-                    >
-                      <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="size-5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                      >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p
-                class="mt-1 ml-auto text-right text-xs text-slate-400 dark:text-navy-300"
-            >
-              08:21
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mx-4 flex items-center space-x-3">
-        <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
-        <p>Monday</p>
-        <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
-      </div>
-
-      <div class="flex items-start justify-end space-x-2.5 sm:space-x-5">
-        <div class="flex flex-col items-end space-y-3.5">
-          <div class="ml-4 max-w-lg sm:ml-10">
-            <div class="group relative">
-              <img
-                  class="h-48 rounded-lg object-cover"
-                  src="/images/800x600.png"
-                  alt="image"
-              />
-              <div
-                  class="absolute top-0 flex h-full w-full items-center justify-center rounded-lg bg-black/30 opacity-0 transition-all duration-300 group-hover:opacity-100"
-              >
-                <button
-                    class="btn size-9 rounded-full bg-info p-0 font-medium text-white hover:bg-info-focus focus:bg-info-focus active:bg-info-focus/90"
-                >
-                  <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="size-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                  >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="ml-4 max-w-lg sm:ml-10">
-            <div
-                class="rounded-2xl rounded-tr-none bg-info/10 p-3 text-slate-700 shadow-sm dark:bg-accent dark:text-white"
-            >
-              Please Download This File
-            </div>
-            <p
-                class="mt-1 ml-auto text-left text-xs text-slate-400 dark:text-navy-300"
-            >
-              08:16
-            </p>
-          </div>
-        </div>
-        <ui-avatar src="/images/200x200.png" alt="avatar" />
-      </div>
-
-      <div class="mx-4 flex items-center space-x-3">
-        <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
-        <p>Yesterday</p>
-        <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
-      </div>
-
-      <div class="flex items-start space-x-2.5 sm:space-x-5">
-        <ui-avatar src="/images/200x200.png" alt="avatar" />
-
-        <div class="flex flex-col items-start space-y-3.5">
-          <div class="mr-4 max-w-lg sm:mr-10">
-            <div
-                class="rounded-2xl rounded-tl-none bg-white p-3 text-slate-700 shadow-sm dark:bg-navy-700 dark:text-navy-100"
-            >
-              Hello My Dear. Lorem ipsum dolor sit amet, consectetur.
-            </div>
-            <p
-                class="mt-1 ml-auto text-right text-xs text-slate-400 dark:text-navy-300"
-            >
-              08:16
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex items-start justify-end space-x-2.5 sm:space-x-5">
-        <div class="flex flex-col items-end space-y-3.5">
-          <div class="ml-4 max-w-lg sm:ml-10">
-            <div
-                class="rounded-2xl rounded-tr-none bg-info/10 p-3 text-slate-700 shadow-sm dark:bg-accent dark:text-white"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Assumenda necessitatibus, ratione. Voluptatum.
-            </div>
-          </div>
-          <div class="ml-4 max-w-lg sm:ml-10">
-            <div
-                class="rounded-2xl rounded-tr-none bg-info/10 p-3 text-slate-700 shadow-sm dark:bg-accent dark:text-white"
-            >
-              And that’s why a 15th century
-            </div>
-            <p
-                class="mt-1 ml-auto text-left text-xs text-slate-400 dark:text-navy-300"
-            >
-              08:16
-            </p>
-          </div>
-        </div>
-        <ui-avatar src="/images/200x200.png" alt="avatar" />
-      </div>
-
-      <div class="mx-4 flex items-center space-x-3">
-        <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
-        <p>Sunday</p>
-        <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
-      </div>
-
-      <div class="flex items-start space-x-2.5 sm:space-x-5">
-        <ui-avatar src="/images/200x200.png" alt="avatar" />
-
-        <div class="flex flex-col items-start space-y-3.5">
-          <div class="mr-4 max-w-lg sm:mr-10">
-            <div
-                class="rounded-2xl rounded-tl-none bg-white p-3 text-slate-700 shadow-sm dark:bg-navy-700 dark:text-navy-100"
-            >
-              Hello My Dear. Lorem ipsum dolor sit amet, consectetur.
-            </div>
-            <p
-                class="mt-1 ml-auto text-right text-xs text-slate-400 dark:text-navy-300"
-            >
-              08:16
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex items-start justify-end space-x-2.5 sm:space-x-5">
-        <div class="flex flex-col items-end space-y-3.5">
-          <div class="ml-4 max-w-lg sm:ml-10">
-            <div
-                class="rounded-2xl rounded-tr-none bg-info/10 p-3 text-slate-700 shadow-sm dark:bg-accent dark:text-white"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Assumenda necessitatibus, ratione. Voluptatum.
-            </div>
-          </div>
-          <div class="ml-4 max-w-lg sm:ml-10">
-            <div
-                class="rounded-2xl rounded-tr-none bg-info/10 p-3 text-slate-700 shadow-sm dark:bg-accent dark:text-white"
-            >
-              And that’s why a 15th century
-            </div>
-            <p
-                class="mt-1 ml-auto text-left text-xs text-slate-400 dark:text-navy-300"
-            >
-              08:16
-            </p>
-          </div>
-        </div>
-        <ui-avatar src="/images/200x200.png" alt="avatar" />
-      </div>
-
-      <div class="flex items-start space-x-2.5 sm:space-x-5">
-        <ui-avatar src="/images/200x200.png" alt="avatar" />
-
-        <div class="flex flex-col items-start space-y-3.5">
-          <div class="mr-4 max-w-lg sm:mr-10">
-            <div
-                class="rounded-2xl rounded-tl-none bg-white p-3 text-slate-700 shadow-sm dark:bg-navy-700 dark:text-navy-100"
-            >
-              Ei eum populo dictas, ad sed tempor minimum voluptatibus,
-            </div>
-            <p
-                class="mt-1 ml-auto text-right text-xs text-slate-400 dark:text-navy-300"
-            >
-              08:16
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex items-start justify-end space-x-2.5 sm:space-x-5">
-        <div class="flex flex-col items-end space-y-3.5">
-          <div class="ml-4 max-w-lg sm:ml-10">
-            <div
-                class="rounded-2xl rounded-tr-none bg-info/10 p-3 text-slate-700 shadow-sm dark:bg-accent dark:text-white"
-            >
-              No mei stet periculis consequat, agam nostro
-            </div>
-          </div>
-          <div class="ml-4 max-w-lg sm:ml-10">
-            <div
-                class="rounded-2xl rounded-tr-none bg-info/10 p-3 text-slate-700 shadow-sm dark:bg-accent dark:text-white"
-            >
-              at has eius harum
-            </div>
-            <p
-                class="mt-1 ml-auto text-left text-xs text-slate-400 dark:text-navy-300"
-            >
-              08:16
-            </p>
-          </div>
-        </div>
-        <ui-avatar src="/images/200x200.png" alt="avatar" />
-      </div>
-
-      <div class="mx-4 flex items-center space-x-3">
-        <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
-        <p>Today</p>
-        <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
-      </div>
-
-      <div class="flex items-start space-x-2.5 sm:space-x-5">
-        <ui-avatar src="/images/200x200.png" alt="avatar" />
-
-        <div class="flex flex-col items-start space-y-3.5">
-          <div class="mr-4 max-w-lg sm:mr-10">
-            <div
-                class="rounded-2xl rounded-tl-none bg-white p-3 text-slate-700 shadow-sm dark:bg-navy-700 dark:text-navy-100"
-            >
-              Recusabo mandamus cum ex, ius unum nibh an, usu liber oratio
-              liberavisse ea.
-            </div>
-            <p
-                class="mt-1 ml-auto text-right text-xs text-slate-400 dark:text-navy-300"
-            >
-              08:16
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex items-start justify-end space-x-2.5 sm:space-x-5">
-        <div class="flex flex-col items-end space-y-3.5">
-          <div class="ml-4 max-w-lg sm:ml-10">
-            <div
-                class="rounded-2xl rounded-tr-none bg-info/10 p-3 text-slate-700 shadow-sm dark:bg-accent dark:text-white"
-            >
-              Ocurreret rationibus intellegebat eu eos,
-            </div>
-          </div>
-          <div class="ml-4 max-w-lg sm:ml-10">
-            <div
-                class="rounded-2xl rounded-tr-none bg-info/10 p-3 text-slate-700 shadow-sm dark:bg-accent dark:text-white"
-            >
-              Veri dolorum cu ius. Vim id nullam putent invidunt.
-            </div>
-            <p
-                class="mt-1 ml-auto text-left text-xs text-slate-400 dark:text-navy-300"
-            >
-              08:16
-            </p>
-          </div>
-        </div>
-        <ui-avatar src="/images/200x200.png" alt="avatar" />
-      </div>
+      </template>
     </div>
   </div>
 
