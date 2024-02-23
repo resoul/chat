@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    redirect: '/dashboard',
+    redirect: '/dashboard/crm-analytics',
     children: [
       {
         path: '/dashboard',
@@ -34,6 +34,42 @@ const routes = [
         path: '/onboarding',
         name: 'onboarding',
         component: () => import('../views/main/Onboarding.vue')
+      },
+      {
+        path: '/dashboard',
+        redirect: '/dashboard/crm-analytics',
+        children: [
+          {
+            path: 'crm-analytics',
+            name: 'analytics',
+            component: () => import('../views/main/dashboard/CRMAnalytics.vue')
+          },
+          {
+            path: 'orders',
+            name: 'orders',
+            component: () => import('../views/main/dashboard/Orders.vue')
+          },
+          {
+            path: 'banking',
+            name: 'banking',
+            component: () => import('../views/main/dashboard/Banking.vue')
+          },
+          {
+            path: 'cryptocurrency',
+            name: 'cryptocurrency',
+            component: () => import('../views/main/dashboard/Cryptocurrency.vue')
+          },
+          {
+            path: 'widget-contacts',
+            name: 'widget-contacts',
+            component: () => import('../views/main/dashboard/WidgetContacts.vue')
+          },
+          {
+            path: 'widget-ui',
+            name: 'widget-ui',
+            component: () => import('../views/main/dashboard/WidgetUI.vue')
+          }
+        ]
       },
       {
         path: '/elements',

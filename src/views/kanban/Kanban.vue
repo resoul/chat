@@ -1,5 +1,6 @@
 <script>
 import Popper from "@/components/popper.js";
+import Sortable from "sortablejs";
 export default {
   name: "Kanban",
   mounted() {
@@ -77,33 +78,33 @@ export default {
 
     // Task Progress Menu
     new Popper(
-        "#tasks-progress-menu",
-        ".popper-ref",
-        ".popper-root",
+        this.$refs["tasks-progress-menu"],
+        this.$refs["tasks-progress-menu-ref"],
+        this.$refs["tasks-progress-menu-root"],
         taskMenuConfig
     );
 
     // Task Pending Menu
     new Popper(
-        "#tasks-pending-menu",
-        ".popper-ref",
-        ".popper-root",
+        this.$refs["tasks-pending-menu"],
+        this.$refs["tasks-pending-menu-ref"],
+        this.$refs["tasks-pending-menu-root"],
         taskMenuConfig
     );
 
     // Task Review Menu
     new Popper(
-        "#tasks-review-menu",
-        ".popper-ref",
-        ".popper-root",
+        this.$refs["tasks-review-menu"],
+        this.$refs["tasks-review-menu-ref"],
+        this.$refs["tasks-review-menu-root"],
         taskMenuConfig
     );
 
     // Task Success Menu
     new Popper(
-        "#tasks-success-menu",
-        ".popper-ref",
-        ".popper-root",
+        this.$refs["tasks-success-menu"],
+        this.$refs["tasks-success-menu-ref"],
+        this.$refs["tasks-success-menu-root"],
         taskMenuConfig
     );
   }
@@ -111,13 +112,9 @@ export default {
 </script>
 
 <template>
-  <div
-      class="flex items-center justify-between space-x-2 px-[var(--margin-x)] py-5 transition-all duration-[.25s]"
-  >
+  <div class="flex items-center justify-between space-x-2 px-[var(--margin-x)] py-5 transition-all duration-[.25s]">
     <div class="flex items-center space-x-1">
-      <h3
-          class="text-lg font-medium text-slate-700 line-clamp-1 dark:text-navy-50"
-      >
+      <h3 class="text-lg font-medium text-slate-700 line-clamp-1 dark:text-navy-50">
         Banking App
       </h3>
       <button
@@ -165,21 +162,21 @@ export default {
         <div class="avatar size-6 hover:z-10 sm:h-8 sm:w-8">
           <img
               class="rounded-full border-2 border-slate-50 dark:border-navy-900"
-              src="images/200x200.png"
+              src="/images/200x200.png"
               alt="avatar"
           />
         </div>
         <div class="avatar size-6 hover:z-10 sm:h-8 sm:w-8">
           <img
               class="rounded-full border-2 border-slate-50 dark:border-navy-900"
-              src="images/200x200.png"
+              src="/images/200x200.png"
               alt="avatar"
           />
         </div>
         <div class="avatar size-6 hover:z-10 sm:h-8 sm:w-8">
           <img
               class="rounded-full border-2 border-slate-50 dark:border-navy-900"
-              src="images/200x200.png"
+              src="/images/200x200.png"
               alt="avatar"
           />
         </div>
@@ -188,7 +185,7 @@ export default {
         >
           <img
               class="rounded-full border-2 border-slate-50 dark:border-navy-900"
-              src="images/200x200.png"
+              src="/images/200x200.png"
               alt="avatar"
           />
         </div>
@@ -320,8 +317,8 @@ export default {
             </h3>
           </div>
 
-          <div id="tasks-progress-menu" class="inline-flex">
-            <button
+          <div ref="tasks-progress-menu" class="inline-flex">
+            <button ref="tasks-progress-menu-ref"
                 class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
             >
               <svg
@@ -340,7 +337,7 @@ export default {
               </svg>
             </button>
 
-            <div class="popper-root">
+            <div class="popper-root" ref="tasks-progress-menu-root">
               <div
                   class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
               >
@@ -392,7 +389,7 @@ export default {
               <div class="w-10 shrink-0 py-1">
                 <img
                     class="w-full"
-                    src="images/illustrations/creativedesign-char.svg"
+                    src="/images/illustrations/creativedesign-char.svg"
                     alt="image"
                 />
               </div>
@@ -460,7 +457,7 @@ export default {
                     <div class="avatar size-5 hover:z-10">
                       <img
                           class="rounded-full ring-1 ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -468,7 +465,7 @@ export default {
                     <div class="avatar size-5 hover:z-10">
                       <img
                           class="rounded-full ring-1 ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -549,7 +546,7 @@ export default {
                   <div class="avatar size-6">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -649,17 +646,17 @@ export default {
               </div>
               <div class="grid grid-cols-3 gap-2">
                 <img
-                    src="images/800x600.png"
+                    src="/images/800x600.png"
                     class="rounded-lg object-cover object-center"
                     alt="image"
                 />
                 <img
-                    src="images/800x600.png"
+                    src="/images/800x600.png"
                     class="rounded-lg object-cover object-center"
                     alt="image"
                 />
                 <img
-                    src="images/800x600.png"
+                    src="/images/800x600.png"
                     class="rounded-lg object-cover object-center"
                     alt="image"
                 />
@@ -677,7 +674,7 @@ export default {
                   <div class="avatar size-5 hover:z-10">
                     <img
                         class="rounded-full ring-1 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -685,7 +682,7 @@ export default {
                   <div class="avatar size-5 hover:z-10">
                     <img
                         class="rounded-full ring-1 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -775,7 +772,7 @@ export default {
                   <div class="avatar size-6">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -860,8 +857,8 @@ export default {
             </h3>
           </div>
 
-          <div id="tasks-pending-menu" class="inline-flex">
-            <button
+          <div ref="tasks-pending-menu" class="inline-flex">
+            <button ref="tasks-pending-menu-ref"
                 class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
             >
               <svg
@@ -880,7 +877,7 @@ export default {
               </svg>
             </button>
 
-            <div class="popper-root">
+            <div class="popper-root" ref="tasks-pending-menu-root">
               <div
                   class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
               >
@@ -984,7 +981,7 @@ export default {
                   <div class="avatar size-6">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1065,7 +1062,7 @@ export default {
                   <div class="avatar size-5 hover:z-10">
                     <img
                         class="rounded-full ring-1 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1073,7 +1070,7 @@ export default {
                   <div class="avatar size-5 hover:z-10">
                     <img
                         class="rounded-full ring-1 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1125,7 +1122,7 @@ export default {
               <div class="w-10 shrink-0 py-1">
                 <img
                     class="w-full"
-                    src="images/illustrations/invite-user.svg"
+                    src="/images/illustrations/invite-user.svg"
                     alt="image"
                 />
               </div>
@@ -1203,7 +1200,7 @@ export default {
                     <div class="avatar size-6">
                       <img
                           class="rounded-full"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -1330,7 +1327,7 @@ export default {
                   <div class="avatar size-5 hover:z-10">
                     <img
                         class="rounded-full ring-1 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                         draggable="false"
                     />
@@ -1339,7 +1336,7 @@ export default {
                   <div class="avatar size-5 hover:z-10">
                     <img
                         class="rounded-full ring-1 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                         draggable="false"
                     />
@@ -1440,8 +1437,8 @@ export default {
             </h3>
           </div>
 
-          <div id="tasks-review-menu" class="inline-flex">
-            <button
+          <div ref="tasks-review-menu" class="inline-flex">
+            <button ref="tasks-review-menu-ref"
                 class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
             >
               <svg
@@ -1460,7 +1457,7 @@ export default {
               </svg>
             </button>
 
-            <div class="popper-root">
+            <div class="popper-root" ref="tasks-review-menu-root">
               <div
                   class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
               >
@@ -1557,7 +1554,7 @@ export default {
                   <div class="avatar size-5 hover:z-10">
                     <img
                         class="rounded-full ring-1 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1565,7 +1562,7 @@ export default {
                   <div class="avatar size-5 hover:z-10">
                     <img
                         class="rounded-full ring-1 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1664,7 +1661,7 @@ export default {
                   <div class="avatar size-6">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1736,7 +1733,7 @@ export default {
 
               <div class="p-1">
                 <img
-                    src="images/illustrations/dashboard-meet-dark.svg"
+                    src="/images/illustrations/dashboard-meet-dark.svg"
                     alt="image"
                 />
               </div>
@@ -1746,7 +1743,7 @@ export default {
                   <div class="avatar size-6">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1835,8 +1832,8 @@ export default {
             </h3>
           </div>
 
-          <div id="tasks-success-menu" class="inline-flex">
-            <button
+          <div ref="tasks-success-menu" class="inline-flex">
+            <button ref="tasks-success-menu-ref"
                 class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
             >
               <svg
@@ -1855,7 +1852,7 @@ export default {
               </svg>
             </button>
 
-            <div class="popper-root">
+            <div class="popper-root" ref="tasks-success-menu-root">
               <div
                   class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
               >
@@ -1959,7 +1956,7 @@ export default {
                   <div class="avatar size-6">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1997,7 +1994,7 @@ export default {
               <div class="w-10 shrink-0 py-1">
                 <img
                     class="w-full"
-                    src="images/illustrations/upload-cloud.svg"
+                    src="/images/illustrations/upload-cloud.svg"
                     alt="image"
                 />
               </div>
@@ -2055,7 +2052,7 @@ export default {
                     <div class="avatar size-5 hover:z-10">
                       <img
                           class="rounded-full ring-1 ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -2063,7 +2060,7 @@ export default {
                     <div class="avatar size-5 hover:z-10">
                       <img
                           class="rounded-full ring-1 ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>

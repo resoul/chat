@@ -45,46 +45,36 @@
     ]
   },
   "dashboard": {
-    "headline": "Applications",
+    "headline": "Dashboards",
     "items": [
       [
         {
-          "route": "/chat",
-          "name": "Chat App"
+          "route": "/dashboard/crm-analytics",
+          "name": "CRM Analytics"
         },
         {
-          "route": "/kanban",
-          "name": "Kanban Board"
-        },
-        {
-          "route": "/file-manager",
-          "name": "File Manager"
-        },
-        {
-          "route": "/mail",
-          "name": "Mail App"
-        },
-        {
-          "route": "/todo",
-          "name": "Todo App"
+          "route": "/dashboard/orders",
+          "name": "Orders"
         }
       ],
       [
         {
-          "route": "/nft",
-          "name": "NFT"
+          "route": "/dashboard/cryptocurrency",
+          "name": "Cryptocurrency"
         },
         {
-          "route": "/nft-2",
-          "name": "NFT 2"
+          "route": "/dashboard/banking",
+          "name": "Banking"
+        }
+      ],
+      [
+        {
+          "route": "/dashboard/widget-ui",
+          "name": "Widget UI"
         },
         {
-          "route": "/pos",
-          "name": "Pos System"
-        },
-        {
-          "route": "/travel",
-          "name": "Travel App"
+          "route": "/dashboard/widget-contacts",
+          "name": "Widget Contacts"
         }
       ]
     ]

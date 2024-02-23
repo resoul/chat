@@ -130,7 +130,7 @@ export default {
           <div class="h-24">
             <img
                 class="h-full w-full object-cover object-center"
-                src="images/800x600.png"
+                src="/images/800x600.png"
                 alt="image"
             />
           </div>
@@ -138,7 +138,7 @@ export default {
             <div class="avatar -mt-5 size-20">
               <img
                   class="rounded-full border-2 border-white dark:border-navy-700"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -398,7 +398,7 @@ export default {
           <div class="h-24">
             <img
                 class="h-full w-full object-cover object-center"
-                src="images/800x600.png"
+                src="/images/800x600.png"
                 alt="image"
             />
           </div>
@@ -406,7 +406,7 @@ export default {
             <div class="avatar -mt-5 size-20">
               <img
                   class="rounded-full border-2 border-white dark:border-navy-700"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>

@@ -50,7 +50,7 @@ export default {
           <div class="avatar size-14">
             <img
                 class="rounded-full"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -210,7 +210,7 @@ export default {
             <div class="avatar mt-1.5 size-20">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
               <div
@@ -309,7 +309,7 @@ export default {
             <div class="flex items-center justify-between pt-4">
               <div class="flex items-center space-x-4">
                 <div class="size-12">
-                  <img src="images/100x100.png"                     </div>
+                  <img src="/images/100x100.png"                     </div>
                 <p class="font-medium line-clamp-1">
                   Sign In with Google
                 </p>

@@ -219,7 +219,7 @@ export default {
             <div class="flex items-center justify-between">
               <img
                   class="w-14"
-                  src="images/folders/folder-primary.svg"
+                  src="/images/folders/folder-primary.svg"
                   alt="folder"
               />
               <button
@@ -259,7 +259,7 @@ export default {
             <div class="flex items-center justify-between">
               <img
                   class="w-14"
-                  src="images/folders/folder-warning.svg"
+                  src="/images/folders/folder-warning.svg"
                   alt="folder"
               />
               <button
@@ -299,7 +299,7 @@ export default {
             <div class="flex items-center justify-between">
               <img
                   class="w-14"
-                  src="images/folders/folder-info.svg"
+                  src="/images/folders/folder-info.svg"
                   alt="folder"
               />
               <button
@@ -339,7 +339,7 @@ export default {
             <div class="flex items-center justify-between">
               <img
                   class="w-14"
-                  src="images/folders/folder-secondary.svg"
+                  src="/images/folders/folder-secondary.svg"
                   alt="folder"
               />
               <button
@@ -379,7 +379,7 @@ export default {
             <div class="flex items-center justify-between">
               <img
                   class="w-14"
-                  src="images/folders/folder-success.svg"
+                  src="/images/folders/folder-success.svg"
                   alt="folder"
               />
               <button
@@ -419,7 +419,7 @@ export default {
             <div class="flex items-center justify-between">
               <img
                   class="w-14"
-                  src="images/folders/folder-error.svg"
+                  src="/images/folders/folder-error.svg"
                   alt="folder"
               />
               <button
@@ -466,7 +466,7 @@ export default {
             <div class="flex items-center justify-between">
               <img
                   class="w-14"
-                  src="images/folders/folder-error.svg"
+                  src="/images/folders/folder-error.svg"
                   alt="folder"
               />
               <button
@@ -506,7 +506,7 @@ export default {
             <div class="flex items-center justify-between">
               <img
                   class="w-14"
-                  src="images/folders/folder-warning.svg"
+                  src="/images/folders/folder-warning.svg"
                   alt="folder"
               />
               <button
@@ -546,7 +546,7 @@ export default {
             <div class="flex items-center justify-between">
               <img
                   class="w-14"
-                  src="images/folders/folder-primary.svg"
+                  src="/images/folders/folder-primary.svg"
                   alt="folder"
               />
               <button
@@ -755,7 +755,7 @@ export default {
                   <div class="avatar size-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -824,7 +824,7 @@ export default {
                   <div class="avatar size-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -839,7 +839,7 @@ export default {
                   <div class="avatar size-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -907,7 +907,7 @@ export default {
                   <div class="avatar size-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1029,14 +1029,14 @@ export default {
                   <div class="avatar size-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
                   <div class="avatar size-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1097,14 +1097,14 @@ export default {
                   <div class="avatar size-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
                   <div class="avatar size-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1165,7 +1165,7 @@ export default {
                   <div class="avatar size-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1180,7 +1180,7 @@ export default {
                   <div class="avatar size-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1248,7 +1248,7 @@ export default {
                   <div class="avatar size-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>

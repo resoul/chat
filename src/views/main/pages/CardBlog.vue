@@ -198,7 +198,7 @@ export default {
     <div class="card lg:flex-row">
       <img
           class="h-48 w-full shrink-0 rounded-t-lg bg-cover bg-center object-cover object-center lg:h-auto lg:w-48 lg:rounded-t-none lg:rounded-l-lg"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="flex w-full grow flex-col px-4 py-3 sm:px-5">
@@ -309,7 +309,7 @@ export default {
               <div class="avatar size-6">
                 <img
                     class="rounded-full"
-                    src="images/200x200.png"
+                    src="/images/200x200.png"
                     alt="avatar"
                 />
               </div>
@@ -336,7 +336,7 @@ export default {
     <div class="card lg:flex-row">
       <img
           class="h-48 w-full shrink-0 rounded-t-lg bg-cover bg-center object-cover object-center lg:h-auto lg:w-48 lg:rounded-t-none lg:rounded-l-lg"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="flex w-full grow flex-col px-4 py-3 sm:px-5">
@@ -446,7 +446,7 @@ export default {
               <div class="avatar size-6">
                 <img
                     class="rounded-full"
-                    src="images/200x200.png"
+                    src="/images/200x200.png"
                     alt="avatar"
                 />
               </div>
@@ -473,7 +473,7 @@ export default {
     <div class="card lg:flex-row">
       <img
           class="h-48 w-full shrink-0 rounded-t-lg bg-cover bg-center object-cover object-center lg:h-auto lg:w-48 lg:rounded-t-none lg:rounded-l-lg"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="flex w-full grow flex-col px-4 py-3 sm:px-5">
@@ -584,7 +584,7 @@ export default {
               <div class="avatar size-6">
                 <img
                     class="rounded-full"
-                    src="images/200x200.png"
+                    src="/images/200x200.png"
                     alt="avatar"
                 />
               </div>
@@ -611,7 +611,7 @@ export default {
     <div class="card lg:flex-row">
       <img
           class="h-48 w-full shrink-0 rounded-t-lg bg-cover bg-center object-cover object-center lg:h-auto lg:w-48 lg:rounded-t-none lg:rounded-l-lg"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="flex w-full grow flex-col px-4 py-3 sm:px-5">
@@ -721,7 +721,7 @@ export default {
               <div class="avatar size-6">
                 <img
                     class="rounded-full"
-                    src="images/200x200.png"
+                    src="/images/200x200.png"
                     alt="avatar"
                 />
               </div>
@@ -748,7 +748,7 @@ export default {
     <div class="card lg:flex-row">
       <img
           class="h-48 w-full shrink-0 rounded-t-lg bg-cover bg-center object-cover object-center lg:h-auto lg:w-48 lg:rounded-t-none lg:rounded-l-lg"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="flex w-full grow flex-col px-4 py-3 sm:px-5">
@@ -859,7 +859,7 @@ export default {
               <div class="avatar size-6">
                 <img
                     class="rounded-full"
-                    src="images/200x200.png"
+                    src="/images/200x200.png"
                     alt="avatar"
                 />
               </div>
@@ -886,7 +886,7 @@ export default {
     <div class="card lg:flex-row">
       <img
           class="h-48 w-full shrink-0 rounded-t-lg bg-cover bg-center object-cover object-center lg:h-auto lg:w-48 lg:rounded-t-none lg:rounded-l-lg"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="flex w-full grow flex-col px-4 py-3 sm:px-5">
@@ -996,7 +996,7 @@ export default {
               <div class="avatar size-6">
                 <img
                     class="rounded-full"
-                    src="images/200x200.png"
+                    src="/images/200x200.png"
                     alt="avatar"
                 />
               </div>
@@ -1023,7 +1023,7 @@ export default {
     <div class="card lg:flex-row">
       <img
           class="h-48 w-full shrink-0 rounded-t-lg bg-cover bg-center object-cover object-center lg:h-auto lg:w-48 lg:rounded-t-none lg:rounded-l-lg"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="flex w-full grow flex-col px-4 py-3 sm:px-5">
@@ -1134,7 +1134,7 @@ export default {
               <div class="avatar size-6">
                 <img
                     class="rounded-full"
-                    src="images/200x200.png"
+                    src="/images/200x200.png"
                     alt="avatar"
                 />
               </div>
@@ -1161,7 +1161,7 @@ export default {
     <div class="card lg:flex-row">
       <img
           class="h-48 w-full shrink-0 rounded-t-lg bg-cover bg-center object-cover object-center lg:h-auto lg:w-48 lg:rounded-t-none lg:rounded-l-lg"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="flex w-full grow flex-col px-4 py-3 sm:px-5">
@@ -1271,7 +1271,7 @@ export default {
               <div class="avatar size-6">
                 <img
                     class="rounded-full"
-                    src="images/200x200.png"
+                    src="/images/200x200.png"
                     alt="avatar"
                 />
               </div>
@@ -1487,7 +1487,7 @@ export default {
     <div class="card">
       <div class="p-2.5">
         <img
-            src="images/800x600.png"
+            src="/images/800x600.png"
             class="h-48 w-full rounded-lg object-cover object-center"
             alt="image"
         />
@@ -1523,7 +1523,7 @@ export default {
     <div class="card">
       <div class="p-2.5">
         <img
-            src="images/800x600.png"
+            src="/images/800x600.png"
             class="h-48 w-full rounded-lg object-cover object-center"
             alt="image"
         />
@@ -1558,7 +1558,7 @@ export default {
     <div class="card">
       <div class="p-2.5">
         <img
-            src="images/800x600.png"
+            src="/images/800x600.png"
             class="h-48 w-full rounded-lg object-cover object-center"
             alt="image"
         />
@@ -1596,7 +1596,7 @@ export default {
     <div class="card">
       <div class="p-2.5">
         <img
-            src="images/800x600.png"
+            src="/images/800x600.png"
             class="h-48 w-full rounded-lg object-cover object-center"
             alt="image"
         />
@@ -1633,7 +1633,7 @@ export default {
     <div class="card">
       <div class="p-2.5">
         <img
-            src="images/800x600.png"
+            src="/images/800x600.png"
             class="h-48 w-full rounded-lg object-cover object-center"
             alt="image"
         />
@@ -1671,7 +1671,7 @@ export default {
     <div class="card">
       <div class="p-2.5">
         <img
-            src="images/800x600.png"
+            src="/images/800x600.png"
             class="h-48 w-full rounded-lg object-cover object-center"
             alt="image"
         />
@@ -1709,7 +1709,7 @@ export default {
     <div class="card">
       <div class="p-2.5">
         <img
-            src="images/800x600.png"
+            src="/images/800x600.png"
             class="h-48 w-full rounded-lg object-cover object-center"
             alt="image"
         />
@@ -1745,7 +1745,7 @@ export default {
     <div class="card">
       <div class="p-2.5">
         <img
-            src="images/800x600.png"
+            src="/images/800x600.png"
             class="h-48 w-full rounded-lg object-cover object-center"
             alt="image"
         />
@@ -1780,7 +1780,7 @@ export default {
     <div class="card">
       <div class="p-2.5">
         <img
-            src="images/800x600.png"
+            src="/images/800x600.png"
             class="h-48 w-full rounded-lg object-cover object-center"
             alt="image"
         />
@@ -2011,7 +2011,7 @@ export default {
             <div class="popper-ref avatar size-10">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -2023,7 +2023,7 @@ export default {
                   <div class="avatar size-16">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -2136,7 +2136,7 @@ export default {
       <div class="mt-5">
         <img
             class="h-48 w-full rounded-lg object-cover object-center"
-            src="images/800x600.png"
+            src="/images/800x600.png"
             alt="image"
         />
       </div>
@@ -2261,7 +2261,7 @@ export default {
         <div class="avatar size-8">
           <img
               class="rounded-full"
-              src="images/200x200.png"
+              src="/images/200x200.png"
               alt="avatar"
           />
         </div>
@@ -2295,7 +2295,7 @@ export default {
             <div class="popper-ref avatar size-10">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -2307,7 +2307,7 @@ export default {
                   <div class="avatar size-16">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -2420,7 +2420,7 @@ export default {
       <div class="mt-5">
         <img
             class="h-48 w-full rounded-lg object-cover object-center"
-            src="images/800x600.png"
+            src="/images/800x600.png"
             alt="image"
         />
       </div>
@@ -2545,7 +2545,7 @@ export default {
         <div class="avatar size-8">
           <img
               class="rounded-full"
-              src="images/200x200.png"
+              src="/images/200x200.png"
               alt="avatar"
           />
         </div>
@@ -2579,7 +2579,7 @@ export default {
             <div class="popper-ref avatar size-10">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -2591,7 +2591,7 @@ export default {
                   <div class="avatar size-16">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -2704,7 +2704,7 @@ export default {
       <div class="mt-5">
         <img
             class="h-48 w-full rounded-lg object-cover object-center"
-            src="images/800x600.png"
+            src="/images/800x600.png"
             alt="image"
         />
       </div>
@@ -2828,7 +2828,7 @@ export default {
         <div class="avatar size-8">
           <img
               class="rounded-full"
-              src="images/200x200.png"
+              src="/images/200x200.png"
               alt="avatar"
           />
         </div>
@@ -2862,7 +2862,7 @@ export default {
             <div class="popper-ref avatar size-10">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -2874,7 +2874,7 @@ export default {
                   <div class="avatar size-16">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -2987,7 +2987,7 @@ export default {
       <div class="mt-5">
         <img
             class="h-48 w-full rounded-lg object-cover object-center"
-            src="images/800x600.png"
+            src="/images/800x600.png"
             alt="image"
         />
       </div>
@@ -3111,7 +3111,7 @@ export default {
         <div class="avatar size-8">
           <img
               class="rounded-full"
-              src="images/200x200.png"
+              src="/images/200x200.png"
               alt="avatar"
           />
         </div>
@@ -3145,7 +3145,7 @@ export default {
             <div class="popper-ref avatar size-10">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -3157,7 +3157,7 @@ export default {
                   <div class="avatar size-16">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -3270,7 +3270,7 @@ export default {
       <div class="mt-5">
         <img
             class="h-48 w-full rounded-lg object-cover object-center"
-            src="images/800x600.png"
+            src="/images/800x600.png"
             alt="image"
         />
       </div>
@@ -3395,7 +3395,7 @@ export default {
         <div class="avatar size-8">
           <img
               class="rounded-full"
-              src="images/200x200.png"
+              src="/images/200x200.png"
               alt="avatar"
           />
         </div>
@@ -3429,7 +3429,7 @@ export default {
             <div class="popper-ref avatar size-10">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -3441,7 +3441,7 @@ export default {
                   <div class="avatar size-16">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -3554,7 +3554,7 @@ export default {
       <div class="mt-5">
         <img
             class="h-48 w-full rounded-lg object-cover object-center"
-            src="images/800x600.png"
+            src="/images/800x600.png"
             alt="image"
         />
       </div>
@@ -3679,7 +3679,7 @@ export default {
         <div class="avatar size-8">
           <img
               class="rounded-full"
-              src="images/200x200.png"
+              src="/images/200x200.png"
               alt="avatar"
           />
         </div>
@@ -3902,7 +3902,7 @@ export default {
             <div class="popper-ref avatar size-9">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -3914,7 +3914,7 @@ export default {
                   <div class="avatar size-16">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -4026,7 +4026,7 @@ export default {
       </div>
       <img
           class="h-48 w-full object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="grow px-4 pt-4">
@@ -4066,7 +4066,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -4082,7 +4082,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -4090,7 +4090,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -4170,7 +4170,7 @@ export default {
             <div class="popper-ref avatar size-9">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -4182,7 +4182,7 @@ export default {
                   <div class="avatar size-16">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -4294,7 +4294,7 @@ export default {
       </div>
       <img
           class="h-48 w-full object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="grow px-4 pt-4">
@@ -4334,7 +4334,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -4350,7 +4350,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -4358,7 +4358,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -4438,7 +4438,7 @@ export default {
             <div class="popper-ref avatar size-9">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -4450,7 +4450,7 @@ export default {
                   <div class="avatar size-16">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -4562,7 +4562,7 @@ export default {
       </div>
       <img
           class="h-48 w-full object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="grow px-4 pt-4">
@@ -4601,7 +4601,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -4617,7 +4617,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -4625,7 +4625,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -4705,7 +4705,7 @@ export default {
             <div class="popper-ref avatar size-9">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -4717,7 +4717,7 @@ export default {
                   <div class="avatar size-16">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -4829,7 +4829,7 @@ export default {
       </div>
       <img
           class="h-48 w-full object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="grow px-4 pt-4">
@@ -4869,7 +4869,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -4885,7 +4885,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -4893,7 +4893,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -4973,7 +4973,7 @@ export default {
             <div class="popper-ref avatar size-9">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -4985,7 +4985,7 @@ export default {
                   <div class="avatar size-16">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -5097,7 +5097,7 @@ export default {
       </div>
       <img
           class="h-48 w-full object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="grow px-4 pt-4">
@@ -5137,7 +5137,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -5153,7 +5153,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -5161,7 +5161,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -5241,7 +5241,7 @@ export default {
             <div class="popper-ref avatar size-9">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -5253,7 +5253,7 @@ export default {
                   <div class="avatar size-16">
                     <img
                         class="rounded-full"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -5365,7 +5365,7 @@ export default {
       </div>
       <img
           class="h-48 w-full object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="grow px-4 pt-4">
@@ -5406,7 +5406,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -5422,7 +5422,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -5430,7 +5430,7 @@ export default {
           <div class="avatar size-7 hover:z-10">
             <img
                 class="rounded-full ring ring-white dark:ring-navy-700"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -5695,7 +5695,7 @@ export default {
     <div class="card">
       <img
           class="h-72 w-full rounded-lg object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div
@@ -5781,7 +5781,7 @@ export default {
     <div class="card">
       <img
           class="h-72 w-full rounded-lg object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div
@@ -5868,7 +5868,7 @@ export default {
     <div class="card">
       <img
           class="h-72 w-full rounded-lg object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div
@@ -5954,7 +5954,7 @@ export default {
     <div class="card">
       <img
           class="h-72 w-full rounded-lg object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div
@@ -6041,7 +6041,7 @@ export default {
     <div class="card">
       <img
           class="h-72 w-full rounded-lg object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div
@@ -6128,7 +6128,7 @@ export default {
     <div class="card">
       <img
           class="h-72 w-full rounded-lg object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div
@@ -6215,7 +6215,7 @@ export default {
     <div class="card">
       <img
           class="h-72 w-full rounded-lg object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div
@@ -6301,7 +6301,7 @@ export default {
     <div class="card">
       <img
           class="h-72 w-full rounded-lg object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div
@@ -6388,7 +6388,7 @@ export default {
     <div class="card">
       <img
           class="h-72 w-full rounded-lg object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div
@@ -6674,7 +6674,7 @@ export default {
             <div class="avatar size-7">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -6728,7 +6728,7 @@ export default {
         </div>
       </div>
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="size-28 rounded-lg object-cover object-center"
           alt="image"
       />
@@ -6747,7 +6747,7 @@ export default {
             <div class="avatar size-7">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -6801,7 +6801,7 @@ export default {
         </div>
       </div>
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="size-28 rounded-lg object-cover object-center"
           alt="image"
       />
@@ -6820,7 +6820,7 @@ export default {
             <div class="avatar size-7">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -6874,7 +6874,7 @@ export default {
         </div>
       </div>
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="size-28 rounded-lg object-cover object-center"
           alt="image"
       />
@@ -6893,7 +6893,7 @@ export default {
             <div class="avatar size-7">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -6947,7 +6947,7 @@ export default {
         </div>
       </div>
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="size-28 rounded-lg object-cover object-center"
           alt="image"
       />
@@ -6966,7 +6966,7 @@ export default {
             <div class="avatar size-7">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -7020,7 +7020,7 @@ export default {
         </div>
       </div>
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="size-28 rounded-lg object-cover object-center"
           alt="image"
       />
@@ -7039,7 +7039,7 @@ export default {
             <div class="avatar size-7">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -7093,7 +7093,7 @@ export default {
         </div>
       </div>
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="size-28 rounded-lg object-cover object-center"
           alt="image"
       />
@@ -7112,7 +7112,7 @@ export default {
             <div class="avatar size-7">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -7166,7 +7166,7 @@ export default {
         </div>
       </div>
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="size-28 rounded-lg object-cover object-center"
           alt="image"
       />
@@ -7185,7 +7185,7 @@ export default {
             <div class="avatar size-7">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -7239,7 +7239,7 @@ export default {
         </div>
       </div>
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="size-28 rounded-lg object-cover object-center"
           alt="image"
       />
@@ -7258,7 +7258,7 @@ export default {
             <div class="avatar size-7">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -7312,7 +7312,7 @@ export default {
         </div>
       </div>
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="size-28 rounded-lg object-cover object-center"
           alt="image"
       />
@@ -7331,7 +7331,7 @@ export default {
             <div class="avatar size-7">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -7385,7 +7385,7 @@ export default {
         </div>
       </div>
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="size-28 rounded-lg object-cover object-center"
           alt="image"
       />
@@ -7404,7 +7404,7 @@ export default {
             <div class="avatar size-7">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -7458,7 +7458,7 @@ export default {
         </div>
       </div>
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="size-28 rounded-lg object-cover object-center"
           alt="image"
       />
@@ -7478,7 +7478,7 @@ export default {
             <div class="avatar size-7">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -7532,7 +7532,7 @@ export default {
         </div>
       </div>
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="size-28 rounded-lg object-cover object-center"
           alt="image"
       />
@@ -7728,7 +7728,7 @@ export default {
   >
     <div class="card">
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="h-48 w-full rounded-t-lg object-cover object-center"
           alt="images"
       />
@@ -7784,7 +7784,7 @@ export default {
     </div>
     <div class="card">
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="h-48 w-full rounded-t-lg object-cover object-center"
           alt="images"
       />
@@ -7840,7 +7840,7 @@ export default {
     </div>
     <div class="card">
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="h-48 w-full rounded-t-lg object-cover object-center"
           alt="images"
       />
@@ -7893,7 +7893,7 @@ export default {
     </div>
     <div class="card">
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="h-48 w-full rounded-t-lg object-cover object-center"
           alt="images"
       />
@@ -7949,7 +7949,7 @@ export default {
     </div>
     <div class="card">
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="h-48 w-full rounded-t-lg object-cover object-center"
           alt="images"
       />
@@ -8005,7 +8005,7 @@ export default {
     </div>
     <div class="card">
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="h-48 w-full rounded-t-lg object-cover object-center"
           alt="images"
       />
@@ -8059,7 +8059,7 @@ export default {
     </div>
     <div class="card">
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="h-48 w-full rounded-t-lg object-cover object-center"
           alt="images"
       />
@@ -8114,7 +8114,7 @@ export default {
     </div>
     <div class="card">
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="h-48 w-full rounded-t-lg object-cover object-center"
           alt="images"
       />
@@ -8169,7 +8169,7 @@ export default {
     </div>
     <div class="card">
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="h-48 w-full rounded-t-lg object-cover object-center"
           alt="images"
       />
@@ -8222,7 +8222,7 @@ export default {
     </div>
     <div class="card">
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="h-48 w-full rounded-t-lg object-cover object-center"
           alt="images"
       />
@@ -8275,7 +8275,7 @@ export default {
     </div>
     <div class="card">
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="h-48 w-full rounded-t-lg object-cover object-center"
           alt="images"
       />
@@ -8331,7 +8331,7 @@ export default {
     </div>
     <div class="card">
       <img
-          src="images/800x600.png"
+          src="/images/800x600.png"
           class="h-48 w-full rounded-t-lg object-cover object-center"
           alt="images"
       />
@@ -8577,7 +8577,7 @@ export default {
     <div class="flex flex-col">
       <img
           class="h-44 w-full rounded-2xl object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="card -mt-8 grow rounded-2xl p-4">
@@ -8600,7 +8600,7 @@ export default {
             <div class="avatar size-6">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -8631,7 +8631,7 @@ export default {
     <div class="flex flex-col">
       <img
           class="h-44 w-full rounded-2xl object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="card -mt-8 grow rounded-2xl p-4">
@@ -8654,7 +8654,7 @@ export default {
             <div class="avatar size-6">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -8685,7 +8685,7 @@ export default {
     <div class="flex flex-col">
       <img
           class="h-44 w-full rounded-2xl object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="card -mt-8 grow rounded-2xl p-4">
@@ -8708,7 +8708,7 @@ export default {
             <div class="avatar size-6">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -8739,7 +8739,7 @@ export default {
     <div class="flex flex-col">
       <img
           class="h-44 w-full rounded-2xl object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="card -mt-8 grow rounded-2xl p-4">
@@ -8762,7 +8762,7 @@ export default {
             <div class="avatar size-6">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -8793,7 +8793,7 @@ export default {
     <div class="flex flex-col">
       <img
           class="h-44 w-full rounded-2xl object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="card -mt-8 grow rounded-2xl p-4">
@@ -8815,7 +8815,7 @@ export default {
             <div class="avatar size-6">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -8846,7 +8846,7 @@ export default {
     <div class="flex flex-col">
       <img
           class="h-44 w-full rounded-2xl object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="card -mt-8 grow rounded-2xl p-4">
@@ -8868,7 +8868,7 @@ export default {
             <div class="avatar size-6">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -8899,7 +8899,7 @@ export default {
     <div class="flex flex-col">
       <img
           class="h-44 w-full rounded-2xl object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="card -mt-8 grow rounded-2xl p-4">
@@ -8921,7 +8921,7 @@ export default {
             <div class="avatar size-6">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -8952,7 +8952,7 @@ export default {
     <div class="flex flex-col">
       <img
           class="h-44 w-full rounded-2xl object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="card -mt-8 grow rounded-2xl p-4">
@@ -8974,7 +8974,7 @@ export default {
             <div class="avatar size-6">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -9005,7 +9005,7 @@ export default {
     <div class="flex flex-col">
       <img
           class="h-44 w-full rounded-2xl object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="card -mt-8 grow rounded-2xl p-4">
@@ -9027,7 +9027,7 @@ export default {
             <div class="avatar size-6">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -9058,7 +9058,7 @@ export default {
     <div class="flex flex-col">
       <img
           class="h-44 w-full rounded-2xl object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="card -mt-8 grow rounded-2xl p-4">
@@ -9081,7 +9081,7 @@ export default {
             <div class="avatar size-6">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -9112,7 +9112,7 @@ export default {
     <div class="flex flex-col">
       <img
           class="h-44 w-full rounded-2xl object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="card -mt-8 grow rounded-2xl p-4">
@@ -9135,7 +9135,7 @@ export default {
             <div class="avatar size-6">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -9166,7 +9166,7 @@ export default {
     <div class="flex flex-col">
       <img
           class="h-44 w-full rounded-2xl object-cover object-center"
-          src="images/800x600.png"
+          src="/images/800x600.png"
           alt="image"
       />
       <div class="card -mt-8 grow rounded-2xl p-4">
@@ -9189,7 +9189,7 @@ export default {
             <div class="avatar size-6">
               <img
                   class="rounded-full"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>

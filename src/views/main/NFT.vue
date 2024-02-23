@@ -110,7 +110,7 @@ export default {
           <div class="relative w-full">
             <img
                 class="h-56 w-full rounded-xl object-cover object-center"
-                src="images/800x600.png"
+                src="/images/800x600.png"
                 alt="image"
             />
             <div
@@ -185,7 +185,7 @@ export default {
           <div class="relative w-full">
             <img
                 class="h-56 w-full rounded-xl object-cover object-center"
-                src="images/800x600.png"
+                src="/images/800x600.png"
                 alt="image"
             />
             <div
@@ -260,7 +260,7 @@ export default {
           <div class="relative w-full">
             <img
                 class="h-56 w-full rounded-xl object-cover object-center"
-                src="images/800x600.png"
+                src="/images/800x600.png"
                 alt="image"
             />
             <div
@@ -404,7 +404,7 @@ export default {
                     <div class="avatar">
                       <img
                           class="rounded-full"
-                          src="images/800x600.png"
+                          src="/images/800x600.png"
                           alt="avatar"
                       />
                     </div>
@@ -445,7 +445,7 @@ export default {
                     <div class="avatar">
                       <img
                           class="rounded-full"
-                          src="images/800x600.png"
+                          src="/images/800x600.png"
                           alt="avatar"
                       />
                     </div>
@@ -486,7 +486,7 @@ export default {
                     <div class="avatar">
                       <img
                           class="rounded-full"
-                          src="images/800x600.png"
+                          src="/images/800x600.png"
                           alt="avatar"
                       />
                     </div>
@@ -527,7 +527,7 @@ export default {
                     <div class="avatar">
                       <img
                           class="rounded-full"
-                          src="images/800x600.png"
+                          src="/images/800x600.png"
                           alt="avatar"
                       />
                     </div>
@@ -696,7 +696,7 @@ export default {
               <div class="avatar size-10">
                 <img
                     class="rounded-full"
-                    src="images/200x200.png"
+                    src="/images/200x200.png"
                     alt="avatar"
                 />
               </div>
@@ -722,7 +722,7 @@ export default {
               <div class="avatar size-10">
                 <img
                     class="rounded-full"
-                    src="images/200x200.png"
+                    src="/images/200x200.png"
                     alt="avatar"
                 />
               </div>
@@ -748,7 +748,7 @@ export default {
               <div class="avatar size-10">
                 <img
                     class="rounded-full"
-                    src="images/200x200.png"
+                    src="/images/200x200.png"
                     alt="avatar"
                 />
               </div>
@@ -774,7 +774,7 @@ export default {
               <div class="avatar size-10">
                 <img
                     class="rounded-full"
-                    src="images/200x200.png"
+                    src="/images/200x200.png"
                     alt="avatar"
                 />
               </div>
@@ -804,7 +804,7 @@ export default {
             <div class="avatar size-10">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -888,7 +888,7 @@ export default {
           <div class="w-28 shrink-0 text-xs">
             <img
                 class="w-28 rounded-lg object-cover object-center"
-                src="images/800x600.png"
+                src="/images/800x600.png"
                 alt="images"
             />
             <a
@@ -910,7 +910,7 @@ export default {
           <div class="w-28 shrink-0 text-xs">
             <img
                 class="w-28 rounded-lg object-cover object-center"
-                src="images/800x600.png"
+                src="/images/800x600.png"
                 alt="images"
             />
             <a
@@ -932,7 +932,7 @@ export default {
           <div class="w-28 shrink-0 text-xs">
             <img
                 class="w-28 rounded-lg object-cover object-center"
-                src="images/800x600.png"
+                src="/images/800x600.png"
                 alt="images"
             />
             <a

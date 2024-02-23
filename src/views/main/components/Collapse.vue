@@ -580,7 +580,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -596,7 +596,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -604,7 +604,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -612,7 +612,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -665,7 +665,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -681,7 +681,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -689,7 +689,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -697,7 +697,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -750,7 +750,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -766,7 +766,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -774,7 +774,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -782,7 +782,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -1011,7 +1011,7 @@ export default {
                 <div class="avatar size-10">
                   <img
                       class="rounded-full"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -1047,7 +1047,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -1063,7 +1063,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -1071,7 +1071,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -1079,7 +1079,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -1154,7 +1154,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -1170,7 +1170,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -1178,7 +1178,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -1186,7 +1186,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -1225,7 +1225,7 @@ export default {
                 <div class="avatar size-10">
                   <img
                       class="rounded-full"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -1261,7 +1261,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -1277,7 +1277,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -1285,7 +1285,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>
@@ -1293,7 +1293,7 @@ export default {
                     <div class="avatar size-7 hover:z-10">
                       <img
                           class="rounded-full ring ring-white dark:ring-navy-700"
-                          src="images/200x200.png"
+                          src="/images/200x200.png"
                           alt="avatar"
                       />
                     </div>

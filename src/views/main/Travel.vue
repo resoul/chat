@@ -140,7 +140,7 @@ export default {
         <div class="card">
           <img
               class="h-80 w-full rounded-lg object-cover"
-              src="images/800x800.png"
+              src="/images/800x800.png"
               alt="image"
           />
           <div
@@ -228,7 +228,7 @@ export default {
         <div class="card">
           <img
               class="h-80 w-full rounded-lg object-cover"
-              src="images/800x800.png"
+              src="/images/800x800.png"
               alt="image"
           />
           <div
@@ -316,7 +316,7 @@ export default {
         <div class="card">
           <img
               class="h-80 w-full rounded-lg object-cover"
-              src="images/800x800.png"
+              src="/images/800x800.png"
               alt="image"
           />
           <div
@@ -404,7 +404,7 @@ export default {
         <div class="card">
           <img
               class="h-80 w-full rounded-lg object-cover"
-              src="images/800x800.png"
+              src="/images/800x800.png"
               alt="image"
           />
           <div
@@ -492,7 +492,7 @@ export default {
         <div class="card">
           <img
               class="h-80 w-full rounded-lg object-cover"
-              src="images/800x800.png"
+              src="/images/800x800.png"
               alt="image"
           />
           <div
@@ -582,7 +582,7 @@ export default {
         <div class="card">
           <img
               class="h-80 w-full rounded-lg object-cover"
-              src="images/800x800.png"
+              src="/images/800x800.png"
               alt="image"
           />
           <div
@@ -670,7 +670,7 @@ export default {
         <div class="card">
           <img
               class="h-80 w-full rounded-lg object-cover"
-              src="images/800x800.png"
+              src="/images/800x800.png"
               alt="image"
           />
           <div
@@ -758,7 +758,7 @@ export default {
         <div class="card">
           <img
               class="h-80 w-full rounded-lg object-cover"
-              src="images/800x800.png"
+              src="/images/800x800.png"
               alt="image"
           />
           <div
@@ -846,7 +846,7 @@ export default {
         <div class="card">
           <img
               class="h-80 w-full rounded-lg object-cover"
-              src="images/800x800.png"
+              src="/images/800x800.png"
               alt="image"
           />
           <div
@@ -1009,7 +1009,7 @@ export default {
             <div class="flex items-center space-x-4">
               <img
                   class="mask is-squircle size-12 object-cover object-center"
-                  src="images/800x600.png"
+                  src="/images/800x600.png"
                   alt="image"
               />
               <div class="space-y-1">
@@ -1076,7 +1076,7 @@ export default {
             <div class="flex items-center space-x-4">
               <img
                   class="mask is-squircle size-12 object-cover object-center"
-                  src="images/800x600.png"
+                  src="/images/800x600.png"
                   alt="image"
               />
               <div class="space-y-1">
@@ -1143,7 +1143,7 @@ export default {
             <div class="flex items-center space-x-4">
               <img
                   class="mask is-squircle size-12 object-cover object-center"
-                  src="images/800x600.png"
+                  src="/images/800x600.png"
                   alt="image"
               />
               <div class="space-y-1">
@@ -1210,7 +1210,7 @@ export default {
             <div class="flex items-center space-x-4">
               <img
                   class="mask is-squircle size-12 object-cover object-center"
-                  src="images/800x600.png"
+                  src="/images/800x600.png"
                   alt="image"
               />
               <div class="space-y-1">
@@ -1277,7 +1277,7 @@ export default {
             <div class="flex items-center space-x-4">
               <img
                   class="mask is-squircle size-12 object-cover object-center"
-                  src="images/800x600.png"
+                  src="/images/800x600.png"
                   alt="image"
               />
               <div class="space-y-1">
@@ -1418,7 +1418,7 @@ export default {
             <div class="flex space-x-4">
               <img
                   class="size-18 rounded-lg object-cover object-center"
-                  src="images/600x400.png"
+                  src="/images/600x400.png"
                   alt="image"
               />
               <div>
@@ -1448,21 +1448,21 @@ export default {
                   <div class="avatar size-6 hover:z-10">
                     <img
                         class="rounded-full ring-2 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
                   <div class="avatar size-6 hover:z-10">
                     <img
                         class="rounded-full ring-2 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
                   <div class="avatar size-6 hover:z-10">
                     <img
                         class="rounded-full ring-2 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1474,7 +1474,7 @@ export default {
             <div class="flex space-x-4">
               <img
                   class="size-18 rounded-lg object-cover object-center"
-                  src="images/600x400.png"
+                  src="/images/600x400.png"
                   alt="image"
               />
               <div>
@@ -1504,21 +1504,21 @@ export default {
                   <div class="avatar size-6 hover:z-10">
                     <img
                         class="rounded-full ring-2 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
                   <div class="avatar size-6 hover:z-10">
                     <img
                         class="rounded-full ring-2 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
                   <div class="avatar size-6 hover:z-10">
                     <img
                         class="rounded-full ring-2 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1531,7 +1531,7 @@ export default {
             <div class="flex space-x-4">
               <img
                   class="size-18 rounded-lg object-cover object-center"
-                  src="images/travel/climber-man.jpg"
+                  src="/images/travel/climber-man.jpg"
                   alt="image"
               />
               <div>
@@ -1561,21 +1561,21 @@ export default {
                   <div class="avatar size-6 hover:z-10">
                     <img
                         class="rounded-full ring-2 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
                   <div class="avatar size-6 hover:z-10">
                     <img
                         class="rounded-full ring-2 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
                   <div class="avatar size-6 hover:z-10">
                     <img
                         class="rounded-full ring-2 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -1588,7 +1588,7 @@ export default {
             <div class="flex space-x-4">
               <img
                   class="size-18 rounded-lg object-cover object-center"
-                  src="images/600x400.png"
+                  src="/images/600x400.png"
                   alt="image"
               />
               <div>
@@ -1618,21 +1618,21 @@ export default {
                   <div class="avatar size-6 hover:z-10">
                     <img
                         class="rounded-full ring-2 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
                   <div class="avatar size-6 hover:z-10">
                     <img
                         class="rounded-full ring-2 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
                   <div class="avatar size-6 hover:z-10">
                     <img
                         class="rounded-full ring-2 ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>

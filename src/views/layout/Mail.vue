@@ -1,6 +1,24 @@
 <script>
+import DarkModeButton from "@/components/theme/DarkModeButton.vue";
+import MonochromeButton from "@/components/theme/MonochromeButton.vue";
+import Notification from "@/views/main/header/Notification.vue";
+import { useSidebarStore } from "@/components/sidebar.js";
+import MobileSearchbar from "@/views/main/header/MobileSearchbar.vue";
+import Searchbar from "@/views/main/header/Searchbar.vue";
 export default {
   name: "Mail",
+  components: {
+    'ui-dark-mode-btn': DarkModeButton,
+    'ui-monochrome-btn': MonochromeButton,
+    'ui-mobile-search-bar': MobileSearchbar,
+    'ui-search-bar': Searchbar,
+    'ui-notification': Notification
+  },
+  setup() {
+    const sidebar = useSidebarStore();
+
+    return { sidebar }
+  },
   mounted() {
     document.body.classList.add('has-min-sidebar')
   },
@@ -14,16 +32,12 @@ export default {
   <!-- App Header Wrapper-->
   <nav class="header print:hidden">
     <!-- App Header  -->
-    <div
-        class="header-container relative flex w-full bg-white dark:bg-navy-700 print:hidden"
-    >
+    <div class="header-container relative flex w-full bg-white dark:bg-navy-700 print:hidden">
       <!-- Header Items -->
       <div class="flex w-full items-center justify-between">
         <!-- Left: Sidebar Toggle Button -->
         <div class="size-7">
-          <button
-              class="sidebar-toggle ml-0.5 flex size-7 flex-col justify-center space-y-1.5 text-primary outline-none focus:outline-none dark:text-accent-light/80"
-          >
+          <button @click="sidebar.toggle()" class="sidebar-toggle ml-0.5 flex size-7 flex-col justify-center space-y-1.5 text-primary outline-none focus:outline-none dark:text-accent-light/80">
             <span></span>
             <span></span>
             <span></span>
@@ -33,9 +47,7 @@ export default {
         <!-- Right: Header buttons -->
         <div class="-mr-1.5 flex items-center space-x-2">
           <!-- Mobile Search Toggle -->
-          <button
-              class="mobile-searchbar-show btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:hidden"
-          >
+          <button class="mobile-searchbar-show btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:hidden">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="size-5.5 text-slate-500 dark:text-navy-100"
@@ -620,700 +632,10 @@ export default {
             </div>
           </div>
 
-          <!-- Dark Mode Toggle -->
-          <button
-              class="darkmode-toggle btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-          >
-            <svg
-                class="darkmode-moon size-6 text-amber-400"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-            >
-              <path
-                  d="M11.75 3.412a.818.818 0 01-.07.917 6.332 6.332 0 00-1.4 3.971c0 3.564 2.98 6.494 6.706 6.494a6.86 6.86 0 002.856-.617.818.818 0 011.1 1.047C19.593 18.614 16.218 21 12.283 21 7.18 21 3 16.973 3 11.956c0-4.563 3.46-8.31 7.925-8.948a.818.818 0 01.826.404z"
-              />
-            </svg>
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="darkmode-sun size-6 text-amber-400"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-            >
-              <path
-                  fill-rule="evenodd"
-                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                  clip-rule="evenodd"
-              />
-            </svg>
-          </button>
-
-          <!-- Monochrome Mode Toggle -->
-          <button
-              class="monochrome-toggle btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-          >
-            <i
-                class="fa-solid fa-palette bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-lg font-semibold text-transparent"
-            ></i>
-          </button>
-
-          <!-- Notification-->
-          <div id="notification-wrapper" class="flex">
-            <button
-                id="notification-ref"
-                class="btn relative size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-            >
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-5 text-slate-500 dark:text-navy-100"
-                  stroke="currentColor"
-                  fill="none"
-                  viewBox="0 0 24 24"
-              >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M15.375 17.556h-6.75m6.75 0H21l-1.58-1.562a2.254 2.254 0 01-.67-1.596v-3.51a6.612 6.612 0 00-1.238-3.85 6.744 6.744 0 00-3.262-2.437v-.379c0-.59-.237-1.154-.659-1.571A2.265 2.265 0 0012 2c-.597 0-1.169.234-1.591.65a2.208 2.208 0 00-.659 1.572v.38c-2.621.915-4.5 3.385-4.5 6.287v3.51c0 .598-.24 1.172-.67 1.595L3 17.556h12.375zm0 0v1.11c0 .885-.356 1.733-.989 2.358A3.397 3.397 0 0112 22a3.397 3.397 0 01-2.386-.976 3.313 3.313 0 01-.989-2.357v-1.111h6.75z"
-                />
-              </svg>
-
-              <span
-                  class="absolute -top-px -right-px flex size-3 items-center justify-center"
-              >
-                    <span
-                        class="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-80"
-                    ></span>
-                    <span
-                        class="inline-flex size-2 rounded-full bg-secondary"
-                    ></span>
-                  </span>
-            </button>
-            <div id="notification-box" class="popper-root">
-              <div
-                  class="notification-tab-wrapper popper-box mx-4 mt-1 flex max-h-[calc(100vh-6rem)] w-[calc(100vw-2rem)] flex-col rounded-lg border border-slate-150 bg-white shadow-soft dark:border-navy-800 dark:bg-navy-700 dark:shadow-soft-dark sm:m-0 sm:w-80"
-              >
-                <div
-                    class="rounded-t-lg bg-slate-100 text-slate-600 dark:bg-navy-800 dark:text-navy-200"
-                >
-                  <div class="flex items-center justify-between px-4 pt-2">
-                    <div class="flex items-center space-x-2">
-                      <h3
-                          class="font-medium text-slate-700 dark:text-navy-100"
-                      >
-                        Notifications
-                      </h3>
-                      <div
-                          class="badge h-5 rounded-full bg-primary/10 px-1.5 text-primary dark:bg-accent-light/15 dark:text-accent-light"
-                      >
-                        26
-                      </div>
-                    </div>
-
-                    <button
-                        class="btn -mr-1.5 size-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-                    >
-                      <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="size-4.5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                      >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                        />
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-
-                  <div
-                      class="tabs is-scrollbar-hidden flex shrink-0 overflow-x-auto px-3"
-                  >
-                    <button
-                        class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
-                        data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
-                        data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
-                        data-target="#notification-all"
-                    >
-                      <span>All</span>
-                    </button>
-                    <button
-                        class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
-                        data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
-                        data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
-                        data-target="#notification-alerts"
-                    >
-                      <span>Alerts</span>
-                    </button>
-                    <button
-                        class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
-                        data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
-                        data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
-                        data-target="#notification-events"
-                    >
-                      <span>Events</span>
-                    </button>
-                    <button
-                        class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
-                        data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
-                        data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
-                        data-target="#notification-logs"
-                    >
-                      <span>Logs</span>
-                    </button>
-                  </div>
-                </div>
-
-                <div class="flex flex-col overflow-hidden">
-                  <div
-                      class="tab-content tab-shift-left is-scrollbar-hidden space-y-4 overflow-y-auto px-4 py-4"
-                      id="notification-all"
-                  >
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-secondary/10 dark:bg-secondary-light/15"
-                      >
-                        <i
-                            class="fa fa-user-edit text-secondary dark:text-secondary-light"
-                        ></i>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          User Photo Changed
-                        </p>
-                        <div
-                            class="mt-1 text-xs text-slate-400 line-clamp-1 dark:text-navy-300"
-                        >
-                          John Doe changed his avatar photo
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-info/10 dark:bg-info/15"
-                      >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="size-5 text-info"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                        >
-                          <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          Mon, June 14, 2021
-                        </p>
-                        <div
-                            class="mt-1 flex text-xs text-slate-400 dark:text-navy-300"
-                        >
-                          <span class="shrink-0">08:00 - 09:00</span>
-                          <div
-                              class="mx-2 my-1 w-px bg-slate-200 dark:bg-navy-500"
-                          ></div>
-
-                          <span class="line-clamp-1">Frontend Conf</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 dark:bg-accent-light/15"
-                      >
-                        <i
-                            class="fa-solid fa-image text-primary dark:text-accent-light"
-                        ></i>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          Images Added
-                        </p>
-                        <div
-                            class="mt-1 text-xs text-slate-400 line-clamp-1 dark:text-navy-300"
-                        >
-                          Mores Clarke added new image gallery
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-success/10 dark:bg-success/15"
-                      >
-                        <i class="fa fa-leaf text-success"></i>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          Design Completed
-                        </p>
-                        <div
-                            class="mt-1 text-xs text-slate-400 line-clamp-1 dark:text-navy-300"
-                        >
-                          Robert Nolan completed the design of the CRM
-                          application
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-info/10 dark:bg-info/15"
-                      >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="size-5 text-info"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                        >
-                          <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          Wed, June 21, 2021
-                        </p>
-                        <div
-                            class="mt-1 flex text-xs text-slate-400 dark:text-navy-300"
-                        >
-                          <span class="shrink-0">16:00 - 20:00</span>
-                          <div
-                              class="mx-2 my-1 w-px bg-slate-200 dark:bg-navy-500"
-                          ></div>
-
-                          <span class="line-clamp-1">UI/UX Conf</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-warning/10 dark:bg-warning/15"
-                      >
-                        <i class="fa fa-project-diagram text-warning"></i>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          ER Diagram
-                        </p>
-                        <div
-                            class="mt-1 text-xs text-slate-400 line-clamp-1 dark:text-navy-300"
-                        >
-                          Team completed the ER diagram app
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-warning/10 dark:bg-warning/15"
-                      >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="size-5 text-warning"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                        >
-                          <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
-                          />
-                        </svg>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          THU, May 11, 2021
-                        </p>
-                        <div
-                            class="mt-1 flex text-xs text-slate-400 dark:text-navy-300"
-                        >
-                          <span class="shrink-0">10:00 - 11:30</span>
-                          <div
-                              class="mx-2 my-1 w-px bg-slate-200 dark:bg-navy-500"
-                          ></div>
-                          <span class="line-clamp-1"
-                          >Interview, Konnor Guzman
-                              </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-error/10 dark:bg-error/15"
-                      >
-                        <i class="fa fa-history text-error"></i>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          Weekly Report
-                        </p>
-                        <div
-                            class="mt-1 text-xs text-slate-400 line-clamp-1 dark:text-navy-300"
-                        >
-                          The weekly report was uploaded
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                      id="notification-alerts"
-                      class="tab-content tab-shift-left is-scrollbar-hidden space-y-4 overflow-y-auto px-4 py-4"
-                  >
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-secondary/10 dark:bg-secondary-light/15"
-                      >
-                        <i
-                            class="fa fa-user-edit text-secondary dark:text-secondary-light"
-                        ></i>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          User Photo Changed
-                        </p>
-                        <div
-                            class="mt-1 text-xs text-slate-400 line-clamp-1 dark:text-navy-300"
-                        >
-                          John Doe changed his avatar photo
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 dark:bg-accent-light/15"
-                      >
-                        <i
-                            class="fa-solid fa-image text-primary dark:text-accent-light"
-                        ></i>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          Images Added
-                        </p>
-                        <div
-                            class="mt-1 text-xs text-slate-400 line-clamp-1 dark:text-navy-300"
-                        >
-                          Mores Clarke added new image gallery
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-success/10 dark:bg-success/15"
-                      >
-                        <i class="fa fa-leaf text-success"></i>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          Design Completed
-                        </p>
-                        <div
-                            class="mt-1 text-xs text-slate-400 line-clamp-1 dark:text-navy-300"
-                        >
-                          Robert Nolan completed the design of the CRM
-                          application
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-warning/10 dark:bg-warning/15"
-                      >
-                        <i class="fa fa-project-diagram text-warning"></i>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          ER Diagram
-                        </p>
-                        <div
-                            class="mt-1 text-xs text-slate-400 line-clamp-1 dark:text-navy-300"
-                        >
-                          Team completed the ER diagram app
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-error/10 dark:bg-error/15"
-                      >
-                        <i class="fa fa-history text-error"></i>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          Weekly Report
-                        </p>
-                        <div
-                            class="mt-1 text-xs text-slate-400 line-clamp-1 dark:text-navy-300"
-                        >
-                          The weekly report was uploaded
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                      id="notification-events"
-                      class="tab-content tab-shift-left is-scrollbar-hidden space-y-4 overflow-y-auto px-4 py-4"
-                  >
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-info/10 dark:bg-info/15"
-                      >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="size-5 text-info"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                        >
-                          <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          Mon, June 14, 2021
-                        </p>
-                        <div
-                            class="mt-1 flex text-xs text-slate-400 dark:text-navy-300"
-                        >
-                          <span class="shrink-0">08:00 - 09:00</span>
-                          <div
-                              class="mx-2 my-1 w-px bg-slate-200 dark:bg-navy-500"
-                          ></div>
-
-                          <span class="line-clamp-1">Frontend Conf</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-info/10 dark:bg-info/15"
-                      >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="size-5 text-info"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                        >
-                          <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          Wed, June 21, 2021
-                        </p>
-                        <div
-                            class="mt-1 flex text-xs text-slate-400 dark:text-navy-300"
-                        >
-                          <span class="shrink-0">16:00 - 20:00</span>
-                          <div
-                              class="mx-2 my-1 w-px bg-slate-200 dark:bg-navy-500"
-                          ></div>
-
-                          <span class="line-clamp-1">UI/UX Conf</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-warning/10 dark:bg-warning/15"
-                      >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="size-5 text-warning"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                        >
-                          <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
-                          />
-                        </svg>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          THU, May 11, 2021
-                        </p>
-                        <div
-                            class="mt-1 flex text-xs text-slate-400 dark:text-navy-300"
-                        >
-                          <span class="shrink-0">10:00 - 11:30</span>
-                          <div
-                              class="mx-2 my-1 w-px bg-slate-200 dark:bg-navy-500"
-                          ></div>
-                          <span class="line-clamp-1"
-                          >Interview, Konnor Guzman
-                              </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-info/10 dark:bg-info/15"
-                      >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="size-5 text-info"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                        >
-                          <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          Mon, Jul 16, 2021
-                        </p>
-                        <div
-                            class="mt-1 flex text-xs text-slate-400 dark:text-navy-300"
-                        >
-                          <span class="shrink-0">06:00 - 16:00</span>
-                          <div
-                              class="mx-2 my-1 w-px bg-slate-200 dark:bg-navy-500"
-                          ></div>
-
-                          <span class="line-clamp-1">Laravel Conf</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                      <div
-                          class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-warning/10 dark:bg-warning/15"
-                      >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="size-5 text-warning"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                        >
-                          <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
-                          />
-                        </svg>
-                      </div>
-                      <div>
-                        <p
-                            class="font-medium text-slate-600 dark:text-navy-100"
-                        >
-                          Wed, Jun 16, 2021
-                        </p>
-                        <div
-                            class="mt-1 flex text-xs text-slate-400 dark:text-navy-300"
-                        >
-                          <span class="shrink-0">15:30 - 11:30</span>
-                          <div
-                              class="mx-2 my-1 w-px bg-slate-200 dark:bg-navy-500"
-                          ></div>
-                          <span class="line-clamp-1"
-                          >Interview, Jonh Doe
-                              </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                      id="notification-logs"
-                      class="tab-content tab-shift-left is-scrollbar-hidden overflow-y-auto px-4"
-                  >
-                    <div class="mt-8 pb-8 text-center">
-                      <img
-                          class="mx-auto w-36"
-                          src="images/illustrations/empty-girl-box.svg"
-                          alt="image"
-                      />
-                      <div class="mt-5">
-                        <p
-                            class="text-base font-semibold text-slate-700 dark:text-navy-100"
-                        >
-                          No any logs
-                        </p>
-                        <p class="text-slate-400 dark:text-navy-300">
-                          There are no unread logs yet
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          <ui-search-bar />
+          <ui-dark-mode-btn />
+          <ui-monochrome-btn />
+          <ui-notification />
           <!-- Right Sidebar Toggle -->
           <button
               data-toggle="drawer"
@@ -1339,527 +661,12 @@ export default {
       </div>
     </div>
   </nav>
-
-  <!-- Mobile Searchbar -->
-  <div
-      class="mobile-searchbar fixed inset-0 z-[100] hidden flex-col bg-white dark:bg-navy-700"
-  >
-    <div
-        class="flex items-center space-x-2 bg-slate-100 px-3 pt-2 dark:bg-navy-800"
-    >
-      <button
-          class="mobile-searchbar-hide btn -ml-1.5 size-7 shrink-0 rounded-full p-0 text-slate-600 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25"
-      >
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="size-5"
-            fill="none"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-        >
-          <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15 19l-7-7 7-7"
-          />
-        </svg>
-      </button>
-      <input
-          class="mobile-searchbar-input form-input h-8 w-full bg-transparent placeholder-slate-400 dark:placeholder-navy-300"
-          type="text"
-          placeholder="Search here..."
-      />
-    </div>
-
-    <div
-        data-active-tab="#mobile-search-all"
-        class="mobile-search-tab-wrapper is-scrollbar-hidden flex shrink-0 overflow-x-auto bg-slate-100 px-2 text-slate-600 dark:bg-navy-800 dark:text-navy-200"
-    >
-      <button
-          data-target="#mobile-search-all"
-          data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
-          data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
-          class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
-      >
-        All
-      </button>
-      <button
-          data-target="#mobile-search-files"
-          data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
-          data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
-          class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
-      >
-        Files
-      </button>
-      <button
-          data-target="#mobile-search-chats"
-          data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
-          data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
-          class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
-      >
-        Chats
-      </button>
-      <button
-          data-target="#mobile-search-emails"
-          data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
-          data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
-          class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
-      >
-        Emails
-      </button>
-      <button
-          data-target="#mobile-search-projects"
-          data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
-          data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
-          class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
-      >
-        Projects
-      </button>
-      <button
-          data-target="#mobile-search-tasks"
-          data-active-class="border-primary dark:border-accent text-primary dark:text-accent-light"
-          data-default-class="border-transparent hover:text-slate-800 focus:text-slate-800 dark:hover:text-navy-100 dark:focus:text-navy-100"
-          class="tab btn shrink-0 rounded-none border-b-2 px-3.5 py-2.5"
-      >
-        Tasks
-      </button>
-    </div>
-
-    <div
-        class="is-scrollbar-hidden overflow-y-auto overscroll-contain pb-2"
-    >
-      <div
-          class="is-scrollbar-hidden mt-3 flex space-x-4 overflow-x-auto px-3"
-      >
-        <a href="apps-kanban.html" class="w-14 text-center">
-          <div class="avatar size-12">
-            <div class="is-initial rounded-full bg-success text-white">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"
-                />
-              </svg>
-            </div>
-          </div>
-          <p
-              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-          >
-            Kanban
-          </p>
-        </a>
-        <a href="dashboards-crm-analytics.html" class="w-14 text-center">
-          <div class="avatar size-12">
-            <div class="is-initial rounded-full bg-secondary text-white">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                />
-              </svg>
-            </div>
-          </div>
-          <p
-              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-          >
-            Analytics
-          </p>
-        </a>
-        <a href="apps-chat.html" class="w-14 text-center">
-          <div class="avatar size-12">
-            <div class="is-initial rounded-full bg-info text-white">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                />
-              </svg>
-            </div>
-          </div>
-          <p
-              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-          >
-            Chat
-          </p>
-        </a>
-        <a href="apps-filemanager.html" class="w-14 text-center">
-          <div class="avatar size-12">
-            <div class="is-initial rounded-full bg-error text-white">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-                />
-              </svg>
-            </div>
-          </div>
-          <p
-              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-          >
-            Files
-          </p>
-        </a>
-        <a href="dashboards-crypto.html" class="w-14 text-center">
-          <div class="avatar size-12">
-            <div class="is-initial rounded-full bg-secondary text-white">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15 9a2 2 0 10-4 0v5a2 2 0 01-2 2h6m-6-4h4m8 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-          </div>
-          <p
-              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-          >
-            Crypto
-          </p>
-        </a>
-        <a href="dashboards-banking-1.html" class="w-14 text-center">
-          <div class="avatar size-12">
-            <div
-                class="is-initial rounded-full bg-primary text-white dark:bg-accent"
-            >
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
-                />
-              </svg>
-            </div>
-          </div>
-          <p
-              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-          >
-            Banking
-          </p>
-        </a>
-        <a href="apps-todo.html" class="w-14 text-center">
-          <div class="avatar size-12">
-            <div class="is-initial rounded-full bg-info text-white">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                <path
-                    d="M12.5293 18L20.9999 8.40002"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                />
-                <path
-                    d="M3 13.2L7.23529 18L17.8235 6"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-          <p
-              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-          >
-            Todo
-          </p>
-        </a>
-
-        <a href="dashboards-orders.html" class="w-14 text-center">
-          <div class="avatar size-12">
-            <div class="is-initial rounded-full bg-warning text-white">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
-            </div>
-          </div>
-          <p
-              class="mt-1.5 overflow-hidden text-ellipsis whitespace-nowrap text-xs text-slate-700 dark:text-navy-100"
-          >
-            Orders
-          </p>
-        </a>
-      </div>
-
-      <div
-          class="mt-3 flex items-center justify-between bg-slate-100 py-1.5 px-3 dark:bg-navy-800"
-      >
-        <p class="text-xs uppercase">Recent</p>
-        <a
-            href="#"
-            class="text-tiny+ font-medium uppercase text-primary outline-none transition-colors duration-300 hover:text-primary/70 focus:text-primary/70 dark:text-accent-light dark:hover:text-accent-light/70 dark:focus:text-accent-light/70"
-        >
-          View All
-        </a>
-      </div>
-
-      <div class="mt-1 font-inter font-medium">
-        <a
-            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-            href="apps-chat.html"
-        >
-          <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-          >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-            />
-          </svg>
-          <span>Chat App</span>
-        </a>
-        <a
-            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-            href="apps-filemanager.html"
-        >
-          <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-          >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-            />
-          </svg>
-          <span>File Manager App</span>
-        </a>
-        <a
-            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-            href="apps-mail.html"
-        >
-          <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-          >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-            />
-          </svg>
-          <span>Email App</span>
-        </a>
-        <a
-            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-            href="apps-kanban.html"
-        >
-          <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-          >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"
-            />
-          </svg>
-          <span>Kanban Board</span>
-        </a>
-        <a
-            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-            href="apps-todo.html"
-        >
-          <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-          >
-            <path
-                d="M3 13.2L7.23529 18L17.8235 6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-            />
-            <path
-                d="M12.5293 18L20.9999 8.40002"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-            />
-          </svg>
-          <span>Todo App</span>
-        </a>
-        <a
-            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-            href="dashboards-crypto-2.html"
-        >
-          <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-          >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15 9a2 2 0 10-4 0v5a2 2 0 01-2 2h6m-6-4h4m8 0a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-
-          <span>Crypto Dashboard</span>
-        </a>
-        <a
-            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-            href="dashboards-banking-2.html"
-        >
-          <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-          >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
-            />
-          </svg>
-
-          <span>Banking Dashboard</span>
-        </a>
-        <a
-            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-            href="dashboards-crm-analytics.html"
-        >
-          <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-          >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-            />
-          </svg>
-
-          <span>Analytics Dashboard</span>
-        </a>
-        <a
-            class="group flex items-center space-x-2 px-2.5 py-2 tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100"
-            href="dashboards-influencer.html"
-        >
-          <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-4.5 text-slate-400 transition-colors group-hover:text-slate-500 group-focus:text-slate-500 dark:text-navy-300 dark:group-hover:text-navy-200 dark:group-focus:text-navy-200"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-          >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-            />
-          </svg>
-
-          <span>Influencer Dashboard</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
+  <ui-mobile-search-bar />
   <!-- Right Sidebar -->
   <div id="right-sidebar" class="drawer drawer-right">
-    <div
-        class="drawer-overlay fixed inset-0 z-[150] hidden bg-slate-900/60"
-    ></div>
-    <div
-        class="drawer-content fixed right-0 top-0 z-[151] hidden h-full w-full sm:w-80"
-    >
-      <div
-          class="right-sidebar-tab-wrapper w-ful relative flex h-full flex-col bg-white dark:bg-navy-750"
-      >
+    <div class="drawer-overlay fixed inset-0 z-[150] hidden bg-slate-900/60"></div>
+    <div class="drawer-content fixed right-0 top-0 z-[151] hidden h-full w-full sm:w-80">
+      <div class="right-sidebar-tab-wrapper w-ful relative flex h-full flex-col bg-white dark:bg-navy-750">
         <div class="flex items-center justify-between py-2 px-4">
           <p
               data-header="#right-sidebar-tab-home"
@@ -1982,7 +789,7 @@ export default {
                 <div class="grow">
                   <img
                       class="h-3"
-                      src="images/payments/cc-visa-white.svg"
+                      src="/images/payments/cc-visa-white.svg"
                       alt="image"
                   />
                 </div>
@@ -2004,7 +811,7 @@ export default {
                 <div class="grow">
                   <img
                       class="h-3"
-                      src="images/payments/cc-visa-white.svg"
+                      src="/images/payments/cc-visa-white.svg"
                       alt="image"
                   />
                 </div>
@@ -2026,7 +833,7 @@ export default {
                 <div class="grow">
                   <img
                       class="h-3"
-                      src="images/payments/cc-visa-white.svg"
+                      src="/images/payments/cc-visa-white.svg"
                       alt="image"
                   />
                 </div>
@@ -2338,7 +1145,7 @@ export default {
                 <div class="flex items-center space-x-2">
                   <img
                       class="size-10"
-                      src="images/100x100.png"                       alt="image"
+                      src="/images/100x100.png"                       alt="image"
                   />
                   <div>
                     <h2
@@ -2366,7 +1173,7 @@ export default {
                 <div class="flex items-center space-x-2">
                   <img
                       class="size-10"
-                      src="images/100x100.png"                       alt="image"
+                      src="/images/100x100.png"                       alt="image"
                   />
                   <div>
                     <h2
@@ -2415,7 +1222,7 @@ export default {
                       <div class="avatar size-7">
                         <img
                             class="rounded-full"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>
@@ -2471,7 +1278,7 @@ export default {
                   </div>
                 </div>
                 <img
-                    src="images/800x600.png"
+                    src="/images/800x600.png"
                     class="size-20 rounded-lg object-cover object-center"
                     alt="image"
                 />
@@ -2493,7 +1300,7 @@ export default {
                       <div class="avatar size-7">
                         <img
                             class="rounded-full"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>
@@ -2549,7 +1356,7 @@ export default {
                   </div>
                 </div>
                 <img
-                    src="images/800x600.png"
+                    src="/images/800x600.png"
                     class="size-20 rounded-lg object-cover object-center"
                     alt="image"
                 />
@@ -2571,7 +1378,7 @@ export default {
                       <div class="avatar size-7">
                         <img
                             class="rounded-full"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>
@@ -2627,7 +1434,7 @@ export default {
                   </div>
                 </div>
                 <img
-                    src="images/800x600.png"
+                    src="/images/800x600.png"
                     class="size-20 rounded-lg object-cover object-center"
                     alt="image"
                 />
@@ -2745,7 +1552,7 @@ export default {
             <div class="flex items-center space-x-3">
               <img
                   class="size-10 rounded-lg object-cover object-center"
-                  src="images/illustrations/lms-ui.svg"
+                  src="/images/illustrations/lms-ui.svg"
                   alt="image"
               />
               <div>
@@ -2778,7 +1585,7 @@ export default {
                 <div class="avatar size-7 hover:z-10">
                   <img
                       class="rounded-full ring ring-white dark:ring-navy-700"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -2792,7 +1599,7 @@ export default {
                 <div class="avatar size-7 hover:z-10">
                   <img
                       class="rounded-full ring ring-white dark:ring-navy-700"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -2824,7 +1631,7 @@ export default {
             <div class="flex items-center space-x-3">
               <img
                   class="size-10 rounded-lg object-cover object-center"
-                  src="images/illustrations/store-ui.svg"
+                  src="/images/illustrations/store-ui.svg"
                   alt="image"
               />
               <div>
@@ -2857,7 +1664,7 @@ export default {
                 <div class="avatar size-7 hover:z-10">
                   <img
                       class="rounded-full ring ring-white dark:ring-navy-700"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -2871,7 +1678,7 @@ export default {
                 <div class="avatar size-7 hover:z-10">
                   <img
                       class="rounded-full ring ring-white dark:ring-navy-700"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -2903,7 +1710,7 @@ export default {
             <div class="flex items-center space-x-3">
               <img
                   class="size-10 rounded-lg object-cover object-center"
-                  src="images/illustrations/chat-ui.svg"
+                  src="/images/illustrations/chat-ui.svg"
                   alt="image"
               />
               <div>
@@ -2936,7 +1743,7 @@ export default {
                 <div class="avatar size-7 hover:z-10">
                   <img
                       class="rounded-full ring ring-white dark:ring-navy-700"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -2950,7 +1757,7 @@ export default {
                 <div class="avatar size-7 hover:z-10">
                   <img
                       class="rounded-full ring ring-white dark:ring-navy-700"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -2982,7 +1789,7 @@ export default {
             <div class="flex items-center space-x-3">
               <img
                   class="size-10 rounded-lg object-cover object-center"
-                  src="images/illustrations/nft.svg"
+                  src="/images/illustrations/nft.svg"
                   alt="image"
               />
               <div>
@@ -3015,7 +1822,7 @@ export default {
                 <div class="avatar size-7 hover:z-10">
                   <img
                       class="rounded-full ring ring-white dark:ring-navy-700"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -3029,7 +1836,7 @@ export default {
                 <div class="avatar size-7 hover:z-10">
                   <img
                       class="rounded-full ring ring-white dark:ring-navy-700"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -3141,7 +1948,7 @@ export default {
                 <div class="avatar mt-2 size-20">
                   <img
                       class="mask is-squircle"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -3170,32 +1977,32 @@ export default {
                 <div class="mt-4 grid grid-cols-3 gap-3">
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
@@ -3317,7 +2124,7 @@ export default {
                       <div class="avatar size-7 hover:z-10">
                         <img
                             class="rounded-full ring ring-white dark:ring-navy-700"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>
@@ -3333,7 +2140,7 @@ export default {
                       <div class="avatar size-7 hover:z-10">
                         <img
                             class="rounded-full ring ring-white dark:ring-navy-700"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>
@@ -3341,7 +2148,7 @@ export default {
                       <div class="avatar size-7 hover:z-10">
                         <img
                             class="rounded-full ring ring-white dark:ring-navy-700"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>
@@ -3349,7 +2156,7 @@ export default {
                       <div class="avatar size-7 hover:z-10">
                         <img
                             class="rounded-full ring ring-white dark:ring-navy-700"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>

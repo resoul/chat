@@ -197,7 +197,7 @@ export default {
                 <div class="avatar flex size-10">
                   <img
                       class="mask is-squircle"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -299,7 +299,7 @@ export default {
                 <div class="avatar flex size-10">
                   <img
                       class="mask is-squircle"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -401,7 +401,7 @@ export default {
                 <div class="avatar flex size-10">
                   <img
                       class="mask is-squircle"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -504,7 +504,7 @@ export default {
                 <div class="avatar flex size-10">
                   <img
                       class="mask is-squircle"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -852,7 +852,7 @@ export default {
                 <div class="avatar flex">
                   <img
                       class="rounded-full"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -1052,7 +1052,7 @@ export default {
                 <div class="avatar flex">
                   <img
                       class="rounded-full"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -1252,7 +1252,7 @@ export default {
                 <div class="avatar flex">
                   <img
                       class="rounded-full"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -1452,7 +1452,7 @@ export default {
                 <div class="avatar flex">
                   <img
                       class="rounded-full"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>

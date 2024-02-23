@@ -72,7 +72,7 @@ export default {
           <div class="avatar size-36">
             <img
                 class="mask is-squircle"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -117,7 +117,7 @@ export default {
           <div class="avatar size-36">
             <img
                 class="mask is-reuleaux-triangle"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -162,7 +162,7 @@ export default {
           <div class="avatar size-36">
             <img
                 class="mask is-diamond"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -207,14 +207,14 @@ export default {
           <div class="avatar size-36">
             <img
                 class="mask is-hexagon"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
           <div class="avatar size-36">
             <img
                 class="mask is-hexagon-2"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -259,7 +259,7 @@ export default {
           <div class="avatar size-36">
             <img
                 class="mask is-octagon"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -303,14 +303,14 @@ export default {
           <div class="avatar size-36">
             <img
                 class="mask is-star"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
           <div class="avatar size-36">
             <img
                 class="mask is-star-2"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>
@@ -354,7 +354,7 @@ export default {
           <div class="avatar size-36">
             <img
                 class="mask is-heart"
-                src="images/200x200.png"
+                src="/images/200x200.png"
                 alt="avatar"
             />
           </div>

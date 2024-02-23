@@ -61,7 +61,7 @@ export default {
             </div>
 
             <img
-                src="images/payments/cc-visa.svg"
+                src="/images/payments/cc-visa.svg"
                 class="w-12 rounded-lg"
                 alt="creditcard"
             />

@@ -121,6 +121,44 @@ export default {
           "time": "2024-02-22T14:07:45.000Z",
           "message": "Please Download This File"
         }
+      ],
+      tabMediaImages: [
+        {
+          src: "/images/800x600.png"
+        },
+        {
+          src: "/images/800x600.png"
+        },
+        {
+          src: "/images/800x600.png"
+        },
+        {
+          src: "/images/800x600.png"
+        },
+        {
+          src: "/images/800x600.png"
+        },
+        {
+          src: "/images/800x600.png"
+        },
+        {
+          src: "/images/800x600.png"
+        },
+        {
+          src: "/images/800x600.png"
+        },
+        {
+          src: "/images/800x600.png"
+        },
+        {
+          src: "/images/800x600.png"
+        },
+        {
+          src: "/images/800x600.png"
+        },
+        {
+          src: "/images/800x600.png"
+        }
       ]
     }
   },
@@ -643,76 +681,13 @@ export default {
           <div class="px-4 pt-4">
             <div class="tab-content tab-shift-left" id="tab-media-images">
               <div class="grid grid-cols-4 gap-2">
-                <img
-                    class="aspect-square rounded-lg object-cover object-center"
-                    src="/images/800x600.png"
-                    alt="image"
-                />
-
-                <img
-                    class="aspect-square rounded-lg object-cover object-center"
-                    src="/images/800x600.png"
-                    alt="image"
-                />
-                <img
-                    class="aspect-square rounded-lg object-cover object-center"
-                    src="/images/800x600.png"
-                    alt="image"
-                />
-                <img
-                    class="aspect-square rounded-lg object-cover object-center"
-                    src="/images/800x600.png"
-                    alt="image"
-                />
-                <img
-                    class="aspect-square rounded-lg object-cover object-center"
-                    src="/images/800x600.png"
-                    alt="image"
-                />
-                <img
-                    class="aspect-square rounded-lg object-cover object-center"
-                    src="/images/800x600.png"
-                    alt="image"
-                />
-                <img
-                    class="aspect-square rounded-lg object-cover object-center"
-                    src="/images/800x600.png"
-                    alt="image"
-                />
-                <img
-                    class="aspect-square rounded-lg object-cover object-center"
-                    src="/images/800x600.png"
-                    alt="image"
-                />
-                <img
-                    class="aspect-square rounded-lg object-cover object-center"
-                    src="/images/800x600.png"
-                    alt="image"
-                />
-                <img
-                    class="aspect-square rounded-lg object-cover object-center"
-                    src="/images/800x600.png"
-                    alt="image"
-                />
-
-                <img
-                    class="aspect-square rounded-lg object-cover object-center"
-                    src="/images/800x600.png"
-                    alt="image"
-                />
-                <img
-                    class="aspect-square rounded-lg object-cover object-center"
-                    src="/images/800x600.png"
-                    alt="image"
-                />
+                <img :src="image.src" alt="image" v-for="image in tabMediaImages">
               </div>
             </div>
             <div class="tab-content tab-shift-left" id="tab-media-files">
               <div class="flex flex-col space-y-3.5">
                 <div class="flex items-center space-x-3">
-                  <div
-                      class="mask is-squircle flex size-11 items-center justify-center bg-secondary text-white"
-                  >
+                  <div class="mask is-squircle flex size-11 items-center justify-center bg-secondary text-white">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="size-6"
@@ -747,9 +722,7 @@ export default {
                   </div>
                 </div>
                 <div class="flex items-center space-x-3">
-                  <div
-                      class="mask is-squircle flex size-11 items-center justify-center bg-info text-white"
-                  >
+                  <div class="mask is-squircle flex size-11 items-center justify-center bg-info text-white">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="size-6"

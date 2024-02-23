@@ -800,7 +800,7 @@ export default {
                 <div class="avatar mt-2 size-20">
                   <img
                       class="mask is-squircle"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -829,32 +829,32 @@ export default {
                 <div class="mt-4 grid grid-cols-3 gap-3">
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
@@ -976,7 +976,7 @@ export default {
                       <div class="avatar size-7 hover:z-10">
                         <img
                             class="rounded-full ring ring-white dark:ring-navy-700"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>
@@ -992,7 +992,7 @@ export default {
                       <div class="avatar size-7 hover:z-10">
                         <img
                             class="rounded-full ring ring-white dark:ring-navy-700"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>
@@ -1000,7 +1000,7 @@ export default {
                       <div class="avatar size-7 hover:z-10">
                         <img
                             class="rounded-full ring ring-white dark:ring-navy-700"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>
@@ -1008,7 +1008,7 @@ export default {
                       <div class="avatar size-7 hover:z-10">
                         <img
                             class="rounded-full ring ring-white dark:ring-navy-700"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>
@@ -1119,7 +1119,7 @@ export default {
                 <div class="avatar mt-2 size-20">
                   <img
                       class="mask is-squircle"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -1148,32 +1148,32 @@ export default {
                 <div class="mt-4 grid grid-cols-3 gap-3">
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                   <img
                       class="rounded-lg"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
@@ -1295,7 +1295,7 @@ export default {
                       <div class="avatar size-7 hover:z-10">
                         <img
                             class="rounded-full ring ring-white dark:ring-navy-700"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>
@@ -1311,7 +1311,7 @@ export default {
                       <div class="avatar size-7 hover:z-10">
                         <img
                             class="rounded-full ring ring-white dark:ring-navy-700"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>
@@ -1319,7 +1319,7 @@ export default {
                       <div class="avatar size-7 hover:z-10">
                         <img
                             class="rounded-full ring ring-white dark:ring-navy-700"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>
@@ -1327,7 +1327,7 @@ export default {
                       <div class="avatar size-7 hover:z-10">
                         <img
                             class="rounded-full ring ring-white dark:ring-navy-700"
-                            src="images/200x200.png"
+                            src="/images/200x200.png"
                             alt="avatar"
                         />
                       </div>

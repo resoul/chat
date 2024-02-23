@@ -228,28 +228,28 @@ export default {
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-top"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-center"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-center"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
@@ -305,7 +305,7 @@ export default {
                 <div class="swiper-slide h-full">
                   <img
                       class="h-full w-full object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       loading="lazy"
                       alt="image"
                   />
@@ -314,7 +314,7 @@ export default {
                 <div class="swiper-slide h-full">
                   <img
                       class="h-full w-full object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                       loading="lazy"
                   />
@@ -323,7 +323,7 @@ export default {
                 <div class="swiper-slide h-full">
                   <img
                       class="h-full w-full object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                       loading="lazy"
                   />
@@ -332,7 +332,7 @@ export default {
                 <div class="swiper-slide h-full">
                   <img
                       class="h-full w-full object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                       loading="lazy"
                   />
@@ -391,28 +391,28 @@ export default {
                 <div class="swiper-slide !w-10/12">
                   <img
                       class="h-full w-full rounded-lg object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide !w-10/12">
                   <img
                       class="h-full w-full rounded-lg object-cover object-top"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide !w-10/12">
                   <img
                       class="h-full w-full rounded-lg object-cover object-center"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide !w-10/12">
                   <img
                       class="h-full w-full rounded-lg object-cover object-center"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
@@ -468,7 +468,7 @@ export default {
                   <div class="swiper-zoom-container">
                     <img
                         class="h-full w-full object-cover"
-                        src="images/800x600.png"
+                        src="/images/800x600.png"
                         alt="image"
                     />
                   </div>
@@ -477,7 +477,7 @@ export default {
                   <div class="swiper-zoom-container">
                     <img
                         class="h-full w-full object-cover"
-                        src="images/800x600.png"
+                        src="/images/800x600.png"
                         alt="image"
                     />
                   </div>
@@ -486,7 +486,7 @@ export default {
                   <div class="swiper-zoom-container">
                     <img
                         class="h-full w-full object-cover"
-                        src="images/800x600.png"
+                        src="/images/800x600.png"
                         alt="image"
                     />
                   </div>
@@ -495,7 +495,7 @@ export default {
                   <div class="swiper-zoom-container">
                     <img
                         class="h-full w-full object-cover"
-                        src="images/800x600.png"
+                        src="/images/800x600.png"
                         alt="image"
                     />
                   </div>
@@ -554,7 +554,7 @@ export default {
                   <div class="swiper-zoom-container">
                     <img
                         class="h-full w-full object-cover"
-                        src="images/800x600.png"
+                        src="/images/800x600.png"
                         alt="image"
                     />
                   </div>
@@ -563,7 +563,7 @@ export default {
                   <div class="swiper-zoom-container">
                     <img
                         class="h-full w-full object-cover"
-                        src="images/800x600.png"
+                        src="/images/800x600.png"
                         alt="image"
                     />
                   </div>
@@ -572,7 +572,7 @@ export default {
                   <div class="swiper-zoom-container">
                     <img
                         class="h-full w-full object-cover"
-                        src="images/800x600.png"
+                        src="/images/800x600.png"
                         alt="image"
                     />
                   </div>
@@ -581,7 +581,7 @@ export default {
                   <div class="swiper-zoom-container">
                     <img
                         class="h-full w-full object-cover"
-                        src="images/800x600.png"
+                        src="/images/800x600.png"
                         alt="image"
                     />
                   </div>
@@ -639,28 +639,28 @@ export default {
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full rounded-lg object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full rounded-lg object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full rounded-lg object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full rounded-lg object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
@@ -715,28 +715,28 @@ export default {
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full rounded-lg object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full rounded-lg object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full rounded-lg object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full rounded-lg object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
@@ -792,28 +792,28 @@ export default {
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-top"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-center"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-center"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
@@ -868,28 +868,28 @@ export default {
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-center"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
@@ -944,28 +944,28 @@ export default {
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-top"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-center"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-center"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
@@ -1022,28 +1022,28 @@ export default {
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-top"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-center"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-center"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
@@ -1099,28 +1099,28 @@ export default {
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-top"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-center"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full object-cover object-center"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
@@ -1310,28 +1310,28 @@ export default {
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full rounded-lg object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full rounded-lg object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full rounded-lg object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                       class="h-full w-full rounded-lg object-cover"
-                      src="images/800x600.png"
+                      src="/images/800x600.png"
                       alt="image"
                   />
                 </div>
