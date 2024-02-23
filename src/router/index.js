@@ -60,6 +60,21 @@ const routes = [
             component: () => import('../views/main/dashboard/Cryptocurrency.vue')
           },
           {
+            path: 'workspaces',
+            name: 'workspaces',
+            component: () => import('../views/main/dashboard/Workspaces.vue')
+          },
+          {
+            path: 'personal',
+            name: 'personal',
+            component: () => import('../views/main/dashboard/Personal.vue')
+          },
+          {
+            path: 'meetings',
+            name: 'meetings',
+            component: () => import('../views/main/dashboard/Meetings.vue')
+          },
+          {
             path: 'widget-contacts',
             name: 'widget-contacts',
             component: () => import('../views/main/dashboard/WidgetContacts.vue')

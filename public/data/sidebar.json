@@ -63,8 +63,20 @@
           "name": "Cryptocurrency"
         },
         {
+          "route": "/dashboard/personal",
+          "name": "Personal"
+        },
+        {
+          "route": "/dashboard/meetings",
+          "name": "Meetings"
+        },
+        {
           "route": "/dashboard/banking",
           "name": "Banking"
+        },
+        {
+          "route": "/dashboard/workspaces",
+          "name": "Workspaces"
         }
       ],
       [

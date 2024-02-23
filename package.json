@@ -13,6 +13,7 @@
     "@vueuse/core": "^10.8.0",
     "accordion-js": "^3.3.4",
     "apexcharts": "^3.46.0",
+    "cleave.js": "^1.6.0",
     "gridjs": "^6.1.1",
     "pinia": "^2.1.7",
     "simplebar-vue": "^2.3.3",

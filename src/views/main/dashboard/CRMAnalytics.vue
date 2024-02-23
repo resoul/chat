@@ -1,26 +1,269 @@
 <script>
 import Dashboards from "@/views/main/dashboard/Dashboards.vue";
-
+import Tab from "@/components/tab.js";
+import Popper from "@/components/popper.js";
 export default {
-  extends: Dashboards
+  extends: Dashboards,
+  data() {
+    return {
+      salesChartConfig: {
+        colors: ["#4467EF"],
+        chart: {
+          height: 60,
+          type: "line",
+          parentHeightOffset: 0,
+          toolbar: {
+            show: false,
+          },
+        },
+        series: [
+          {
+            name: "Sales",
+            data: [654, 820, 102, 540, 154, 614],
+          },
+        ],
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "smooth",
+          width: 3,
+        },
+        grid: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: -20,
+            bottom: -10,
+          },
+        },
+        xaxis: {
+          show: false,
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+          },
+        },
+        yaxis: {
+          show: false,
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+          },
+        },
+      },
+      salesOverviewConfig: {
+        colors: ["#4C4EE7", "#0EA5E9"],
+        series: [
+          {
+            name: "Sales",
+            data: [28, 45, 35, 50, 32, 55, 23, 60, 28, 45, 35, 50],
+          },
+          {
+            name: "Profit",
+            data: [14, 25, 20, 25, 12, 20, 15, 20, 14, 25, 20, 25],
+          },
+        ],
+        chart: {
+          height: 255,
+          type: "bar",
+          parentHeightOffset: 0,
+          toolbar: {
+            show: false,
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 4,
+            barHeight: "90%",
+            columnWidth: "35%",
+          },
+        },
+        legend: {
+          show: false,
+        },
+        xaxis: {
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          labels: {
+            hideOverlappingLabels: false,
+          },
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          tooltip: {
+            enabled: false,
+          },
+        },
+        grid: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: -10,
+          },
+        },
+        yaxis: {
+          show: false,
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+          },
+        },
+        responsive: [
+          {
+            breakpoint: 850,
+            options: {
+              plotOptions: {
+                bar: {
+                  columnWidth: "55%",
+                },
+              },
+            },
+          },
+        ],
+      },
+      bandwidthConfig: {
+        colors: ["#4467EF"],
+
+        series: [
+          {
+            name: "Traffic",
+            data: [
+              8107.85, 8128.0, 8122.9, 8165.5, 8340.7, 8423.7, 8423.5, 8514.3,
+              8481.85, 8487.7, 8506.9, 8626.2, 8668.95, 8602.3, 8607.55, 8512.9,
+              8496.25, 8600.65, 8881.1, 9340.85,
+            ],
+          },
+        ],
+        chart: {
+          type: "area",
+          height: 220,
+          parentHeightOffset: 0,
+          toolbar: {
+            show: false,
+          },
+          zoom: {
+            enabled: false,
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "smooth",
+          width: 2,
+        },
+        grid: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: -28,
+            bottom: -15,
+          },
+        },
+        tooltip: {
+          shared: true,
+        },
+        legend: {
+          show: false,
+        },
+        yaxis: {
+          show: false,
+        },
+        xaxis: {
+          labels: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          axisBorder: {
+            show: false,
+          },
+        },
+      }
+    }
+  },
+  mounted() {
+    new Tab(this.$refs["sales-tab"]);
+    const dropdownConfig = {
+      placement: "bottom-end",
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 4],
+          },
+        },
+      ],
+    };
+
+    new Popper(this.$refs["project-status-menu"],
+        this.$refs["project-status-menu-ref"],
+        this.$refs["project-status-menu-root"],
+        dropdownConfig
+    );
+    new Popper(this.$refs["satisfaction-menu"],
+        this.$refs["satisfaction-menu-ref"],
+        this.$refs["satisfaction-menu-root"],
+        dropdownConfig
+    );
+    new Popper(this.$refs["bandwidth-menu"],
+        this.$refs["bandwidth-menu-ref"],
+        this.$refs["bandwidth-menu-root"],
+        dropdownConfig
+    );
+    new Popper(this.$refs["users-activity-menu"],
+        this.$refs["users-activity-menu-ref"],
+        this.$refs["users-activity-menu-root"],
+        dropdownConfig
+    );
+  }
 }
 </script>
 
 <template>
-  <div
-      class="mt-4 grid grid-cols-12 gap-4 px-[var(--margin-x)] transition-all duration-[.25s] sm:mt-5 sm:gap-5 lg:mt-6 lg:gap-6"
-  >
+  <div class="mt-4 grid grid-cols-12 gap-4 px-[var(--margin-x)] transition-all duration-[.25s] sm:mt-5 sm:gap-5 lg:mt-6 lg:gap-6">
     <div class="col-span-12 lg:col-span-8">
       <div class="flex items-center justify-between space-x-2">
-        <h2
-            class="text-base font-medium tracking-wide text-slate-800 line-clamp-1 dark:text-navy-100"
-        >
+        <h2 class="text-base font-medium tracking-wide text-slate-800 line-clamp-1 dark:text-navy-100">
           Sales Overview
         </h2>
-        <div
-            id="sales-tab"
-            class="is-scrollbar-hidden overflow-x-auto rounded-lg bg-slate-200 text-slate-600 dark:bg-navy-800 dark:text-navy-200"
-        >
+        <div ref="sales-tab" class="is-scrollbar-hidden overflow-x-auto rounded-lg bg-slate-200 text-slate-600 dark:bg-navy-800 dark:text-navy-200">
           <div class="tabs-list flex p-1">
             <button
                 data-target="#sales-recent-tab"
@@ -43,9 +286,7 @@ export default {
       </div>
 
       <div class="flex flex-col sm:flex-row sm:space-x-7">
-        <div
-            class="mt-4 flex shrink-0 flex-col items-center sm:items-start"
-        >
+        <div class="mt-4 flex shrink-0 flex-col items-center sm:items-start">
           <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-8 w-8 text-info"
@@ -97,7 +338,7 @@ export default {
           </div>
           <div class="mt-3 flex items-center space-x-2">
             <div class="ax-transparent-gridline w-28">
-              <div id="salesMonthChart"></div>
+              <div v-apex-charts="salesChartConfig"></div>
             </div>
             <div class="flex items-center space-x-0.5">
               <svg
@@ -141,7 +382,7 @@ export default {
         </div>
 
         <div class="ax-transparent-gridline grid w-full grid-cols-1">
-          <div id="salesOverview"></div>
+          <div v-apex-charts="salesOverviewConfig"></div>
         </div>
       </div>
     </div>
@@ -305,8 +546,8 @@ export default {
         >
           Projects Status
         </h2>
-        <div id="project-status-menu" class="inline-flex">
-          <button
+        <div ref="project-status-menu" class="inline-flex">
+          <button ref="project-status-menu-ref"
               class="popper-ref btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
           >
             <svg
@@ -325,7 +566,7 @@ export default {
             </svg>
           </button>
 
-          <div class="popper-root">
+          <div class="popper-root" ref="project-status-menu-root">
             <div
                 class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
             >
@@ -398,7 +639,7 @@ export default {
                 <div class="avatar h-8 w-8 hover:z-10">
                   <img
                       class="rounded-full ring ring-white dark:ring-navy-700"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -412,7 +653,7 @@ export default {
                 <div class="avatar h-8 w-8 hover:z-10">
                   <img
                       class="rounded-full ring ring-white dark:ring-navy-700"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -476,7 +717,7 @@ export default {
                 <div class="avatar h-8 w-8 hover:z-10">
                   <img
                       class="rounded-full ring ring-white dark:ring-navy-700"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -490,7 +731,7 @@ export default {
                 <div class="avatar h-8 w-8 hover:z-10">
                   <img
                       class="rounded-full ring ring-white dark:ring-navy-700"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -561,7 +802,7 @@ export default {
                 <div class="avatar h-8 w-8 hover:z-10">
                   <img
                       class="rounded-full ring ring-white dark:ring-navy-700"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -575,7 +816,7 @@ export default {
                 <div class="avatar h-8 w-8 hover:z-10">
                   <img
                       class="rounded-full ring ring-white dark:ring-navy-700"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -615,8 +856,8 @@ export default {
         >
           Customer Satisfaction
         </h2>
-        <div id="satisfaction-menu" class="inline-flex">
-          <button
+        <div ref="satisfaction-menu" class="inline-flex">
+          <button ref="satisfaction-menu-ref"
               class="popper-ref btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
           >
             <svg
@@ -635,7 +876,7 @@ export default {
             </svg>
           </button>
 
-          <div class="popper-root">
+          <div class="popper-root" ref="satisfaction-menu-root">
             <div
                 class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
             >
@@ -877,7 +1118,7 @@ export default {
             <div class="avatar">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="image"
               />
             </div>
@@ -1032,19 +1273,19 @@ export default {
             <img
                 data-tooltip="Award Level 1"
                 class="h-6 w-6"
-                src="images/awards/award-19.svg"
+                src="/images/awards/award-19.svg"
                 alt="avatar"
             />
             <img
                 data-tooltip="Award Level 2"
                 class="h-6 w-6"
-                src="images/awards/award-2.svg"
+                src="/images/awards/award-2.svg"
                 alt="avatar"
             />
             <img
                 data-tooltip="Award Level 3"
                 class="h-6 w-6"
-                src="images/awards/award-5.svg"
+                src="/images/awards/award-5.svg"
                 alt="avatar"
             />
           </div>
@@ -1079,7 +1320,7 @@ export default {
             <div class="avatar">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="image"
               />
             </div>
@@ -1229,19 +1470,19 @@ export default {
             <img
                 data-tooltip="Award Level 1"
                 class="h-6 w-6"
-                src="images/awards/award-1.svg"
+                src="/images/awards/award-1.svg"
                 alt="avatar"
             />
             <img
                 data-tooltip="Award Level 2"
                 class="h-6 w-6"
-                src="images/awards/award-6.svg"
+                src="/images/awards/award-6.svg"
                 alt="avatar"
             />
             <img
                 data-tooltip="Award Level 3"
                 class="h-6 w-6"
-                src="images/awards/award-9.svg"
+                src="/images/awards/award-9.svg"
                 alt="avatar"
             />
           </div>
@@ -1276,7 +1517,7 @@ export default {
             <div class="avatar">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="image"
               />
             </div>
@@ -1426,13 +1667,13 @@ export default {
             <img
                 data-tooltip="Award Level 2"
                 class="h-6 w-6"
-                src="images/awards/award-14.svg"
+                src="/images/awards/award-14.svg"
                 alt="avatar"
             />
             <img
                 data-tooltip="Award Level 3"
                 class="h-6 w-6"
-                src="images/awards/award-13.svg"
+                src="/images/awards/award-13.svg"
                 alt="avatar"
             />
           </div>
@@ -1467,7 +1708,7 @@ export default {
             <div class="avatar">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="image"
               />
             </div>
@@ -1617,13 +1858,13 @@ export default {
             <img
                 data-tooltip="Award Level 2"
                 class="h-6 w-6"
-                src="images/awards/award-15.svg"
+                src="/images/awards/award-15.svg"
                 alt="avatar"
             />
             <img
                 data-tooltip="Award Level 3"
                 class="h-6 w-6"
-                src="images/awards/award-13.svg"
+                src="/images/awards/award-13.svg"
                 alt="avatar"
             />
           </div>
@@ -1658,7 +1899,7 @@ export default {
             <div class="avatar">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="image"
               />
             </div>
@@ -1803,19 +2044,19 @@ export default {
             <img
                 data-tooltip="Award Level 2"
                 class="h-6 w-6"
-                src="images/awards/award-15.svg"
+                src="/images/awards/award-15.svg"
                 alt="avatar"
             />
             <img
                 data-tooltip="Award Level 3"
                 class="h-6 w-6"
-                src="images/awards/award-5.svg"
+                src="/images/awards/award-5.svg"
                 alt="avatar"
             />
             <img
                 data-tooltip="Award Level 3"
                 class="h-6 w-6"
-                src="images/awards/award-25.svg"
+                src="/images/awards/award-25.svg"
                 alt="avatar"
             />
           </div>
@@ -1850,7 +2091,7 @@ export default {
             <div class="avatar">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="image"
               />
             </div>
@@ -2003,19 +2244,19 @@ export default {
             <img
                 data-tooltip="Award Level 2"
                 class="h-6 w-6"
-                src="images/awards/award-1.svg"
+                src="/images/awards/award-1.svg"
                 alt="avatar"
             />
             <img
                 data-tooltip="Award Level 3"
                 class="h-6 w-6"
-                src="images/awards/award-24.svg"
+                src="/images/awards/award-24.svg"
                 alt="avatar"
             />
             <img
                 data-tooltip="Award Level 3"
                 class="h-6 w-6"
-                src="images/awards/award-30.svg"
+                src="/images/awards/award-30.svg"
                 alt="avatar"
             />
           </div>
@@ -2056,10 +2297,8 @@ export default {
         >
           Bandwidth Report
         </h2>
-        <div id="bandwidth-menu" class="inline-flex">
-          <button
-              class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-          >
+        <div ref="bandwidth-menu" class="inline-flex">
+          <button ref="bandwidth-menu-ref" class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -2076,7 +2315,7 @@ export default {
             </svg>
           </button>
 
-          <div class="popper-root">
+          <div class="popper-root" ref="bandwidth-menu-root">
             <div
                 class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
             >
@@ -2258,7 +2497,7 @@ export default {
       </div>
 
       <div class="ax-transparent-gridline ax-rounded-b-lg">
-        <div id="bandwidth-chart"></div>
+        <div v-apex-charts="bandwidthConfig"></div>
       </div>
     </div>
     <div class="card col-span-12 pb-4 sm:col-span-6">
@@ -2268,10 +2507,8 @@ export default {
         >
           Users Activity
         </h2>
-        <div id="users-activity-menu" class="inline-flex">
-          <button
-              class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-          >
+        <div ref="users-activity-menu" class="inline-flex">
+          <button ref="users-activity-menu-ref" class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -2288,10 +2525,8 @@ export default {
             </svg>
           </button>
 
-          <div class="popper-root">
-            <div
-                class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
-            >
+          <div class="popper-root" ref="users-activity-menu-root">
+            <div class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700">
               <ul>
                 <li>
                   <a
@@ -2353,7 +2588,7 @@ export default {
             <div class="avatar mt-2 h-16 w-16">
               <img
                   class="mask is-squircle"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -2454,7 +2689,7 @@ export default {
                   <div class="avatar h-7 w-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -2470,7 +2705,7 @@ export default {
                   <div class="avatar h-7 w-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -2478,7 +2713,7 @@ export default {
                   <div class="avatar h-7 w-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>
@@ -2486,7 +2721,7 @@ export default {
                   <div class="avatar h-7 w-7 hover:z-10">
                     <img
                         class="rounded-full ring ring-white dark:ring-navy-700"
-                        src="images/200x200.png"
+                        src="/images/200x200.png"
                         alt="avatar"
                     />
                   </div>

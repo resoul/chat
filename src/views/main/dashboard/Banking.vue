@@ -1,8 +1,86 @@
 <script>
 import Dashboards from "@/views/main/dashboard/Dashboards.vue";
-
+import Popper from "@/components/popper.js";
 export default {
-  extends: Dashboards
+  extends: Dashboards,
+  data() {
+    return {
+      historyConfig: {
+        colors: ["#FF9800", "#0EA5E9"],
+        series: [
+          {
+            name: "High",
+            data: [28, 45, 35, 50, 32, 55, 23, 60],
+          },
+          {
+            name: "Low",
+            data: [14, 25, 20, 25, 12, 20, 15, 20],
+          },
+        ],
+        chart: {
+          parentHeightOffset: 0,
+          height: 290,
+          type: "area",
+          toolbar: {
+            show: false,
+          },
+        },
+        fill: {
+          type: "gradient",
+          gradient: {
+            shadeIntensity: 1,
+            inverseColors: false,
+            opacityFrom: 0.35,
+            opacityTo: 0.05,
+            stops: [20, 100, 100, 100],
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          width: 2,
+          curve: "smooth",
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 5,
+            barHeight: "90%",
+            columnWidth: "40%",
+          },
+        },
+        legend: {
+          show: false,
+        },
+        xaxis: {
+          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
+        },
+        grid: {
+          padding: {
+            left: 10,
+            right: 0,
+            top: -10,
+            bottom: 0,
+          },
+        },
+      }
+    }
+  },
+  mounted() {
+    const dropdownConfig = {
+      placement: "bottom-end",
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 4],
+          },
+        },
+      ],
+    };
+    new Popper(this.$refs["history-menu"], this.$refs["history-menu-ref"], this.$refs["history-menu-root"], dropdownConfig);
+    new Popper(this.$refs["send-money-menu"], this.$refs["send-money-menu-ref"], this.$refs["send-money-menu-root"], dropdownConfig);
+  }
 }
 </script>
 
@@ -11,15 +89,13 @@ export default {
       class="mt-4 grid grid-cols-12 gap-4 sm:mt-5 sm:gap-5 lg:mt-6 lg:gap-6"
   >
     <div class="col-span-12 lg:order-last lg:col-span-4">
-      <div id="cards-carousel" class="swiper h-40 w-64">
+      <div v-swiper="{ effect: 'cards' }" class="swiper h-40 w-64">
         <div class="swiper-wrapper">
-          <div
-              class="swiper-slide relative flex h-full flex-col overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 p-5"
-          >
+          <div class="swiper-slide relative flex h-full flex-col overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 p-5">
             <div class="grow">
               <img
                   class="h-3"
-                  src="images/payments/cc-visa-white.svg"
+                  src="/images/payments/cc-visa-white.svg"
                   alt="image"
               />
             </div>
@@ -37,7 +113,7 @@ export default {
             <div class="grow">
               <img
                   class="h-3"
-                  src="images/payments/cc-visa-white.svg"
+                  src="/images/payments/cc-visa-white.svg"
                   alt="image"
               />
             </div>
@@ -55,7 +131,7 @@ export default {
             <div class="grow">
               <img
                   class="h-3"
-                  src="images/payments/cc-visa-white.svg"
+                  src="/images/payments/cc-visa-white.svg"
                   alt="image"
               />
             </div>
@@ -78,8 +154,8 @@ export default {
             >
               Send Money
             </h2>
-            <div id="send-money-menu" class="inline-flex">
-              <button
+            <div ref="send-money-menu" class="inline-flex">
+              <button ref="send-money-menu-ref"
                   class="popper-ref btn -mr-1 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
@@ -98,7 +174,7 @@ export default {
                 </svg>
               </button>
 
-              <div class="popper-root">
+              <div class="popper-root" ref="send-money-menu-root">
                 <div
                     class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
                 >
@@ -146,7 +222,7 @@ export default {
             <div class="avatar h-8 w-8 hover:z-10">
               <img
                   class="rounded-full ring ring-white dark:ring-navy-700"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -162,7 +238,7 @@ export default {
             <div class="avatar h-8 w-8 hover:z-10">
               <img
                   class="rounded-full ring ring-white dark:ring-navy-700"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -170,7 +246,7 @@ export default {
             <div class="avatar h-8 w-8 hover:z-10">
               <img
                   class="rounded-full ring ring-white dark:ring-navy-700"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -201,12 +277,7 @@ export default {
           <div class="mt-2 space-y-4">
             <label class="block">
               <span class="text-xs+">Pay to</span>
-              <input
-                  id="card-number"
-                  class="form-input mt-1.5 h-9 w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
-                  placeholder="**** **** **** ****"
-                  type="text"
-              />
+              <input v-cleave="{ creditCard: true }" placeholder="**** **** **** ****" class="form-input mt-1.5 h-9 w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent" type="text" />
             </label>
             <div>
               <span class="text-xs+">Amount</span>
@@ -414,7 +485,7 @@ export default {
                 <div class="avatar">
                   <img
                       class="rounded-full"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -436,7 +507,7 @@ export default {
                 <div class="avatar">
                   <img
                       class="rounded-full"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -458,7 +529,7 @@ export default {
                 <div class="avatar">
                   <img
                       class="rounded-full"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -480,7 +551,7 @@ export default {
                 <div class="avatar">
                   <img
                       class="rounded-full"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -502,7 +573,7 @@ export default {
                 <div class="avatar">
                   <img
                       class="rounded-full"
-                      src="images/200x200.png"
+                      src="/images/200x200.png"
                       alt="avatar"
                   />
                 </div>
@@ -530,8 +601,8 @@ export default {
             >
               History
             </h2>
-            <div id="history-menu" class="inline-flex">
-              <button
+            <div ref="history-menu" class="inline-flex">
+              <button ref="history-menu-ref"
                   class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
                 <svg
@@ -550,7 +621,7 @@ export default {
                 </svg>
               </button>
 
-              <div class="popper-root">
+              <div class="popper-root" ref="history-menu-root">
                 <div
                     class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
                 >
@@ -594,7 +665,7 @@ export default {
             </div>
           </div>
           <div class="pr-3 sm:pl-2">
-            <div id="history-chart"></div>
+            <div v-apex-charts="historyConfig"></div>
           </div>
         </div>
       </div>
