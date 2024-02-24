@@ -4,9 +4,11 @@ import Accordion from "accordion-js";
 import DarkModeButton from "@/components/theme/DarkModeButton.vue";
 import MonochromeButton from "@/components/theme/MonochromeButton.vue";
 import Notification from "@/views/main/header/Notification.vue";
+import SidebarToggleButton from "@/components/theme/SidebarToggleButton.vue";
 export default {
   name: "Kanban",
   components: {
+    'ui-sidebar-toggle-btn': SidebarToggleButton,
     'ui-dark-mode-btn': DarkModeButton,
     'ui-monochrome-btn': MonochromeButton,
     'ui-notification': Notification
@@ -41,13 +43,7 @@ export default {
       <div class="flex w-full items-center justify-between">
         <!-- Left: Sidebar Toggle Button -->
         <div class="size-7">
-          <button
-              class="sidebar-toggle ml-0.5 flex size-7 flex-col justify-center space-y-1.5 text-primary outline-none focus:outline-none dark:text-accent-light/80"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+          <ui-sidebar-toggle-btn />
         </div>
 
         <!-- Right: Header buttons -->

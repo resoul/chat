@@ -71,50 +71,14 @@ export default {
         },
       }
     }
-  },
-  mounted() {
-    const dropdownConfig = {
-      placement: "bottom-end",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
-          },
-        },
-      ],
-    };
-
-    // Next Patient Menu
-    new Popper(
-        "#next-patient-menu",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
-
-    //  Number of Patient Menu
-    new Popper("#parients-menu", ".popper-ref", ".popper-root", dropdownConfig);
-
-    // Appointments Menu
-    new Popper(
-        "#appointments-menu",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
   }
 }
 </script>
 
 <template>
-  <div
-      class="mt-4 grid grid-cols-12 gap-4 sm:mt-5 sm:gap-5 lg:mt-6 lg:gap-6"
-  >
+  <div class="mt-4 grid grid-cols-12 gap-4 sm:mt-5 sm:gap-5 lg:mt-6 lg:gap-6">
     <div class="col-span-12 lg:col-span-8 xl:col-span-9">
-      <div
-          class="card col-span-12 mt-12 bg-gradient-to-r from-blue-500 to-blue-600 p-5 sm:col-span-8 sm:mt-0 sm:flex-row"
-      >
+      <div class="card col-span-12 mt-12 bg-gradient-to-r from-blue-500 to-blue-600 p-5 sm:col-span-8 sm:mt-0 sm:flex-row">
         <div class="flex justify-center sm:order-last">
           <img
               class="-mt-16 h-40 sm:mt-0"
@@ -458,10 +422,8 @@ export default {
                 </svg>
               </button>
             </div>
-            <div id="appointments-menu" class="inline-flex">
-              <button
-                  class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-              >
+            <div v-popper class="inline-flex">
+              <button class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="size-4.5"
@@ -973,15 +935,11 @@ export default {
             class="rounded-lg bg-info/10 px-4 pb-5 dark:bg-navy-800 sm:px-5"
         >
           <div class="flex items-center justify-between py-3">
-            <h2
-                class="font-medium tracking-wide text-slate-700 dark:text-navy-100"
-            >
+            <h2 class="font-medium tracking-wide text-slate-700 dark:text-navy-100">
               Next Patient
             </h2>
-            <div id="next-patient-menu" class="inline-flex">
-              <button
-                  class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-              >
+            <div v-popper class="inline-flex">
+              <button class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="size-5"
@@ -1114,10 +1072,8 @@ export default {
             >
               Number of Patients
             </h2>
-            <div id="parients-menu" class="inline-flex">
-              <button
-                  class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-              >
+            <div v-popper class="inline-flex">
+              <button class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="size-5"

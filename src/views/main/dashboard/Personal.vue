@@ -115,46 +115,6 @@ export default {
         },
       }
     }
-  },
-  mounted() {
-    const dropdownConfig = {
-      placement: "bottom-end",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
-          },
-        },
-      ],
-    };
-
-    // Ongoing Projects Menu
-    new Popper(
-        "#ongoing-projects-menu",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
-
-    // Contact List Menu
-    new Popper(
-        "#contact-list-menu",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
-
-    // Client Messages Menu
-    new Popper(
-        "#client-messages-menu",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
-
-    // Income Menu
-    new Popper("#income-menu", ".popper-ref", ".popper-root", dropdownConfig);
   }
 }
 </script>
@@ -405,10 +365,8 @@ export default {
           >
             Ongoing Projects
           </h2>
-          <div id="ongoing-projects-menu" class="inline-flex">
-            <button
-                class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-            >
+          <div v-popper class="inline-flex">
+            <button class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="size-5"
@@ -633,10 +591,8 @@ export default {
               Contact List
             </h2>
 
-            <div id="contact-list-menu" class="inline-flex">
-              <button
-                  class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-              >
+            <div v-popper class="inline-flex">
+              <button class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="size-5"
@@ -1181,10 +1137,8 @@ export default {
               Client Messages
             </h2>
 
-            <div id="client-messages-menu" class="inline-flex">
-              <button
-                  class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-              >
+            <div v-popper class="inline-flex">
+              <button class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="size-5"
@@ -1440,7 +1394,7 @@ export default {
               Income
             </h2>
 
-            <div id="income-menu" class="inline-flex">
+            <div v-popper class="inline-flex">
               <button
                   class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >

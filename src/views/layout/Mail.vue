@@ -5,12 +5,14 @@ import Notification from "@/views/main/header/Notification.vue";
 import { useSidebarStore } from "@/components/sidebar.js";
 import MobileSearchbar from "@/views/main/header/MobileSearchbar.vue";
 import Searchbar from "@/views/main/header/Searchbar.vue";
+import SidebarToggleButton from "@/components/theme/SidebarToggleButton.vue";
 export default {
   name: "Mail",
   components: {
     'ui-dark-mode-btn': DarkModeButton,
     'ui-monochrome-btn': MonochromeButton,
     'ui-mobile-search-bar': MobileSearchbar,
+    'ui-sidebar-toggle-btn': SidebarToggleButton,
     'ui-search-bar': Searchbar,
     'ui-notification': Notification
   },
@@ -37,11 +39,7 @@ export default {
       <div class="flex w-full items-center justify-between">
         <!-- Left: Sidebar Toggle Button -->
         <div class="size-7">
-          <button @click="sidebar.toggle()" class="sidebar-toggle ml-0.5 flex size-7 flex-col justify-center space-y-1.5 text-primary outline-none focus:outline-none dark:text-accent-light/80">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+          <ui-sidebar-toggle-btn />
         </div>
 
         <!-- Right: Header buttons -->

@@ -1,87 +1,10 @@
 <script>
 import Dashboards from "@/views/main/dashboard/Dashboards.vue";
-
+import Tab from "@/components/tab.js";
 export default {
   extends: Dashboards,
   mounted() {
-    new Popper("#traffic-menu", ".popper-ref", ".popper-root", {
-      placement: "bottom-start",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
-          },
-        },
-      ],
-    });
-
-    // Server Traffic Tabs
-    new Tab("#traffic-tab");
-
-    // Dropdown Menu Config
-    const dropdownConfig = {
-      placement: "bottom-end",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
-          },
-        },
-      ],
-    };
-
-    // Overview Menu
-    new Popper("#monitoring-menu", ".popper-ref", ".popper-root", dropdownConfig);
-
-    // Workspace Menu 1
-    new Popper(
-        "#workspace-menu-1",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
-
-    // Workspace Menu 2
-    new Popper(
-        "#workspace-menu-2",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
-
-    // Workspace Menu 3
-    new Popper(
-        "#workspace-menu-3",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
-
-    // Workspace Menu 4
-    new Popper(
-        "#workspace-menu-4",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
-
-    // Workspace Menu 5
-    new Popper(
-        "#workspace-menu-5",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
-
-    // Workspace Menu 6
-    new Popper(
-        "#workspace-menu-6",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
+    new Tab(this.$refs["traffic-tab"]);
   },
   data() {
     return {
@@ -279,15 +202,11 @@ export default {
 
 <template>
   <div class="mt-5 flex items-center justify-between">
-    <h3
-        class="text-lg font-medium text-slate-700 line-clamp-1 dark:text-navy-50"
-    >
+    <h3 class="text-lg font-medium text-slate-700 line-clamp-1 dark:text-navy-50">
       Workspaces Overview
     </h3>
     <div class="flex">
-      <button
-          class="btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-      >
+      <button class="btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             class="size-5"
@@ -340,10 +259,8 @@ export default {
           >
             Server traffic
           </h2>
-          <div id="traffic-menu" class="inline-flex">
-            <button
-                class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-            >
+          <div v-popper="{ config: { placement: 'bottom-start', modifiers: [{ name: 'offset', options: { offset: [0, 4] }}]}}" class="inline-flex">
+            <button class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="size-5"
@@ -405,7 +322,7 @@ export default {
         </div>
         <div
             class="hidden justify-between space-x-4 text-xs+ sm:flex"
-            id="traffic-tab"
+            ref="traffic-tab"
             data-active-tab="#tab-all"
         >
           <button
@@ -533,7 +450,7 @@ export default {
             </svg>
           </button>
         </div>
-        <div id="monitoring-menu" class="inline-flex">
+        <div v-popper class="inline-flex">
           <button
               class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
           >
@@ -606,10 +523,8 @@ export default {
               Id: 5988745
             </p>
           </div>
-          <div id="workspace-menu-1" class="inline-flex">
-            <button
-                class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-            >
+          <div v-popper class="inline-flex">
+            <button class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="size-5"
@@ -775,7 +690,7 @@ export default {
               Id: 6518869
             </p>
           </div>
-          <div id="workspace-menu-2" class="inline-flex">
+          <div v-popper class="inline-flex">
             <button
                 class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
             >
@@ -944,7 +859,7 @@ export default {
               Id: 3591458
             </p>
           </div>
-          <div id="workspace-menu-3" class="inline-flex">
+          <div v-popper class="inline-flex">
             <button
                 class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
             >
@@ -1109,16 +1024,12 @@ export default {
       <div class="card space-y-6 p-4 sm:px-5">
         <div class="flex items-center justify-between">
           <div>
-            <p
-                class="text-lg font-semibold uppercase text-primary dark:text-accent-light"
-            >
+            <p class="text-lg font-semibold uppercase text-primary dark:text-accent-light">
               Id: 9462157
             </p>
           </div>
-          <div id="workspace-menu-4" class="inline-flex">
-            <button
-                class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-            >
+          <div v-popper class="inline-flex">
+            <button class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="size-5"
@@ -1286,7 +1197,7 @@ export default {
               Id: 6517997
             </p>
           </div>
-          <div id="workspace-menu-5" class="inline-flex">
+          <div v-popper class="inline-flex">
             <button
                 class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
             >
@@ -1457,10 +1368,8 @@ export default {
               Id: 7958652
             </p>
           </div>
-          <div id="workspace-menu-6" class="inline-flex">
-            <button
-                class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-            >
+          <div v-popper class="inline-flex">
+            <button class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="size-5"

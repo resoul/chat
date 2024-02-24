@@ -1,53 +1,13 @@
 <script>
 import Dashboards from "@/views/main/dashboard/Dashboards.vue";
-import Popper from "@/components/popper.js";
 export default {
-  extends: Dashboards,
-  mounted() {
-    const dropdownConfig = {
-      placement: "bottom-end",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
-          },
-        },
-      ],
-    };
-
-    // Contact List Menu
-    new Popper(
-        "#contact-list-menu",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
-
-    // Contact Info Menu
-    new Popper(
-        "#contact-info-menu",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
-
-    // Call Setting Menu
-    new Popper(
-        "#call-setting-menu",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
-  }
+  extends: Dashboards
 }
 </script>
 
 <template>
   <div class="flex items-center space-x-4 py-5 lg:py-6">
-    <h2
-        class="text-xl font-medium text-slate-800 dark:text-navy-50 lg:text-2xl"
-    >
+    <h2 class="text-xl font-medium text-slate-800 dark:text-navy-50 lg:text-2xl">
       Contact Widgets
     </h2>
     <div class="hidden h-full py-1 sm:flex">
@@ -176,7 +136,7 @@ export default {
           Contact List
         </h2>
 
-        <div id="contact-list-menu" class="inline-flex">
+        <div v-popper class="inline-flex">
           <button
               class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
           >
@@ -667,7 +627,7 @@ export default {
         >
           Contact Info
         </h2>
-        <div id="contact-info-menu" class="inline-flex">
+        <div v-popper class="inline-flex">
           <button
               class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
           >
@@ -848,7 +808,7 @@ export default {
           >
             Call Setting
           </h2>
-          <div id="call-setting-menu" class="inline-flex">
+          <div v-popper class="inline-flex">
             <button
                 class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
             >

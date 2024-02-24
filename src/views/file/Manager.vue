@@ -1,49 +1,26 @@
 <script>
 import Tab from "@/components/tab.js";
-import Swiper from "swiper/bundle";
-import Popper from "@/components/popper.js";
+import Directives from "@/components/theme/Directives.vue";
 export default {
   name: "Manager",
+  extends: Directives,
+  data() {
+    return {
+      dropStartConfig: {
+        placement: "bottom-start",
+        modifiers: [
+          {
+            name: "offset",
+            options: {
+              offset: [0, 4],
+            },
+          },
+        ],
+      }
+    }
+  },
   mounted() {
     new Tab("#tab-folders");
-
-    new Swiper("#tab-folder-recent", { slidesPerView: "auto", spaceBetween: 20 });
-    new Swiper("#tab-folder-pinned", { slidesPerView: "auto", spaceBetween: 20 });
-
-    new Popper("#dropdown-tags", ".popper-ref", ".popper-root", {
-      placement: "bottom-start",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
-          },
-        },
-      ],
-    });
-    new Popper("#dropdown-folders-table", ".popper-ref", ".popper-root", {
-      placement: "bottom-start",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
-          },
-        },
-      ],
-    });
-
-    new Popper("#top-header-menu", ".popper-ref", ".popper-root", {
-      placement: "bottom-start",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
-          },
-        },
-      ],
-    });
   }
 }
 </script>
@@ -58,17 +35,13 @@ export default {
       >
         Home
       </h3>
-      <div id="top-header-menu" class="inline-flex">
-        <button
-            class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-        >
+      <div v-popper="{ config: dropStartConfig }" class="inline-flex">
+        <button class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
           <i class="fas fa-chevron-down"></i>
         </button>
 
         <div class="popper-root">
-          <div
-              class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
-          >
+          <div class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700">
             <ul>
               <li>
                 <a
@@ -210,10 +183,7 @@ export default {
       </button>
     </div>
     <div>
-      <div
-          id="tab-folder-recent"
-          class="tab-content tab-shift-left swiper px-[var(--margin-x)] pt-4 transition-all duration-[.25s]"
-      >
+      <div id="tab-folder-recent" v-swiper="{ slidesPerView: 'auto', spaceBetween: 20 }" class="tab-content tab-shift-left swiper px-[var(--margin-x)] pt-4 transition-all duration-[.25s]">
         <div class="swiper-wrapper">
           <div class="card swiper-slide w-56 shrink-0 p-3 pt-4">
             <div class="flex items-center justify-between">
@@ -457,10 +427,9 @@ export default {
           </div>
         </div>
       </div>
-      <div
+      <div v-swiper="{ slidesPerView: 'auto', spaceBetween: 20 }"
           id="tab-folder-pinned"
-          class="tab-content tab-shift-left swiper px-[var(--margin-x)] pt-4 transition-all duration-[.25s]"
-      >
+          class="tab-content tab-shift-left swiper px-[var(--margin-x)] pt-4 transition-all duration-[.25s]">
         <div class="swiper-wrapper">
           <div class="card swiper-slide w-56 shrink-0 p-3 pt-4">
             <div class="flex items-center justify-between">
@@ -625,10 +594,8 @@ export default {
                 </svg>
               </button>
             </div>
-            <div id="dropdown-folders-table" class="inline-flex">
-              <button
-                  class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-              >
+            <div v-popper="{ config: dropStartConfig }" class="inline-flex">
+              <button class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="size-4.5"
@@ -1290,10 +1257,8 @@ export default {
           Tags
         </h2>
 
-        <div id="dropdown-tags" class="inline-flex">
-          <button
-              class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-          >
+        <div v-popper="{ config: dropStartConfig }" class="inline-flex">
+          <button class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="size-4.5"

@@ -46,25 +46,6 @@ export default {
         },
       }
     }
-  },
-  mounted() {
-    const dropdownConfig = {
-      placement: "bottom-end",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
-          },
-        },
-      ],
-    };
-
-    // Working Hours Menu
-    new Popper("#working-hr-menu", ".popper-ref", ".popper-root", dropdownConfig);
-
-    // Mwdia Menu
-    new Popper("#media-menu", ".popper-ref", ".popper-root", dropdownConfig);
   }
 }
 </script>
@@ -375,10 +356,8 @@ export default {
                 </svg>
               </button>
             </div>
-            <div id="media-menu" class="inline-flex">
-              <button
-                  class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-              >
+            <div v-popper class="inline-flex">
+              <button class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="size-4.5"
@@ -920,10 +899,8 @@ export default {
             >
               Working Hours
             </h2>
-            <div id="working-hr-menu" class="inline-flex">
-              <button
-                  class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-              >
+            <div v-popper class="inline-flex">
+              <button class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="size-5"

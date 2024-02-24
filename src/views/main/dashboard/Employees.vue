@@ -149,46 +149,12 @@ export default {
         },
       }
     }
-  },
-  mounted() {
-    const dropdownConfig = {
-      placement: "bottom-end",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
-          },
-        },
-      ],
-    };
-
-    // Client Growth Menu
-    new Popper(
-        "#client-growth-menu",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
-
-    // Sales Growth Menu
-    new Popper(
-        "#sales-growth-menu",
-        ".popper-ref",
-        ".popper-root",
-        dropdownConfig
-    );
-
-    // Employees Menu
-    new Popper("#employees-menu", ".popper-ref", ".popper-root", dropdownConfig);
   }
 }
 </script>
 
 <template>
-  <div
-      class="mt-4 grid grid-cols-1 gap-4 sm:mt-5 sm:grid-cols-3 sm:gap-5 lg:mt-6 lg:gap-6"
-  >
+  <div class="mt-4 grid grid-cols-1 gap-4 sm:mt-5 sm:grid-cols-3 sm:gap-5 lg:mt-6 lg:gap-6">
     <div class="card shadow-none">
       <div class="mt-2 flex h-8 items-center justify-between px-4">
         <h2
@@ -197,10 +163,8 @@ export default {
           Clients Growth
         </h2>
 
-        <div id="client-growth-menu" class="inline-flex">
-          <button
-              class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-          >
+        <div v-popper class="inline-flex">
+          <button class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="size-5"
@@ -276,10 +240,8 @@ export default {
           Sales Growth
         </h2>
 
-        <div id="sales-growth-menu" class="inline-flex">
-          <button
-              class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-          >
+        <div v-popper class="inline-flex">
+          <button class="popper-ref btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="size-5"
@@ -435,10 +397,8 @@ export default {
             </svg>
           </button>
         </div>
-        <div id="employees-menu" class="inline-flex">
-          <button
-              class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-          >
+        <div v-popper class="inline-flex">
+          <button class="popper-ref btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="size-4.5"
