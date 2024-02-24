@@ -4,11 +4,13 @@ import Drawer from "@/components/drawer.js";
 import Notification from "@/views/main/header/Notification.vue";
 import DarkModeButton from "@/components/theme/DarkModeButton.vue";
 import MonochromeButton from "@/components/theme/MonochromeButton.vue";
+import SidebarToggleButton from "@/components/theme/SidebarToggleButton.vue";
 export default {
   name: "FileManager",
   components: {
     'ui-dark-mode-btn': DarkModeButton,
     'ui-monochrome-btn': MonochromeButton,
+    'ui-sidebar-toggle-btn': SidebarToggleButton,
     'ui-notification': Notification
   },
   mounted() {
@@ -32,19 +34,13 @@ export default {
       <div class="flex w-full items-center justify-between">
         <!-- Left: Sidebar Toggle Button -->
         <div class="size-7">
-          <button class="sidebar-toggle ml-0.5 flex size-7 flex-col justify-center space-y-1.5 text-primary outline-none focus:outline-none dark:text-accent-light/80">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+          <ui-sidebar-toggle-btn />
         </div>
 
         <!-- Right: Header buttons -->
         <div class="-mr-1.5 flex items-center space-x-2">
           <!-- Mobile Search Toggle -->
-          <button
-              class="mobile-searchbar-show btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:hidden"
-          >
+          <button class="mobile-searchbar-show btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:hidden">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="size-5.5 text-slate-500 dark:text-navy-100"
@@ -1165,15 +1161,9 @@ export default {
 
   <!-- Right Sidebar -->
   <div id="right-sidebar" class="drawer drawer-right">
-    <div
-        class="drawer-overlay fixed inset-0 z-[150] hidden bg-slate-900/60"
-    ></div>
-    <div
-        class="drawer-content fixed right-0 top-0 z-[151] hidden h-full w-full sm:w-80"
-    >
-      <div
-          class="right-sidebar-tab-wrapper w-ful relative flex h-full flex-col bg-white dark:bg-navy-750"
-      >
+    <div class="drawer-overlay fixed inset-0 z-[150] hidden bg-slate-900/60"></div>
+    <div class="drawer-content fixed right-0 top-0 z-[151] hidden h-full w-full sm:w-80">
+      <div class="right-sidebar-tab-wrapper w-ful relative flex h-full flex-col bg-white dark:bg-navy-750">
         <div class="flex items-center justify-between py-2 px-4">
           <p
               data-header="#right-sidebar-tab-home"

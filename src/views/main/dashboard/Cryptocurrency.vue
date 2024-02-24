@@ -1,8 +1,327 @@
 <script>
 import Dashboards from "@/views/main/dashboard/Dashboards.vue";
-
+import Tab from "@/components/tab.js";
 export default {
-  extends: Dashboards
+  extends: Dashboards,
+  data() {
+    return {
+      watchlist1Config: {
+        colors: ["#F7931A"],
+        chart: {
+          height: 60,
+          width: 120,
+          type: "line",
+          parentHeightOffset: 0,
+          toolbar: {
+            show: false,
+          },
+        },
+        series: [
+          {
+            name: "Stat",
+            data: [20, 420, 102, 540, 275, 614],
+          },
+        ],
+
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "smooth",
+          width: 3,
+        },
+
+        grid: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: -28,
+            bottom: 0,
+          },
+        },
+        xaxis: {
+          show: false,
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+          },
+        },
+        yaxis: {
+          show: false,
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+          },
+        },
+      },
+      watchlist2Config: {
+        colors: ["#627EEA"],
+        chart: {
+          height: 60,
+          width: 120,
+          type: "line",
+          parentHeightOffset: 0,
+          toolbar: {
+            show: false,
+          },
+        },
+        series: [
+          {
+            name: "Stat",
+            data: [54, 77, 43, 69, 12],
+          },
+        ],
+
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "smooth",
+          width: 3,
+        },
+
+        grid: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: -28,
+            bottom: 0,
+          },
+        },
+        xaxis: {
+          show: false,
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+          },
+        },
+        yaxis: {
+          show: false,
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+          },
+        },
+      },
+      watchlist3Config: {
+        colors: ["#3AC5BC"],
+        chart: {
+          height: 60,
+          width: 120,
+          type: "line",
+          parentHeightOffset: 0,
+          toolbar: {
+            show: false,
+          },
+        },
+        series: [
+          {
+            name: "Stat",
+            data: [654, 820, 102, 540, 154, 614],
+          },
+        ],
+
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "smooth",
+          width: 3,
+        },
+
+        grid: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: -28,
+            bottom: 0,
+          },
+        },
+        xaxis: {
+          show: false,
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+          },
+        },
+        yaxis: {
+          show: false,
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+          },
+        },
+      },
+      watchlist4Config: {
+        colors: ["#4073C3"],
+        chart: {
+          height: 60,
+          width: 120,
+          type: "line",
+          parentHeightOffset: 0,
+          toolbar: {
+            show: false,
+          },
+        },
+        series: [
+          {
+            name: "Stat",
+            data: [0, 20, 10, 30, 20, 50],
+          },
+        ],
+
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "smooth",
+          width: 3,
+        },
+
+        grid: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: -28,
+            bottom: 0,
+          },
+        },
+        xaxis: {
+          show: false,
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+          },
+        },
+        yaxis: {
+          show: false,
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+          },
+        },
+      },
+      transactionsConfig: {
+        colors: ["#0EA5E9", "#F000B9"],
+        series: [
+          {
+            name: "Income",
+            data: [28, 45, 35, 50, 32, 48, 31],
+          },
+          {
+            name: "outcome",
+            data: [14, 25, 20, 25, 12, 16, 12],
+          },
+        ],
+        chart: {
+          height: 228,
+          type: "bar",
+          toolbar: {
+            show: false,
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 5,
+            barHeight: "90%",
+            columnWidth: "40%",
+          },
+        },
+        legend: {
+          show: false,
+        },
+        xaxis: {
+          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          tooltip: {
+            enabled: false,
+          },
+        },
+        grid: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: -10,
+          },
+        },
+        yaxis: {
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+          },
+        },
+      },
+      dropdownConfig: {
+        placement: "bottom-end",
+        modifiers: [
+          {
+            name: "offset",
+            options: {
+              offset: [0, 4],
+            },
+          },
+        ],
+      }
+    }
+  },
+  mounted() {
+    new Tab(this.$refs["exchange-tab"]);
+  }
 }
 </script>
 
@@ -16,10 +335,8 @@ export default {
       >
         <div class="flex items-center justify-between py-3 text-white">
           <h2 class="text-sm+ font-medium tracking-wide">Your Balance</h2>
-          <div id="balance-menu" class="inline-flex">
-            <button
-                class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-white/20 focus:bg-white/20 active:bg-white/25"
-            >
+          <div v-popper="{ ref: '.popper-ref', root: '.popper-root', config: dropdownConfig }" class="inline-flex">
+            <button class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-white/20 focus:bg-white/20 active:bg-white/25">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-5 w-5"
@@ -37,9 +354,7 @@ export default {
             </button>
 
             <div class="popper-root">
-              <div
-                  class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
-              >
+              <div class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700">
                 <ul>
                   <li>
                     <a
@@ -182,10 +497,8 @@ export default {
           >
             Watchlist
           </h2>
-          <div id="watchlist-menu" class="inline-flex">
-            <button
-                class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-            >
+          <div v-popper="{ ref: '.popper-ref', root: '.popper-root', config: dropdownConfig }" class="inline-flex">
+            <button class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-5 w-5"
@@ -252,7 +565,7 @@ export default {
             <div class="flex items-center space-x-2">
               <img
                   class="h-6 w-6"
-                  src="images/100x100.png"                     alt="flag"
+                  src="/images/100x100.png"                     alt="flag"
               />
               <div>
                 <span>Bitcoin</span>
@@ -268,7 +581,7 @@ export default {
                 class="mt-2.5 flex justify-between rounded-lg bg-slate-50 py-3 pr-3 dark:bg-navy-600"
             >
               <div class="ax-transparent-gridline">
-                <div id="watchlist-1-chart"></div>
+                <div v-apex-charts="watchlist1Config"></div>
               </div>
               <div
                   class="flex w-36 flex-col items-center rounded-lg bg-slate-100 py-2 font-inter dark:bg-navy-500"
@@ -304,7 +617,7 @@ export default {
             <div class="flex items-center space-x-2">
               <img
                   class="h-6 w-6"
-                  src="images/100x100.png"                     alt="flag"
+                  src="/images/100x100.png"                     alt="flag"
               />
               <div>
                 <span>Ethereum</span>
@@ -320,7 +633,7 @@ export default {
                 class="mt-2.5 flex justify-between rounded-lg bg-slate-50 py-3 pr-3 dark:bg-navy-600"
             >
               <div class="ax-transparent-gridline">
-                <div id="watchlist-2-chart"></div>
+                <div v-apex-charts="watchlist2Config"></div>
               </div>
               <div
                   class="flex w-36 flex-col items-center rounded-lg bg-slate-100 py-2 font-inter dark:bg-navy-500"
@@ -356,7 +669,7 @@ export default {
             <div class="flex items-center space-x-2">
               <img
                   class="h-6 w-6"
-                  src="images/100x100.png"                     alt="flag"
+                  src="/images/100x100.png"                     alt="flag"
               />
               <div>
                 <span>Solana</span>
@@ -372,7 +685,7 @@ export default {
                 class="mt-2.5 flex justify-between rounded-lg bg-slate-50 py-3 pr-3 dark:bg-navy-600"
             >
               <div class="ax-transparent-gridline">
-                <div id="watchlist-3-chart"></div>
+                <div v-apex-charts="watchlist3Config"></div>
               </div>
               <div
                   class="flex w-36 flex-col items-center rounded-lg bg-slate-100 py-2 font-inter dark:bg-navy-500"
@@ -408,7 +721,7 @@ export default {
             <div class="flex items-center space-x-2">
               <img
                   class="h-6 w-6"
-                  src="images/100x100.png"                     alt="flag"
+                  src="/images/100x100.png"                     alt="flag"
               />
               <div>
                 <span>Litecoin</span>
@@ -424,7 +737,7 @@ export default {
                 class="mt-2.5 flex justify-between rounded-lg bg-slate-50 py-3 pr-3 dark:bg-navy-600"
             >
               <div class="ax-transparent-gridline">
-                <div id="watchlist-4-chart"></div>
+                <div v-apex-charts="watchlist4Config"></div>
               </div>
               <div
                   class="flex w-36 flex-col items-center rounded-lg bg-slate-100 py-2 font-inter dark:bg-navy-500"
@@ -495,10 +808,8 @@ export default {
               </button>
             </div>
 
-            <div id="activities-menu" class="inline-flex">
-              <button
-                  class="popper-ref btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-              >
+            <div v-popper="{ ref: '.popper-ref', root: '.popper-root', config: dropdownConfig }" class="inline-flex">
+              <button class="popper-ref btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-4.5 w-4.5"
@@ -1113,7 +1424,7 @@ export default {
           >
             Accounts
           </h2>
-          <div id="accounts-menu" class="inline-flex">
+          <div v-popper="{ ref: '.popper-ref', root: '.popper-root', config: dropdownConfig }" class="inline-flex">
             <button
                 class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
             >
@@ -1186,7 +1497,7 @@ export default {
               <div class="flex items-center justify-between">
                 <p>Bitcoin</p>
                 <img
-                    src="images/100x100.png"                       class="h-6 w-6"
+                    src="/images/100x100.png"                       class="h-6 w-6"
                     alt="logo"
                 />
               </div>
@@ -1209,7 +1520,7 @@ export default {
               <div class="flex items-center justify-between">
                 <p>Litecoin</p>
                 <img
-                    src="images/100x100.png"                       class="h-6 w-6"
+                    src="/images/100x100.png"                       class="h-6 w-6"
                     alt="logo"
                 />
               </div>
@@ -1231,7 +1542,7 @@ export default {
               <div class="flex items-center justify-between">
                 <p>Ethereum</p>
                 <img
-                    src="images/100x100.png"                       class="h-6 w-6"
+                    src="/images/100x100.png"                       class="h-6 w-6"
                     alt="logo"
                 />
               </div>
@@ -1257,7 +1568,7 @@ export default {
             <div class="avatar h-8 w-8 hover:z-10">
               <img
                   class="rounded-full ring ring-white dark:ring-navy-700"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -1273,7 +1584,7 @@ export default {
             <div class="avatar h-8 w-8 hover:z-10">
               <img
                   class="rounded-full ring ring-white dark:ring-navy-700"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -1281,7 +1592,7 @@ export default {
             <div class="avatar h-8 w-8 hover:z-10">
               <img
                   class="rounded-full ring ring-white dark:ring-navy-700"
-                  src="images/200x200.png"
+                  src="/images/200x200.png"
                   alt="avatar"
               />
             </div>
@@ -1321,7 +1632,7 @@ export default {
             >
               Exchange
             </h2>
-            <div id="exchange-menu" class="inline-flex">
+            <div v-popper="{ ref: '.popper-ref', root: '.popper-root', config: dropdownConfig }" class="inline-flex">
               <button
                   class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
               >
@@ -1384,10 +1695,8 @@ export default {
               </div>
             </div>
           </div>
-          <div id="exchange-tab" class="tabs mt-3 flex flex-col">
-            <div
-                class="is-scrollbar-hidden overflow-x-auto rounded-lg bg-slate-150 text-slate-600 dark:bg-navy-800 dark:text-navy-200"
-            >
+          <div ref="exchange-tab" class="tabs mt-3 flex flex-col">
+            <div class="is-scrollbar-hidden overflow-x-auto rounded-lg bg-slate-150 text-slate-600 dark:bg-navy-800 dark:text-navy-200">
               <div class="tabs-list flex px-1.5 py-1">
                 <button
                     data-target="#exchange-tab-receive"
@@ -1509,7 +1818,7 @@ export default {
           >
             Transactions
           </h2>
-          <div id="transactions-menu" class="inline-flex">
+          <div v-popper="{ ref: '.popper-ref', root: '.popper-root', config: dropdownConfig }" class="inline-flex">
             <button
                 class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
             >
@@ -1574,7 +1883,7 @@ export default {
         </div>
 
         <div class="ax-transparent-gridline pr-2">
-          <div id="transactions-chart"></div>
+          <div v-apex-charts="transactionsConfig"></div>
         </div>
       </div>
     </div>

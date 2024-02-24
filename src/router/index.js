@@ -60,6 +60,46 @@ const routes = [
             component: () => import('../views/main/dashboard/Cryptocurrency.vue')
           },
           {
+            path: 'workspaces',
+            name: 'workspaces',
+            component: () => import('../views/main/dashboard/Workspaces.vue')
+          },
+          {
+            path: 'doctor',
+            name: 'doctor',
+            component: () => import('../views/main/dashboard/Doctor.vue')
+          },
+          {
+            path: 'project-boards',
+            name: 'project-boards',
+            component: () => import('../views/main/dashboard/ProjectBoards.vue')
+          },
+          {
+            path: 'teacher',
+            name: 'teacher',
+            component: () => import('../views/main/dashboard/Teacher.vue')
+          },
+          {
+            path: 'education',
+            name: 'education',
+            component: () => import('../views/main/dashboard/Education.vue')
+          },
+          {
+            path: 'employees',
+            name: 'employees',
+            component: () => import('../views/main/dashboard/Employees.vue')
+          },
+          {
+            path: 'personal',
+            name: 'personal',
+            component: () => import('../views/main/dashboard/Personal.vue')
+          },
+          {
+            path: 'meetings',
+            name: 'meetings',
+            component: () => import('../views/main/dashboard/Meetings.vue')
+          },
+          {
             path: 'widget-contacts',
             name: 'widget-contacts',
             component: () => import('../views/main/dashboard/WidgetContacts.vue')

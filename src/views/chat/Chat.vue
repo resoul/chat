@@ -1,5 +1,4 @@
 <script>
-import { useSidebarStore } from "@/components/sidebar.js";
 import Tab from "@/components/tab.js";
 import Popper from "@/components/popper.js";
 import Drawer from "@/components/drawer.js";
@@ -8,19 +7,16 @@ import Avatar from "@/views/chat/messages/Avatar.vue";
 import Text from "@/views/chat/messages/types/Text.vue";
 import Media from "@/views/chat/messages/types/Media.vue";
 import GroupMedia from "@/views/chat/messages/types/GroupMedia.vue";
+import SidebarToggleButton from "@/components/theme/SidebarToggleButton.vue";
 export default {
   name: "Chat",
   components: {
     'ui-dark-mode-btn': DarkModeButton,
+    'ui-sidebar-toggle-btn': SidebarToggleButton,
     'ui-avatar': Avatar,
     'text' : Text,
     'media' : Media,
     'group-media' : GroupMedia,
-  },
-  setup() {
-    const sidebar = useSidebarStore();
-
-    return { sidebar }
   },
   data() {
     return {
@@ -255,11 +251,7 @@ export default {
   <div class="chat-header relative z-10 flex h-[61px] w-full shrink-0 items-center justify-between border-b border-slate-150 bg-white px-[calc(var(--margin-x)-.5rem)] shadow-sm transition-[padding,width] duration-[.25s] dark:border-navy-700 dark:bg-navy-800">
     <div class="flex items-center space-x-5">
       <div class="ml-1 size-7">
-        <button @click="sidebar.toggle()" class="sidebar-toggle ml-0.5 flex size-7 flex-col justify-center space-y-1.5 text-primary outline-none focus:outline-none dark:text-accent-light/80">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <ui-sidebar-toggle-btn />
       </div>
       <div data-toggle="drawer" data-target="#chat-detail" class="flex cursor-pointer items-center space-x-4 font-inter">
         <ui-avatar src="/images/200x200.png" alt="avatar" />

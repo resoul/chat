@@ -63,8 +63,40 @@
           "name": "Cryptocurrency"
         },
         {
+          "route": "/dashboard/personal",
+          "name": "Personal"
+        },
+        {
+          "route": "/dashboard/meetings",
+          "name": "Meetings"
+        },
+        {
+          "route": "/dashboard/doctor",
+          "name": "Doctor"
+        },
+        {
+          "route": "/dashboard/teacher",
+          "name": "Teacher"
+        },
+        {
+          "route": "/dashboard/project-boards",
+          "name": "Project Boards"
+        },
+        {
           "route": "/dashboard/banking",
           "name": "Banking"
+        },
+        {
+          "route": "/dashboard/employees",
+          "name": "Employees"
+        },
+        {
+          "route": "/dashboard/education",
+          "name": "Education"
+        },
+        {
+          "route": "/dashboard/workspaces",
+          "name": "Workspaces"
         }
       ],
       [
