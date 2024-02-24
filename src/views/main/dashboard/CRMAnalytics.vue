@@ -215,43 +215,22 @@ export default {
             show: false,
           },
         },
+      },
+      dropdownConfig: {
+        placement: "bottom-end",
+        modifiers: [
+          {
+            name: "offset",
+            options: {
+              offset: [0, 4],
+            },
+          },
+        ],
       }
     }
   },
   mounted() {
     new Tab(this.$refs["sales-tab"]);
-    const dropdownConfig = {
-      placement: "bottom-end",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
-          },
-        },
-      ],
-    };
-
-    new Popper(this.$refs["project-status-menu"],
-        this.$refs["project-status-menu-ref"],
-        this.$refs["project-status-menu-root"],
-        dropdownConfig
-    );
-    new Popper(this.$refs["satisfaction-menu"],
-        this.$refs["satisfaction-menu-ref"],
-        this.$refs["satisfaction-menu-root"],
-        dropdownConfig
-    );
-    new Popper(this.$refs["bandwidth-menu"],
-        this.$refs["bandwidth-menu-ref"],
-        this.$refs["bandwidth-menu-root"],
-        dropdownConfig
-    );
-    new Popper(this.$refs["users-activity-menu"],
-        this.$refs["users-activity-menu-ref"],
-        this.$refs["users-activity-menu-root"],
-        dropdownConfig
-    );
   }
 }
 </script>
@@ -546,10 +525,8 @@ export default {
         >
           Projects Status
         </h2>
-        <div ref="project-status-menu" class="inline-flex">
-          <button ref="project-status-menu-ref"
-              class="popper-ref btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-          >
+        <div v-popper="{ root: '.popper-root', ref: '.popper-ref', config: dropdownConfig }" class="inline-flex">
+          <button class="popper-ref btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -566,10 +543,8 @@ export default {
             </svg>
           </button>
 
-          <div class="popper-root" ref="project-status-menu-root">
-            <div
-                class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
-            >
+          <div class="popper-root">
+            <div class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700">
               <ul>
                 <li>
                   <a
@@ -856,10 +831,8 @@ export default {
         >
           Customer Satisfaction
         </h2>
-        <div ref="satisfaction-menu" class="inline-flex">
-          <button ref="satisfaction-menu-ref"
-              class="popper-ref btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-          >
+        <div v-popper="{ root: '.popper-root', ref: '.popper-ref', config: dropdownConfig }" class="inline-flex">
+          <button class="popper-ref btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -876,10 +849,8 @@ export default {
             </svg>
           </button>
 
-          <div class="popper-root" ref="satisfaction-menu-root">
-            <div
-                class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
-            >
+          <div class="popper-root">
+            <div class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700">
               <ul>
                 <li>
                   <a
@@ -2297,8 +2268,8 @@ export default {
         >
           Bandwidth Report
         </h2>
-        <div ref="bandwidth-menu" class="inline-flex">
-          <button ref="bandwidth-menu-ref" class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+        <div v-popper="{ root: '.popper-root', ref: '.popper-ref', config: dropdownConfig }" class="inline-flex">
+          <button class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -2315,7 +2286,7 @@ export default {
             </svg>
           </button>
 
-          <div class="popper-root" ref="bandwidth-menu-root">
+          <div class="popper-root">
             <div
                 class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700"
             >
@@ -2507,8 +2478,8 @@ export default {
         >
           Users Activity
         </h2>
-        <div ref="users-activity-menu" class="inline-flex">
-          <button ref="users-activity-menu-ref" class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+        <div v-popper="{ root: '.popper-root', ref: '.popper-ref', config: dropdownConfig }" class="inline-flex">
+          <button class="popper-ref btn -mr-1.5 h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -2525,7 +2496,7 @@ export default {
             </svg>
           </button>
 
-          <div class="popper-root" ref="users-activity-menu-root">
+          <div class="popper-root">
             <div class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700">
               <ul>
                 <li>
