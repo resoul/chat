@@ -6,12 +6,21 @@ import Avatar from "@/views/chat/messages/Avatar.vue";
 import Text from "@/views/chat/messages/types/Text.vue";
 import Media from "@/views/chat/messages/types/Media.vue";
 import GroupMedia from "@/views/chat/messages/types/GroupMedia.vue";
+import ProfileSidebarIcon from "@/components/icons/ProfileSidebarIcon.vue";
 import SidebarToggleButton from "@/components/theme/SidebarToggleButton.vue";
+import SearchIcon from "@/components/icons/SearchIcon.vue";
+import PhoneIcon from "@/components/icons/PhoneIcon.vue";
 import Directives from "@/components/theme/Directives.vue";
+import { useProfileStore } from "@/components/theme/profile.js";
+import { useChatStore } from "@/components/chat.js";
+
 export default {
   name: "Chat",
   extends: Directives,
   components: {
+    'ui-phone-icon': PhoneIcon,
+    'ui-search-icon': SearchIcon,
+    'ui-sidebar-sidebar-icon': ProfileSidebarIcon,
     'ui-dark-mode-btn': DarkModeButton,
     'ui-sidebar-toggle-btn': SidebarToggleButton,
     'ui-avatar': Avatar,
@@ -21,7 +30,6 @@ export default {
   },
   data() {
     return {
-      isShowChatInfo: false,
       owner: 'Konnor Guzman',
       owner_id: 1,
       last_seen: 'Last seen recently',
@@ -159,6 +167,12 @@ export default {
       ]
     }
   },
+  setup() {
+    const profile = useProfileStore();
+    const chat = useChatStore();
+
+    return { profile, chat }
+  },
   computed: {
     messagesGroup() {
       var lastDate = false;
@@ -195,44 +209,9 @@ export default {
     }
   },
   mounted() {
-    const chatDetailsDrawer = new Drawer("#chat-detail", (isActive) => {
-      if (isActive) {
-        document.querySelector("main.chat-app").classList.add("lg:mr-80");
-        document.querySelector("#chat-detail-toggle").classList.add(
-            "text-primary",
-            "dark:text-accent-light"
-        );
-      } else {
-        document.querySelector("main.chat-app").classList.remove("lg:mr-80");
-        document.querySelector("#chat-detail-toggle").classList.remove(
-            "text-primary",
-            "dark:text-accent-light"
-        );
-      }
-    });
-
-    if (this.$breakpoint.lgAndUp) {
-      chatDetailsDrawer.open();
-    }
-
-    window.addEventListener("change:breakpoint", () => {
-      if (chatDetailsDrawer.isActive) chatDetailsDrawer.close();
-    });
-
-
     new Tab(this.$refs.tab);
 
     new Drawer("#right-sidebar");
-  },
-  directives: {
-    'scroll-to-bottom': {
-      mounted(el) {
-        el.scrollTop = el.scrollHeight;
-      },
-      updated(el) {
-        el.scrollTop = el.scrollHeight;
-      }
-    }
   }
 }
 </script>
@@ -243,7 +222,7 @@ export default {
       <div class="ml-1 size-7">
         <ui-sidebar-toggle-btn />
       </div>
-      <div data-toggle="drawer" data-target="#chat-detail" class="flex cursor-pointer items-center space-x-4 font-inter">
+      <div @click="chat.open()" class="flex cursor-pointer items-center space-x-4 font-inter">
         <ui-avatar src="/images/200x200.png" alt="avatar" />
         <div>
           <p class="font-medium text-slate-700 line-clamp-1 dark:text-navy-100" v-text="owner"></p>
@@ -253,58 +232,19 @@ export default {
     </div>
     <div class="-mr-1 flex items-center">
       <button class="btn hidden size-9 rounded-full p-0 text-slate-500 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:flex">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="size-5.5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.5"
-        >
-          <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-          />
-        </svg>
+        <ui-phone-icon />
       </button>
       <button class="btn size-9 rounded-full p-0 text-slate-500 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="size-5.5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.5"
-        >
-          <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-          />
-        </svg>
+        <ui-search-icon />
       </button>
-      <button @click="isShowChatInfo = !isShowChatInfo"
+      <button @click="chat.toggle()"
           data-toggle="drawer"
           data-target="#chat-detail"
           id="chat-detail-toggle"
-          :class="isShowChatInfo ? 'text-primary dark:text-accent-light' : 'text-slate-500 dark:text-navy-200'"
+          :class="chat.hasProfileWindowOpen ? 'text-primary dark:text-accent-light' : 'text-slate-500 dark:text-navy-200'"
           class="btn hidden size-9 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:flex"
       >
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="size-5.5"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-        >
-          <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M9.25 21.167h5.5c4.584 0 6.417-1.834 6.417-6.417v-5.5c0-4.583-1.834-6.417-6.417-6.417h-5.5c-4.583 0-6.417 1.834-6.417 6.417v5.5c0 4.583 1.834 6.417 6.417 6.417ZM13.834 2.833v18.334"
-          />
-        </svg>
+        <ui-sidebar-sidebar-icon />
       </button>
       <div v-popper class="inline-flex">
         <button class="popper-ref btn size-9 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
@@ -449,7 +389,7 @@ export default {
               <p v-if="i === group.items.length - 1" :class="group.owner_id === owner_id ? 'text-left' : 'text-right'" class="text-xs text-slate-400 dark:text-navy-300 mt-1 ml-auto">{{ formatTime(group.lastSend) }}</p>
             </div>
           </div>
-          <ui-avatar src="/images/200x200.png" alt="avatar" v-if="group.owner_id === owner_id"/>
+          <ui-avatar :alt="profile.profile.name" :src="profile.profile.avatar" v-if="group.owner_id === owner_id"/>
         </div>
       </template>
     </div>
@@ -522,12 +462,10 @@ export default {
   </div>
 
   <div id="chat-detail" class="drawer drawer-right">
-    <div class="drawer-content fixed right-0 top-0 z-[101] hidden h-full w-full sm:w-80">
+    <div class="drawer-content fixed right-0 top-0 z-[101] h-full w-full sm:w-80" :class="{ hidden: !chat.hasProfileWindowOpen }">
       <div class="flex h-full w-full flex-col border-l border-slate-150 bg-white transition-transform duration-200 dark:border-navy-600 dark:bg-navy-750">
         <div class="flex h-[60px] items-center justify-between p-4">
-          <h3
-              class="text-base font-medium text-slate-700 dark:text-navy-100"
-          >
+          <h3 class="text-base font-medium text-slate-700 dark:text-navy-100">
             Chat Info
           </h3>
           <div class="-mr-1.5 flex space-x-1">

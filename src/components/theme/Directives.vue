@@ -53,6 +53,14 @@ export default {
         });
       }
     },
+    'scroll-to-bottom': {
+      mounted(el) {
+        el.scrollTop = el.scrollHeight;
+      },
+      updated(el) {
+        el.scrollTop = el.scrollHeight;
+      }
+    },
     cleave: {
       mounted(el, binding) {
         el.cleave = new Cleave(el, binding.value || {})

@@ -1,6 +1,13 @@
 <script>
+import { useChatStore } from "@/components/chat.js";
+
 export default {
   name: "Chat",
+  setup() {
+    const chat = useChatStore();
+
+    return { chat }
+  },
   mounted() {
     document.body.classList.add('has-min-sidebar')
   },
@@ -1675,7 +1682,7 @@ export default {
   </div>
 
   <!-- Main Content Wrapper -->
-  <main class="main-content h-100vh chat-app mt-0 flex w-full flex-col">
+  <main class="main-content h-100vh chat-app mt-0 flex w-full flex-col" :class="{ 'lg:mr-80' : chat.hasProfileWindowOpen }">
     <router-view />
   </main>
 </template>
