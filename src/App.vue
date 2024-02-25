@@ -11,6 +11,7 @@ import KanbanSidebar from "@/views/kanban/sidebar/Sidebar.vue";
 import FileManagerSidebar from "@/views/file/sidebar/Sidebar.vue";
 import { useThemeStore } from "@/components/theme/theme.js";
 import { useSidebarStore } from "@/components/sidebar.js";
+import { useProfileStore } from "@/components/theme/profile.js";
 import LinkIconTip from "@/components/tooltip/LinkIconTip.vue";
 import IconSettings from "@/components/icons/IconSettings.vue";
 import Profile from "@/views/layout/elemets/Profile.vue";
@@ -34,8 +35,10 @@ export default {
   setup() {
     const sidebar = useSidebarStore();
     const theme = useThemeStore();
+    const profile = useProfileStore();
     theme.init();
     sidebar.init();
+    profile.init();
   },
   data() {
     return {

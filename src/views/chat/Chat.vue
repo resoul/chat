@@ -1,6 +1,5 @@
 <script>
 import Tab from "@/components/tab.js";
-import Popper from "@/components/popper.js";
 import Drawer from "@/components/drawer.js";
 import DarkModeButton from "@/components/theme/DarkModeButton.vue";
 import Avatar from "@/views/chat/messages/Avatar.vue";
@@ -8,15 +7,17 @@ import Text from "@/views/chat/messages/types/Text.vue";
 import Media from "@/views/chat/messages/types/Media.vue";
 import GroupMedia from "@/views/chat/messages/types/GroupMedia.vue";
 import SidebarToggleButton from "@/components/theme/SidebarToggleButton.vue";
+import Directives from "@/components/theme/Directives.vue";
 export default {
   name: "Chat",
+  extends: Directives,
   components: {
     'ui-dark-mode-btn': DarkModeButton,
     'ui-sidebar-toggle-btn': SidebarToggleButton,
     'ui-avatar': Avatar,
-    'text' : Text,
-    'media' : Media,
-    'group-media' : GroupMedia,
+    'ui-text' : Text,
+    'ui-media' : Media,
+    'ui-group-media' : GroupMedia,
   },
   data() {
     return {
@@ -28,79 +29,79 @@ export default {
         {
           "owner_id": 1,
           "time": "2024-02-20T14:07:00.000Z",
-          "type": "text",
+          "type": "ui-text",
           "message": "Приветствую всех в чате!"
         },
         {
           "owner_id": 2,
           "time": "2024-02-20T14:07:05.000Z",
-          "type": "text",
+          "type": "ui-text",
           "message": "Добрый день! Рад присоединиться!"
         },
         {
           "owner_id": 1,
           "time": "2024-02-20T14:07:10.000Z",
-          "type": "text",
+          "type": "ui-text",
           "message": "Как у вас дела?"
         },
         {
           "owner_id": 1,
           "time": "2024-02-20T14:07:15.000Z",
-          "type": "text",
+          "type": "ui-text",
           "message": "У меня всё отлично, спасибо! А у тебя?"
         },
         {
           "owner_id": 1,
           "time": "2024-02-21T14:07:20.000Z",
-          "type": "text",
+          "type": "ui-text",
           "message": "Тоже хорошо. Чем сегодня занимаетесь?"
         },
         {
           "owner_id": 2,
           "time": "2024-02-22T14:07:25.000Z",
-          "type": "text",
+          "type": "ui-text",
           "message": "Я работаю над новым проектом. А ты?"
         },
         {
           "owner_id": 2,
-          "type": "text",
+          "type": "ui-text",
           "time": "2024-02-22T14:07:30.000Z",
           "message": "Я читаю интересную книгу."
         },
         {
           "owner_id": 1,
-          "type": "text",
+          "type": "ui-text",
           "time": "2024-02-22T14:07:35.000Z",
           "message": "О чем книга?"
         },
         {
           "owner_id": 3,
           "time": "2024-02-22T14:07:40.000Z",
-          "type": "text",
+          "type": "ui-text",
           "message": "О искусственном интеллекте."
         },
         {
           "owner_id": 2,
-          "type": "text",
+          "type": "ui-text",
           "time": "2024-02-22T14:07:45.000Z",
           "message": "Интересная тема! А как вы к ней относитесь?"
         },
         {
           "owner_id": 2,
-          "type": "text",
+          "type": "ui-text",
           "time": "2024-02-22T14:07:45.000Z",
           "message": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n" +
               "              Assumenda necessitatibus, ratione. Voluptatum."
         },
         {
           "owner_id": 2,
-          "type": "group-media",
+          "type": "ui-group-media",
           "time": "2024-02-22T14:07:45.000Z",
           "message": "Ei eum populo dictas, ad sed tempor minimum voluptatibus"
         },
         {
           "owner_id": 2,
-          "type": "text",
+          "type": "ui-text",
           "time": "2024-02-22T14:07:45.000Z",
           "message": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n" +
               "              Assumenda necessitatibus, ratione. Voluptatum."
@@ -108,12 +109,12 @@ export default {
         {
           "owner_id": 1,
           "time": "2024-02-22T14:07:40.000Z",
-          "type": "media",
+          "type": "ui-media",
           "message": "No mei stet periculis consequat, agam nostro"
         },
         {
           "owner_id": 1,
-          "type": "text",
+          "type": "ui-text",
           "time": "2024-02-22T14:07:45.000Z",
           "message": "Please Download This File"
         }
@@ -219,17 +220,6 @@ export default {
     });
 
 
-    new Popper(this.$refs.menu, this.$refs.ref, this.$refs.root, {
-      placement: "bottom-end",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
-          },
-        },
-      ],
-    });
     new Tab(this.$refs.tab);
 
     new Drawer("#right-sidebar");
@@ -316,8 +306,8 @@ export default {
           />
         </svg>
       </button>
-      <div ref="menu" class="inline-flex">
-        <button ref="ref" class="popper-ref btn size-9 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+      <div v-popper class="inline-flex">
+        <button class="popper-ref btn size-9 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
           <svg
               xmlns="http://www.w3.org/2000/svg"
               class="size-5.5"
@@ -334,7 +324,7 @@ export default {
           </svg>
         </button>
 
-        <div class="popper-root" ref="root">
+        <div class="popper-root">
           <div class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700">
             <ul>
               <li>
