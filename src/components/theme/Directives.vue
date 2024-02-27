@@ -4,6 +4,7 @@ import Swiper from "swiper";
 import ApexCharts from "apexcharts";
 import Cleave from "cleave.js";
 import Accordion from "accordion-js";
+import tippy, { roundArrow } from "tippy.js";
 export default {
   directives: {
     popper: {
@@ -33,6 +34,29 @@ export default {
         }
 
         new Popper(el, el.querySelector(ref), el.querySelector(root), config);
+      }
+    },
+    tooltip: {
+      mounted(el, binding) {
+        const tippyPlugins = { roundArrow };
+        var config = {
+          animation: 'shift-away',
+          zIndex: 10003,
+          arrow: tippyPlugins.roundArrow,
+          content: '',
+          placement: 'right',
+          plugins: [],
+        }
+
+        if (binding.value && binding.value.placement) {
+          config.placement = binding.value.placement;
+        }
+
+        if (binding.value && binding.value.content) {
+          config.content = binding.value.content;
+        }
+
+        tippy(el, config);
       }
     },
     accordion: {

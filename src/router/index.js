@@ -41,7 +41,7 @@ const routes = [
         children: [
           {
             path: 'crm-analytics',
-            name: 'analytics',
+            name: 'crm-analytics',
             component: () => import('../views/main/dashboard/CRMAnalytics.vue')
           },
           {

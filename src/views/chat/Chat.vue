@@ -1,6 +1,5 @@
 <script>
 import Tab from "@/components/tab.js";
-import Drawer from "@/components/drawer.js";
 import DarkModeButton from "@/components/theme/DarkModeButton.vue";
 import Avatar from "@/views/chat/messages/Avatar.vue";
 import Text from "@/views/chat/messages/types/Text.vue";
@@ -13,6 +12,7 @@ import PhoneIcon from "@/components/icons/PhoneIcon.vue";
 import Directives from "@/components/theme/Directives.vue";
 import { useProfileStore } from "@/components/theme/profile.js";
 import { useChatStore } from "@/components/chat.js";
+import { useRightSidebarStore } from "@/components/right-sidebar/right-sidebar.js";
 
 export default {
   name: "Chat",
@@ -170,8 +170,9 @@ export default {
   setup() {
     const profile = useProfileStore();
     const chat = useChatStore();
+    const sidebar = useRightSidebarStore();
 
-    return { profile, chat }
+    return { profile, chat, sidebar }
   },
   computed: {
     messagesGroup() {
@@ -210,8 +211,6 @@ export default {
   },
   mounted() {
     new Tab(this.$refs.tab);
-
-    new Drawer("#right-sidebar");
   }
 }
 </script>
@@ -372,7 +371,6 @@ export default {
       </div>
     </div>
   </div>
-
   <div class="scrollbar-sm grow overflow-y-auto px-[calc(var(--margin-x)-.5rem)] py-5 transition-all duration-[.25s]" v-scroll-to-bottom>
     <div class="space-y-5">
       <template v-for="(group, index) in messagesGroup" :key="index">
@@ -394,7 +392,6 @@ export default {
       </template>
     </div>
   </div>
-
   <div class="chat-footer relative flex h-12 w-full shrink-0 items-center justify-between border-t border-slate-150 bg-white px-[calc(var(--margin-x)-.25rem)] transition-[padding,width] duration-[.25s] dark:border-navy-600 dark:bg-navy-800">
     <div class="-ml-1.5 flex flex-1 space-x-2">
       <button class="btn size-9 shrink-0 rounded-full p-0 text-slate-500 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
@@ -460,7 +457,6 @@ export default {
       </button>
     </div>
   </div>
-
   <div id="chat-detail" class="drawer drawer-right">
     <div class="drawer-content fixed right-0 top-0 z-[101] h-full w-full sm:w-80" :class="{ hidden: !chat.hasProfileWindowOpen }">
       <div class="flex h-full w-full flex-col border-l border-slate-150 bg-white transition-transform duration-200 dark:border-navy-600 dark:bg-navy-750">
@@ -469,18 +465,13 @@ export default {
             Chat Info
           </h3>
           <div class="-mr-1.5 flex space-x-1">
-            <button
-                data-toggle="drawer"
-                data-target="#right-sidebar"
-                class="btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-            >
+            <button @click="sidebar.open()" class="btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="size-5.5 text-slate-500 dark:text-navy-100"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke="currentColor"
-              >
+                  stroke="currentColor">
                 <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -489,7 +480,6 @@ export default {
                 />
               </svg>
             </button>
-
             <ui-dark-mode-btn />
             <button @click="chat.close()" class="btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
               <svg
@@ -572,7 +562,6 @@ export default {
             </button>
           </div>
         </div>
-
         <div ref="tab" class="tabs mt-6 flex flex-col">
           <div class="is-scrollbar-hidden overflow-x-auto px-4">
             <div class="tabs-list flex">

@@ -2,6 +2,7 @@
   "list": [
     {
       "uuid": "q79qw-rwersd-5654tew4-tr36",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Alfredo Elliott",
       "time": "11:03",
@@ -12,6 +13,7 @@
     },
     {
       "uuid": "q79qw-rwersd-5654qew4-tr36",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Konnor Guzman",
       "time": "09:16",
@@ -22,6 +24,7 @@
     },
     {
       "uuid": "q79qw-rwersd-5154qew4-tr36",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Travis Fuller",
       "time": "08:05",
@@ -32,6 +35,7 @@
     },
     {
       "uuid": "q19qw-rwersd-5154qew4-tr36",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Derrick Simmons",
       "time": "06:21",
@@ -42,6 +46,7 @@
     },
     {
       "uuid": "q19qw-rwersd-5154qew4-tr31",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Katrina West",
       "time": "06:21",
@@ -52,6 +57,7 @@
     },
     {
       "uuid": "q19qw-rwersd-5154qew4-tr31",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Corey Evans",
       "time": "Tue",
@@ -62,6 +68,7 @@
     },
     {
       "uuid": "q19qw-rwersd-5154qew4-tr31",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Anthony Jensen",
       "time": "Tue",
@@ -72,6 +79,7 @@
     },
     {
       "uuid": "qr5qw-rwersd-5154qew4-tr31",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Lance Tucker",
       "time": "Tue",
@@ -82,6 +90,7 @@
     },
     {
       "uuid": "q79qw-rwersd-5654qe8a-tr36",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Konnor Guzman",
       "time": "09:16",
@@ -92,6 +101,7 @@
     },
     {
       "uuid": "q79qw-rwersd-5154qzw4-tr36",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Travis Fuller",
       "time": "08:05",
@@ -102,6 +112,7 @@
     },
     {
       "uuid": "q19qw-rwersd-5154qew4-tx36",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Derrick Simmons",
       "time": "06:21",
@@ -112,6 +123,7 @@
     },
     {
       "uuid": "q19qw-rwersd-5154qew4-tr30",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Katrina West",
       "time": "06:21",
@@ -122,6 +134,7 @@
     },
     {
       "uuid": "q19qw-rwersd-5154qhw4-tr31",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Corey Evans",
       "time": "Tue",
@@ -132,6 +145,7 @@
     },
     {
       "uuid": "q19qw-rwdrsd-5154qew4-tr31",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Anthony Jensen",
       "time": "Tue",
@@ -142,6 +156,7 @@
     },
     {
       "uuid": "qr5qw-rwersd-5154qew4-tl31",
+      "route": "/chat",
       "avatar": "/images/200x200.png",
       "name": "Lance Tucker",
       "time": "Tue",

@@ -37,14 +37,14 @@ export const useChatStore = defineStore({
             this.isProfileWindowOpen = !this.isProfileWindowOpen
         },
         fetchStories() {
-            fetch('/data/stories.json')
+            fetch(`/${import.meta.env.VITE_STORIES_PATH}`)
                 .then((response) => response.json())
                 .then((json) => {
                     this.currentStories = json.stories
                 })
         },
         fetchChatList() {
-            fetch('/data/chat-list.json')
+            fetch(`/${import.meta.env.VITE_CHAT_LIST_PATH}`)
                 .then((response) => response.json())
                 .then((json) => {
                     this.chatList = json.list
