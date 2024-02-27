@@ -1,7 +1,13 @@
 <script>
 import Tab from "@/components/tab";
+import { useMobileSearchStore } from "@/views/main/header/searchbar.js";
 export default {
   name: "MobileSearchbar",
+  setup() {
+    const bar = useMobileSearchStore();
+
+    return { bar }
+  },
   mounted() {
     new Tab(this.$refs.tab);
   }
@@ -10,13 +16,9 @@ export default {
 
 <template>
   <!-- Mobile Searchbar -->
-  <div class="mobile-searchbar fixed inset-0 z-[100] hidden flex-col bg-white dark:bg-navy-700">
-    <div
-        class="flex items-center space-x-2 bg-slate-100 px-3 pt-2 dark:bg-navy-800"
-    >
-      <button
-          class="mobile-searchbar-hide btn -ml-1.5 size-7 shrink-0 rounded-full p-0 text-slate-600 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25"
-      >
+  <div :class="{ hidden : !bar.hasOpen }" class="mobile-searchbar fixed inset-0 z-[100] flex-col bg-white dark:bg-navy-700">
+    <div class="flex items-center space-x-2 bg-slate-100 px-3 pt-2 dark:bg-navy-800">
+      <button @click="bar.close()" class="mobile-searchbar-hide btn -ml-1.5 size-7 shrink-0 rounded-full p-0 text-slate-600 hover:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-100 dark:hover:bg-navy-300/20 dark:active:bg-navy-300/25">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             class="size-5"
@@ -92,12 +94,8 @@ export default {
       </button>
     </div>
 
-    <div
-        class="is-scrollbar-hidden overflow-y-auto overscroll-contain pb-2"
-    >
-      <div
-          class="is-scrollbar-hidden mt-3 flex space-x-4 overflow-x-auto px-3"
-      >
+    <div class="is-scrollbar-hidden overflow-y-auto overscroll-contain pb-2">
+      <div class="is-scrollbar-hidden mt-3 flex space-x-4 overflow-x-auto px-3">
         <a href="apps-kanban.html" class="w-14 text-center">
           <div class="avatar size-12">
             <div class="is-initial rounded-full bg-success text-white">

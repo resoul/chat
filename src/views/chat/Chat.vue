@@ -1,123 +1,40 @@
 <script>
 import Tab from "@/components/tab.js";
-import Popper from "@/components/popper.js";
-import Drawer from "@/components/drawer.js";
 import DarkModeButton from "@/components/theme/DarkModeButton.vue";
 import Avatar from "@/views/chat/messages/Avatar.vue";
 import Text from "@/views/chat/messages/types/Text.vue";
 import Media from "@/views/chat/messages/types/Media.vue";
 import GroupMedia from "@/views/chat/messages/types/GroupMedia.vue";
+import ProfileSidebarIcon from "@/components/icons/ProfileSidebarIcon.vue";
 import SidebarToggleButton from "@/components/theme/SidebarToggleButton.vue";
+import SearchIcon from "@/components/icons/SearchIcon.vue";
+import PhoneIcon from "@/components/icons/PhoneIcon.vue";
+import Directives from "@/components/theme/Directives.vue";
+import { useProfileStore } from "@/components/theme/profile.js";
+import { useChatStore } from "@/components/chat.js";
+import { useRightSidebarStore } from "@/components/right-sidebar/right-sidebar.js";
+import RightSidebarButton from "@/components/right-sidebar/RightSidebarButton.vue";
+
 export default {
   name: "Chat",
+  extends: Directives,
   components: {
+    'ui-phone-icon': PhoneIcon,
+    'ui-search-icon': SearchIcon,
+    'ui-sidebar-sidebar-icon': ProfileSidebarIcon,
     'ui-dark-mode-btn': DarkModeButton,
     'ui-sidebar-toggle-btn': SidebarToggleButton,
+    'ui-right-sidebar-btn': RightSidebarButton,
     'ui-avatar': Avatar,
-    'text' : Text,
-    'media' : Media,
-    'group-media' : GroupMedia,
+    'ui-text' : Text,
+    'ui-media' : Media,
+    'ui-group-media' : GroupMedia,
   },
   data() {
     return {
-      isShowChatInfo: false,
       owner: 'Konnor Guzman',
       owner_id: 1,
       last_seen: 'Last seen recently',
-      messages: [
-        {
-          "owner_id": 1,
-          "time": "2024-02-20T14:07:00.000Z",
-          "type": "text",
-          "message": "Приветствую всех в чате!"
-        },
-        {
-          "owner_id": 2,
-          "time": "2024-02-20T14:07:05.000Z",
-          "type": "text",
-          "message": "Добрый день! Рад присоединиться!"
-        },
-        {
-          "owner_id": 1,
-          "time": "2024-02-20T14:07:10.000Z",
-          "type": "text",
-          "message": "Как у вас дела?"
-        },
-        {
-          "owner_id": 1,
-          "time": "2024-02-20T14:07:15.000Z",
-          "type": "text",
-          "message": "У меня всё отлично, спасибо! А у тебя?"
-        },
-        {
-          "owner_id": 1,
-          "time": "2024-02-21T14:07:20.000Z",
-          "type": "text",
-          "message": "Тоже хорошо. Чем сегодня занимаетесь?"
-        },
-        {
-          "owner_id": 2,
-          "time": "2024-02-22T14:07:25.000Z",
-          "type": "text",
-          "message": "Я работаю над новым проектом. А ты?"
-        },
-        {
-          "owner_id": 2,
-          "type": "text",
-          "time": "2024-02-22T14:07:30.000Z",
-          "message": "Я читаю интересную книгу."
-        },
-        {
-          "owner_id": 1,
-          "type": "text",
-          "time": "2024-02-22T14:07:35.000Z",
-          "message": "О чем книга?"
-        },
-        {
-          "owner_id": 3,
-          "time": "2024-02-22T14:07:40.000Z",
-          "type": "text",
-          "message": "О искусственном интеллекте."
-        },
-        {
-          "owner_id": 2,
-          "type": "text",
-          "time": "2024-02-22T14:07:45.000Z",
-          "message": "Интересная тема! А как вы к ней относитесь?"
-        },
-        {
-          "owner_id": 2,
-          "type": "text",
-          "time": "2024-02-22T14:07:45.000Z",
-          "message": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n" +
-              "              Assumenda necessitatibus, ratione. Voluptatum."
-        },
-        {
-          "owner_id": 2,
-          "type": "group-media",
-          "time": "2024-02-22T14:07:45.000Z",
-          "message": "Ei eum populo dictas, ad sed tempor minimum voluptatibus"
-        },
-        {
-          "owner_id": 2,
-          "type": "text",
-          "time": "2024-02-22T14:07:45.000Z",
-          "message": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n" +
-              "              Assumenda necessitatibus, ratione. Voluptatum."
-        },
-        {
-          "owner_id": 1,
-          "time": "2024-02-22T14:07:40.000Z",
-          "type": "media",
-          "message": "No mei stet periculis consequat, agam nostro"
-        },
-        {
-          "owner_id": 1,
-          "type": "text",
-          "time": "2024-02-22T14:07:45.000Z",
-          "message": "Please Download This File"
-        }
-      ],
       tabMediaImages: [
         {
           src: "/images/800x600.png"
@@ -158,91 +75,24 @@ export default {
       ]
     }
   },
-  computed: {
-    messagesGroup() {
-      var lastDate = false;
-      return this.messages.reduce((result, item) => {
-        const lastGroup = result[result.length - 1];
+  setup() {
+    const profile = useProfileStore();
+    const chat = useChatStore();
+    const sidebar = useRightSidebarStore();
 
-        if (!lastGroup || lastGroup.owner_id !== item.owner_id) {
-          var row = {
-            owner_id: item.owner_id,
-            items: [item],
-            lastSend: item.time
-          };
-          if (lastDate !== new Date(item.time).toLocaleDateString()) {
-            row.lastDate = new Date(item.time).toLocaleDateString();
-            lastDate = new Date(item.time).toLocaleDateString();
-          }
-          result.push(row);
-        } else {
-          lastGroup.items.push(item);
-          lastGroup.lastSend = item.time;
-          if (lastDate !== new Date(item.time).toLocaleDateString()) {
-            lastGroup.lastDate = new Date(item.time).toLocaleDateString();
-            lastDate = new Date(item.time).toLocaleDateString();
-          }
-        }
-
-        return result;
-      }, []);
-    }
+    return { profile, chat, sidebar }
   },
+  computed: {},
   methods: {
     formatTime(time) {
       return new Date(time).toLocaleTimeString();
     }
   },
-  mounted() {
-    const chatDetailsDrawer = new Drawer("#chat-detail", (isActive) => {
-      if (isActive) {
-        document.querySelector("main.chat-app").classList.add("lg:mr-80");
-        document.querySelector("#chat-detail-toggle").classList.add(
-            "text-primary",
-            "dark:text-accent-light"
-        );
-      } else {
-        document.querySelector("main.chat-app").classList.remove("lg:mr-80");
-        document.querySelector("#chat-detail-toggle").classList.remove(
-            "text-primary",
-            "dark:text-accent-light"
-        );
-      }
-    });
-
-    if (this.$breakpoint.lgAndUp) {
-      chatDetailsDrawer.open();
-    }
-
-    window.addEventListener("change:breakpoint", () => {
-      if (chatDetailsDrawer.isActive) chatDetailsDrawer.close();
-    });
-
-
-    new Popper(this.$refs.menu, this.$refs.ref, this.$refs.root, {
-      placement: "bottom-end",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
-          },
-        },
-      ],
-    });
-    new Tab(this.$refs.tab);
-
-    new Drawer("#right-sidebar");
+  created() {
+    this.chat.fetchMessages()
   },
-  directives: {
-    'scroll-to-bottom': {
-      mounted(el) {
-        el.scrollTop = el.scrollHeight;
-      },
-      updated(el) {
-        el.scrollTop = el.scrollHeight;
-      }
-    }
+  mounted() {
+    new Tab(this.$refs.tab);
   }
 }
 </script>
@@ -253,7 +103,7 @@ export default {
       <div class="ml-1 size-7">
         <ui-sidebar-toggle-btn />
       </div>
-      <div data-toggle="drawer" data-target="#chat-detail" class="flex cursor-pointer items-center space-x-4 font-inter">
+      <div @click="chat.open()" class="flex cursor-pointer items-center space-x-4 font-inter">
         <ui-avatar src="/images/200x200.png" alt="avatar" />
         <div>
           <p class="font-medium text-slate-700 line-clamp-1 dark:text-navy-100" v-text="owner"></p>
@@ -263,61 +113,22 @@ export default {
     </div>
     <div class="-mr-1 flex items-center">
       <button class="btn hidden size-9 rounded-full p-0 text-slate-500 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:flex">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="size-5.5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.5"
-        >
-          <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-          />
-        </svg>
+        <ui-phone-icon />
       </button>
       <button class="btn size-9 rounded-full p-0 text-slate-500 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="size-5.5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.5"
-        >
-          <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-          />
-        </svg>
+        <ui-search-icon />
       </button>
-      <button @click="isShowChatInfo = !isShowChatInfo"
+      <button @click="chat.toggle()"
           data-toggle="drawer"
           data-target="#chat-detail"
           id="chat-detail-toggle"
-          :class="isShowChatInfo ? 'text-primary dark:text-accent-light' : 'text-slate-500 dark:text-navy-200'"
+          :class="chat.hasProfileWindowOpen ? 'text-primary dark:text-accent-light' : 'text-slate-500 dark:text-navy-200'"
           class="btn hidden size-9 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 sm:flex"
       >
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="size-5.5"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-        >
-          <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M9.25 21.167h5.5c4.584 0 6.417-1.834 6.417-6.417v-5.5c0-4.583-1.834-6.417-6.417-6.417h-5.5c-4.583 0-6.417 1.834-6.417 6.417v5.5c0 4.583 1.834 6.417 6.417 6.417ZM13.834 2.833v18.334"
-          />
-        </svg>
+        <ui-sidebar-sidebar-icon />
       </button>
-      <div ref="menu" class="inline-flex">
-        <button ref="ref" class="popper-ref btn size-9 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+      <div v-popper class="inline-flex">
+        <button class="popper-ref btn size-9 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
           <svg
               xmlns="http://www.w3.org/2000/svg"
               class="size-5.5"
@@ -334,7 +145,7 @@ export default {
           </svg>
         </button>
 
-        <div class="popper-root" ref="root">
+        <div class="popper-root">
           <div class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700">
             <ul>
               <li>
@@ -442,10 +253,9 @@ export default {
       </div>
     </div>
   </div>
-
   <div class="scrollbar-sm grow overflow-y-auto px-[calc(var(--margin-x)-.5rem)] py-5 transition-all duration-[.25s]" v-scroll-to-bottom>
     <div class="space-y-5">
-      <template v-for="(group, index) in messagesGroup" :key="index">
+      <template v-for="(group, index) in chat.getMessages" :key="index">
         <div  v-if="group.lastDate" class="mx-4 flex items-center space-x-3">
           <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
           <p>{{ group.lastDate }}</p>
@@ -459,12 +269,11 @@ export default {
               <p v-if="i === group.items.length - 1" :class="group.owner_id === owner_id ? 'text-left' : 'text-right'" class="text-xs text-slate-400 dark:text-navy-300 mt-1 ml-auto">{{ formatTime(group.lastSend) }}</p>
             </div>
           </div>
-          <ui-avatar src="/images/200x200.png" alt="avatar" v-if="group.owner_id === owner_id"/>
+          <ui-avatar :alt="profile.profile.name" :src="profile.profile.avatar" v-if="group.owner_id === owner_id"/>
         </div>
       </template>
     </div>
   </div>
-
   <div class="chat-footer relative flex h-12 w-full shrink-0 items-center justify-between border-t border-slate-150 bg-white px-[calc(var(--margin-x)-.25rem)] transition-[padding,width] duration-[.25s] dark:border-navy-600 dark:bg-navy-800">
     <div class="-ml-1.5 flex flex-1 space-x-2">
       <button class="btn size-9 shrink-0 rounded-full p-0 text-slate-500 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-navy-200 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
@@ -530,44 +339,17 @@ export default {
       </button>
     </div>
   </div>
-
   <div id="chat-detail" class="drawer drawer-right">
-    <div class="drawer-content fixed right-0 top-0 z-[101] hidden h-full w-full sm:w-80">
+    <div class="drawer-content fixed right-0 top-0 z-[101] h-full w-full sm:w-80" :class="{ hidden: !chat.hasProfileWindowOpen }">
       <div class="flex h-full w-full flex-col border-l border-slate-150 bg-white transition-transform duration-200 dark:border-navy-600 dark:bg-navy-750">
         <div class="flex h-[60px] items-center justify-between p-4">
-          <h3
-              class="text-base font-medium text-slate-700 dark:text-navy-100"
-          >
+          <h3 class="text-base font-medium text-slate-700 dark:text-navy-100">
             Chat Info
           </h3>
           <div class="-mr-1.5 flex space-x-1">
-            <button
-                data-toggle="drawer"
-                data-target="#right-sidebar"
-                class="btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-            >
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-5.5 text-slate-500 dark:text-navy-100"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-              >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                />
-              </svg>
-            </button>
-
+            <ui-right-sidebar-btn />
             <ui-dark-mode-btn />
-            <button
-                data-toggle="drawer"
-                data-target="#chat-detail"
-                class="btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
-            >
+            <button @click="chat.close()" class="btn size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="size-5"
@@ -648,7 +430,6 @@ export default {
             </button>
           </div>
         </div>
-
         <div ref="tab" class="tabs mt-6 flex flex-col">
           <div class="is-scrollbar-hidden overflow-x-auto px-4">
             <div class="tabs-list flex">

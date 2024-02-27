@@ -1,69 +1,38 @@
 <script>
-import Popper from "@/components/popper.js";
+import Directives from "@/components/theme/Directives.vue";
+import { useProfileStore } from "@/components/theme/profile.js";
+import Avatar from "@/views/chat/messages/Avatar.vue";
 export default {
-  name: "Profile",
-  mounted() {
-    new Popper(this.$refs.profile, this.$refs.ref, this.$refs.root, {
-      placement: "bottom-end",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
-          },
-        },
-      ],
-    });
+  extends: Directives,
+  components: {
+    'ui-avatar': Avatar
+  },
+  setup() {
+    const profile = useProfileStore();
+
+    return { profile }
   }
 }
 </script>
 
 <template>
-  <div ref="profile" class="flex">
-    <button ref="ref" class="avatar size-12">
-      <img
-          class="rounded-full"
-          src="/images/200x200.png"
-          alt="avatar"
-      />
-      <span
-          class="absolute right-0 size-3.5 rounded-full border-2 border-white bg-success dark:border-navy-700"
-      ></span>
+  <div v-popper class="flex">
+    <button class="avatar size-12 popper-ref">
+      <img class="rounded-full" :alt="profile.profile.name" :src="profile.profile.avatar" />
+      <span class="absolute right-0 size-3.5 rounded-full border-2 border-white bg-success dark:border-navy-700"></span>
     </button>
-    <div ref="root" class="popper-root fixed">
-      <div
-          class="popper-box w-64 rounded-lg border border-slate-150 bg-white shadow-soft dark:border-navy-600 dark:bg-navy-700"
-      >
-        <div
-            class="flex items-center space-x-4 rounded-t-lg bg-slate-100 py-5 px-4 dark:bg-navy-800"
-        >
-          <div class="avatar size-14">
-            <img
-                class="rounded-full"
-                src="/images/200x200.png"
-                alt="avatar"
-            />
-          </div>
+    <div class="popper-root fixed">
+      <div class="popper-box w-64 rounded-lg border border-slate-150 bg-white shadow-soft dark:border-navy-600 dark:bg-navy-700">
+        <div class="flex items-center space-x-4 rounded-t-lg bg-slate-100 py-5 px-4 dark:bg-navy-800">
+          <ui-avatar class="size-14" :alt="profile.profile.name" :src="profile.profile.avatar" />
           <div>
-            <a
-                href="#"
-                class="text-base font-medium text-slate-700 hover:text-primary focus:text-primary dark:text-navy-100 dark:hover:text-accent-light dark:focus:text-accent-light"
-            >
-              Travis Fuller
-            </a>
-            <p class="text-xs text-slate-400 dark:text-navy-300">
-              Product Designer
-            </p>
+            <router-link to="/profile" class="text-base font-medium text-slate-700 hover:text-primary focus:text-primary dark:text-navy-100 dark:hover:text-accent-light dark:focus:text-accent-light" v-text="profile.profile.name"></router-link>
+            <p class="text-xs text-slate-400 dark:text-navy-300" v-text="profile.profile.position"></p>
           </div>
         </div>
         <div class="flex flex-col pt-2 pb-5">
-          <a
-              href="#"
-              class="group flex items-center space-x-3 py-2 px-4 tracking-wide outline-none transition-all hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-navy-600 dark:focus:bg-navy-600"
-          >
-            <div
-                class="flex size-8 items-center justify-center rounded-lg bg-warning text-white"
-            >
+          <router-link to="/" class="group flex items-center space-x-3 py-2 px-4 tracking-wide outline-none transition-all hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-navy-600 dark:focus:bg-navy-600">
+            <div class="flex size-8 items-center justify-center rounded-lg bg-warning text-white">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="size-4.5"
@@ -79,7 +48,6 @@ export default {
                 />
               </svg>
             </div>
-
             <div>
               <h2
                   class="font-medium text-slate-700 transition-colors group-hover:text-primary group-focus:text-primary dark:text-navy-100 dark:group-hover:text-accent-light dark:group-focus:text-accent-light"
@@ -92,14 +60,9 @@ export default {
                 Your profile setting
               </div>
             </div>
-          </a>
-          <a
-              href="#"
-              class="group flex items-center space-x-3 py-2 px-4 tracking-wide outline-none transition-all hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-navy-600 dark:focus:bg-navy-600"
-          >
-            <div
-                class="flex size-8 items-center justify-center rounded-lg bg-info text-white"
-            >
+          </router-link>
+          <router-link to="/" class="group flex items-center space-x-3 py-2 px-4 tracking-wide outline-none transition-all hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-navy-600 dark:focus:bg-navy-600">
+            <div class="flex size-8 items-center justify-center rounded-lg bg-info text-white">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="size-4.5"
@@ -115,7 +78,6 @@ export default {
                 />
               </svg>
             </div>
-
             <div>
               <h2
                   class="font-medium text-slate-700 transition-colors group-hover:text-primary group-focus:text-primary dark:text-navy-100 dark:group-hover:text-accent-light dark:group-focus:text-accent-light"
@@ -128,14 +90,9 @@ export default {
                 Your messages and tasks
               </div>
             </div>
-          </a>
-          <a
-              href="#"
-              class="group flex items-center space-x-3 py-2 px-4 tracking-wide outline-none transition-all hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-navy-600 dark:focus:bg-navy-600"
-          >
-            <div
-                class="flex size-8 items-center justify-center rounded-lg bg-secondary text-white"
-            >
+          </router-link>
+          <router-link to="/" class="group flex items-center space-x-3 py-2 px-4 tracking-wide outline-none transition-all hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-navy-600 dark:focus:bg-navy-600">
+            <div class="flex size-8 items-center justify-center rounded-lg bg-secondary text-white">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="size-4.5"
@@ -151,7 +108,6 @@ export default {
                 />
               </svg>
             </div>
-
             <div>
               <h2
                   class="font-medium text-slate-700 transition-colors group-hover:text-primary group-focus:text-primary dark:text-navy-100 dark:group-hover:text-accent-light dark:group-focus:text-accent-light"
@@ -164,14 +120,9 @@ export default {
                 Your team activity
               </div>
             </div>
-          </a>
-          <a
-              href="#"
-              class="group flex items-center space-x-3 py-2 px-4 tracking-wide outline-none transition-all hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-navy-600 dark:focus:bg-navy-600"
-          >
-            <div
-                class="flex size-8 items-center justify-center rounded-lg bg-error text-white"
-            >
+          </router-link>
+          <router-link to="/" class="group flex items-center space-x-3 py-2 px-4 tracking-wide outline-none transition-all hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-navy-600 dark:focus:bg-navy-600">
+            <div class="flex size-8 items-center justify-center rounded-lg bg-error text-white">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="size-4.5"
@@ -200,11 +151,8 @@ export default {
                 Your activity and events
               </div>
             </div>
-          </a>
-          <a
-              href="#"
-              class="group flex items-center space-x-3 py-2 px-4 tracking-wide outline-none transition-all hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-navy-600 dark:focus:bg-navy-600"
-          >
+          </router-link>
+          <router-link to="/" class="group flex items-center space-x-3 py-2 px-4 tracking-wide outline-none transition-all hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-navy-600 dark:focus:bg-navy-600">
             <div
                 class="flex size-8 items-center justify-center rounded-lg bg-success text-white"
             >
@@ -241,11 +189,9 @@ export default {
                 Webapp settings
               </div>
             </div>
-          </a>
+          </router-link>
           <div class="mt-3 px-4">
-            <button
-                class="btn h-9 w-full space-x-2 bg-primary text-white hover:bg-primary-focus focus:bg-primary-focus active:bg-primary-focus/90 dark:bg-accent dark:hover:bg-accent-focus dark:focus:bg-accent-focus dark:active:bg-accent/90"
-            >
+            <button class="btn h-9 w-full space-x-2 bg-primary text-white hover:bg-primary-focus focus:bg-primary-focus active:bg-primary-focus/90 dark:bg-accent dark:hover:bg-accent-focus dark:focus:bg-accent-focus dark:active:bg-accent/90">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="size-5"
