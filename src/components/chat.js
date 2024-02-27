@@ -5,6 +5,7 @@ export const useChatStore = defineStore({
     id: 'chat',
     state: () => ({
         isProfileWindowOpen: useStorage('is-profile-window-open', true),
+        chatList: [],
         currentStories: []
     }),
     getters: {
@@ -13,6 +14,9 @@ export const useChatStore = defineStore({
         },
         getStories() {
             return this.currentStories
+        },
+        getChatList() {
+            return this.chatList
         }
     },
     actions: {
@@ -37,6 +41,13 @@ export const useChatStore = defineStore({
                 .then((response) => response.json())
                 .then((json) => {
                     this.currentStories = json.stories
+                })
+        },
+        fetchChatList() {
+            fetch('/data/chat-list.json')
+                .then((response) => response.json())
+                .then((json) => {
+                    this.chatList = json.list
                 })
         }
     }
