@@ -33,100 +33,6 @@ export default {
       owner: 'Konnor Guzman',
       owner_id: 1,
       last_seen: 'Last seen recently',
-      messages: [
-        {
-          "owner_id": 1,
-          "time": "2024-02-20T14:07:00.000Z",
-          "type": "ui-text",
-          "message": "Приветствую всех в чате!"
-        },
-        {
-          "owner_id": 2,
-          "time": "2024-02-20T14:07:05.000Z",
-          "type": "ui-text",
-          "message": "Добрый день! Рад присоединиться!"
-        },
-        {
-          "owner_id": 1,
-          "time": "2024-02-20T14:07:10.000Z",
-          "type": "ui-text",
-          "message": "Как у вас дела?"
-        },
-        {
-          "owner_id": 1,
-          "time": "2024-02-20T14:07:15.000Z",
-          "type": "ui-text",
-          "message": "У меня всё отлично, спасибо! А у тебя?"
-        },
-        {
-          "owner_id": 1,
-          "time": "2024-02-21T14:07:20.000Z",
-          "type": "ui-text",
-          "message": "Тоже хорошо. Чем сегодня занимаетесь?"
-        },
-        {
-          "owner_id": 2,
-          "time": "2024-02-22T14:07:25.000Z",
-          "type": "ui-text",
-          "message": "Я работаю над новым проектом. А ты?"
-        },
-        {
-          "owner_id": 2,
-          "type": "ui-text",
-          "time": "2024-02-22T14:07:30.000Z",
-          "message": "Я читаю интересную книгу."
-        },
-        {
-          "owner_id": 1,
-          "type": "ui-text",
-          "time": "2024-02-22T14:07:35.000Z",
-          "message": "О чем книга?"
-        },
-        {
-          "owner_id": 3,
-          "time": "2024-02-22T14:07:40.000Z",
-          "type": "ui-text",
-          "message": "О искусственном интеллекте."
-        },
-        {
-          "owner_id": 2,
-          "type": "ui-text",
-          "time": "2024-02-22T14:07:45.000Z",
-          "message": "Интересная тема! А как вы к ней относитесь?"
-        },
-        {
-          "owner_id": 2,
-          "type": "ui-text",
-          "time": "2024-02-22T14:07:45.000Z",
-          "message": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n" +
-              "              Assumenda necessitatibus, ratione. Voluptatum."
-        },
-        {
-          "owner_id": 2,
-          "type": "ui-group-media",
-          "time": "2024-02-22T14:07:45.000Z",
-          "message": "Ei eum populo dictas, ad sed tempor minimum voluptatibus"
-        },
-        {
-          "owner_id": 2,
-          "type": "ui-text",
-          "time": "2024-02-22T14:07:45.000Z",
-          "message": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n" +
-              "              Assumenda necessitatibus, ratione. Voluptatum."
-        },
-        {
-          "owner_id": 1,
-          "time": "2024-02-22T14:07:40.000Z",
-          "type": "ui-media",
-          "message": "No mei stet periculis consequat, agam nostro"
-        },
-        {
-          "owner_id": 1,
-          "type": "ui-text",
-          "time": "2024-02-22T14:07:45.000Z",
-          "message": "Please Download This File"
-        }
-      ],
       tabMediaImages: [
         {
           src: "/images/800x600.png"
@@ -174,40 +80,14 @@ export default {
 
     return { profile, chat, sidebar }
   },
-  computed: {
-    messagesGroup() {
-      var lastDate = false;
-      return this.messages.reduce((result, item) => {
-        const lastGroup = result[result.length - 1];
-
-        if (!lastGroup || lastGroup.owner_id !== item.owner_id) {
-          var row = {
-            owner_id: item.owner_id,
-            items: [item],
-            lastSend: item.time
-          };
-          if (lastDate !== new Date(item.time).toLocaleDateString()) {
-            row.lastDate = new Date(item.time).toLocaleDateString();
-            lastDate = new Date(item.time).toLocaleDateString();
-          }
-          result.push(row);
-        } else {
-          lastGroup.items.push(item);
-          lastGroup.lastSend = item.time;
-          if (lastDate !== new Date(item.time).toLocaleDateString()) {
-            lastGroup.lastDate = new Date(item.time).toLocaleDateString();
-            lastDate = new Date(item.time).toLocaleDateString();
-          }
-        }
-
-        return result;
-      }, []);
-    }
-  },
+  computed: {},
   methods: {
     formatTime(time) {
       return new Date(time).toLocaleTimeString();
     }
+  },
+  created() {
+    this.chat.fetchMessages()
   },
   mounted() {
     new Tab(this.$refs.tab);
@@ -373,7 +253,7 @@ export default {
   </div>
   <div class="scrollbar-sm grow overflow-y-auto px-[calc(var(--margin-x)-.5rem)] py-5 transition-all duration-[.25s]" v-scroll-to-bottom>
     <div class="space-y-5">
-      <template v-for="(group, index) in messagesGroup" :key="index">
+      <template v-for="(group, index) in chat.getMessages" :key="index">
         <div  v-if="group.lastDate" class="mx-4 flex items-center space-x-3">
           <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
           <p>{{ group.lastDate }}</p>
