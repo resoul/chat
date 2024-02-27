@@ -1,0 +1,72 @@
+{
+  "stories": [
+    {
+      "name": "Konnor",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Travis",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Fuller",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Alfredo",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Elliott",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Derrick",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Simmons",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Katrina",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Henry",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Curtis",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Samantha",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Corey",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Lance",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Tucker",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Jensen",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Perkins",
+      "src": "/images/200x200.png"
+    },
+    {
+      "name": "Evans",
+      "src": "/images/200x200.png"
+    }
+  ]
+}
